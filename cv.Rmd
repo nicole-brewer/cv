@@ -5,63 +5,74 @@ position: "Research Software Engineer"
 address: "Purdue University, West Lafayette, IN"
 #phone: +1 22 3333 4444
 www: nicole-brewer.com
-email: "brewer36@purdue.edu"
+#email: "brewer36@purdue.edu"
 twitter: catch_me_coding
 github: nicole-brewer
 linkedin: nicole-brewer
 date: "`r format(Sys.time(), '%B %Y')`"
 output: vitae::awesomecv
+headcolor: '000000'
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(vitae)
+library(tibble)
+library(rorcid)
+library(dplyr)
+library(rcrossref)
 ```
 
 # Education
 
 ```{r}
-library(tibble)
 tribble(
-  ~ Degree, ~ Year, ~ Institution, ~ Where,
-  "Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN",
+  ~ Degree, ~ Year, ~ Institution, ~ Where, ~Why,
+  "Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN", list('Purdue’s All-Women Student Cluster Competition Team', 'Vice President of Purdue Triathlon Club')
 ) %>% 
-  detailed_entries(Degree, Year, Institution, Where)
+  detailed_entries(Degree, Year, Institution, Where, Why)
 ```
 
 # Experience
-
 ```{r}
 tribble(
   ~ Job, ~ Year, ~ Institution, ~ Where, ~Desc,
-  "Research Software Engineer", "Feb 2019 - Present", "Purdue Univeristy", "West Lafayette, IN", list('Implemented a highly interactive, Jupyter-based, GUI wrapper for power analysis software in order to expand the audience and ease of use of a rich set of computational functions via a user-friendly interface.', 
-  'Facilitated software design, the implementation of best practices, and internal tool development, and lab documentation to improve the overall sustainability of lab software.',
+  "Research Software Engineer", "Feb 2019 - Present", "ITaP Research Computing", "Purdue University", list('Implemented a highly interactive, Jupyter-based, GUI wrapper for power analysis software in order to expand the audience and ease of use of a rich set of computational functions via a user-friendly interface', 
+  'Facilitated software design, the implementation of best practices, and internal tool development, and lab documentation to improve the overall sustainability of lab software',
   'Transform disparate data acquisition and processing scripts into modular classes to be reused for scientific workflows',
   'Designed a dynamic Solr schema to index and query layered geospacial and user-defined metadata', 
-  'Implemented interactions with this database in a web application in PHP and JavaScript'),
+  'Implemented interactions with this database in a web application in PHP and JavaScript',
+  'Mentored students participating in internships, Science Gateways Student Hackathon 2019, and Purdue\'s Student Cluster Competition team'),
   'Software Verification Engineer', 'Nov 2017 – Nov 2018', 'Aptiv', 'West Lafayette, IN',
-  'Developed comprehensive Unit Test projects that utilized CAN bus protocol communications to verify automotive controller hardware.', 
+  'Developed comprehensive Unit Test projects that utilized CAN bus protocol communications to verify automotive controller hardware', 
 ) %>% 
   detailed_entries(Job, Year, Institution, Where, Desc)
 ```
 # Publications
 
 ```{r}
-library(dplyr)
-knitr::write_bib(c("vitae", "tibble"), "packages.bib")
+# load from a file
+# knitr::write_bib(c("vitae", "tibble"), "packages.bib")
 
-bibliography_entries("packages.bib") %>%
+# load from ORCID
+# knit requires ORCID_TOKEN in .Renviron
+ORCID = '0000-0002-6723-8940'
+my_dois <- rorcid::identifiers(rorcid::works(ORCID))
+pubs <- rcrossref::cr_cn(dois = my_dois, format = "bibtex")
+invisible(lapply(pubs, write, "pubs.bib", append=TRUE))
+bibliography_entries("pubs.bib") %>%
   arrange(desc(author$family), issued)
 ```
+
 
 # Honors and Awards
 
 ```{r}
 tribble(
   ~Year, ~Desc, ~Type, ~Institution,
-  2020, "Awarded for notable achievement in the advancement of science gateways", "Young Professional of the Year", "Gateways",
-  2018, 'Travel support to attend PEARC18 and attend the student program', 'Travel Grant', 'XSEDE',
-  2018, "Awarded for most transformative contributionion to PEARC2018", "Phil Andrews Award", "PEARC"
+  'Gateways 2020', "Honorarium awarded for notable achievement in the advancement of science gateways", "Young Professional of the Year", "Virtual",
+  'PEARC2018', 'Travel support to attend PEARC18 and attend the student program', 'XSEDE Student Travel Grant', 'XSEDE',
+  'PEARC2018', 'Awarded for poster presentation of "Classification of Periodicity in Subtraction Game Sequences"', "Phil Andrews Award", "Pittsburgh, PA"
 ) %>% 
   detailed_entries(with=Type, when=Year, where=Institution, what=Desc)
 ```
@@ -69,35 +80,27 @@ tribble(
 
 <!-- Invited Talks --> 
 
+<!--
 # Conference Activity
 ```{r}
 tribble(
-  ~Year, ~Type, ~Institution, ~Desc,
-  2018, "Purdue's All-Women Student Cluster Competition Team","Supercomputing Conference",
+  ~Year, ~Type, ~Sub, ~Institution, ~Desc,
+  2018, "Purdue's All-Women Team",' Student Cluster Competition', "Supercomputing Conference",
   "Assembled, administrated, and optimized a five-node cluster to run scientific and engineering applications under stringent power and time constraints",
 ) %>% 
-  detailed_entries(where=Institution, when=Year, with=Type, why=Desc)
+  detailed_entries(where=Institution, when=Year, what=Sub, with=Type, why=Desc)
 ```
+-->
+
+# Talks and Presentations
 
 
-# Selected Talks and Presentations
-
-```{r}
-library(dplyr)
-knitr::write_bib(c("vitae", "tibble"), "packages.bib")
-
-bibliography_entries("packages.bib") %>%
-  arrange(desc(author$family), issued)
-```
-# Teaching and Mentoring Experience
-
-```{r}
+```{r talks}
 tribble(
-  ~Date, ~Position, ~Title, ~Institution, ~Desc,
-  "Aug 2015 - May 2016", 'Undergraduate Teaching Assistant', 'Object Oriented Programming', 'Purdue Univeristy', 'Taught object oriented programming in Java, debugging In Intellij, JUnit Testing, and app development in Android Studio in laboratory',
-  'Aug 2018 - Dec 2018', 'Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led didactic activities at local middle and high schools in order to teach computer science concepts and improve the recruitment and retention of young women in technology careers'
+ ~ title, ~ type, ~ event, ~ place, ~ date, ~ url,
+ "To Be Decided",  "Invited Panelist", "International RSE Day", "Virtual", "Oct 2021", "https://us-rse.org/events/2021/2021-10-intnl-rse-day",
 ) %>% 
-  detailed_entries(what=Position, when=Date, with=Title, where=Institution, why=Desc)
+  brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>.  \\newline \\url{<url>}', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
 ```
 
 # Research Experience
@@ -105,13 +108,51 @@ tribble(
 tribble(
   ~Year, ~Type, ~Institution, ~Desc,
   2018, 'CSoI Channels Scholar REU',"Center for Science of Information, NSF STC", 
-  list('Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory.',
-       'Analyzed batching strategies of parallel computation to efficiently detect an unknown length of repeating sequences in long strings.',
-       'Developed a command line interface and file managment system in Python to prevent human error and enhance the usability of codebase upon inheritance.',
-       'Created a data visualization to illuminate patterns and relationships among 5-dimensions for future work.'),
+  list('Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory',
+       'Analyzed batching strategies of parallel computation to efficiently detect an unknown length of repeating sequences in long strings',
+       'Developed a command line interface and file managment system in Python to prevent human error and enhance the usability of codebase upon inheritance',
+       'Created a data visualization to illuminate patterns and relationships among 5-dimensions for future work'),
 ) %>% 
   detailed_entries(what=Institution, when=Year, with=Type, why=Desc)
 ```
+
+
+# Teaching Experience
+```{r}
+tribble(
+  ~Date, ~Position, ~Title, ~Institution, ~Desc,
+   "Aug 2015 - May 2016", 'Undergraduate Teaching Assistant', 'Object Oriented Programming', 'Purdue Univeristy', 'Taught object oriented programming in Java, debugging In Intellij, JUnit Testing, and app development in Android Studio in laboratory',
+) %>% 
+  detailed_entries(what=Position, when=Date, with=Title, where=Institution)
+```
+
+# Service
+```{r}
+tribble(
+  ~Date, ~Position, ~Group, ~Institution, ~Desc,
+   'June 2020 - Present', "Co-Chair of Women in High Performance Computing", 'ITaP Research Computing', 'Purdue University', 'Started a podcast to continute to improve visibility of women in spite of discontinuing in-person events in the wake of the COVID-19 pandemic',
+  'Aug 2018 - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to improve the recruitment and retention of young women in technology careers'
+) %>% 
+  detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc)
+```
+
 # Training
 
+```{r}
+tribble(
+  ~Date, ~Position, ~Title, ~Institution, ~Desc,
+   "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
+  'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
+  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', 'Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving'
+) %>% 
+  detailed_entries(what=Position, when=Date, with=Title, where=Institution, why=Desc)
+```
 
+
+<!-- Skills 
+Languages Python, R, PHP, JavaScript, Java, C, C#, HTML/CSS
+Containers Docker, Kubernetes
+Databases Solr, Elasticsearch, MongoDB
+Platforms Linux (CentOS, RHEL, Ubuntu), MacOS, Windows
+Development Tools Git, Vim, RStudio, IntelliJ, AndroidStudio, Visual Studio, SVN
+-->
