@@ -1,0 +1,117 @@
+---
+name: Nicole
+surname: Brewer
+position: "Research Software Engineer"
+address: "Purdue University, West Lafayette, IN"
+#phone: +1 22 3333 4444
+www: nicole-brewer.com
+email: "brewer36@purdue.edu"
+twitter: catch_me_coding
+github: nicole-brewer
+linkedin: nicole-brewer
+date: "`r format(Sys.time(), '%B %Y')`"
+output: vitae::awesomecv
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+```
+
+# Education
+
+```{r}
+library(tibble)
+tribble(
+  ~ Degree, ~ Year, ~ Institution, ~ Where,
+  "Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN",
+) %>% 
+  detailed_entries(Degree, Year, Institution, Where)
+```
+
+# Experience
+
+```{r}
+tribble(
+  ~ Job, ~ Year, ~ Institution, ~ Where, ~Desc,
+  "Research Software Engineer", "Feb 2019 - Present", "Purdue Univeristy", "West Lafayette, IN", list('Implemented a highly interactive, Jupyter-based, GUI wrapper for power analysis software in order to expand the audience and ease of use of a rich set of computational functions via a user-friendly interface.', 
+  'Facilitated software design, the implementation of best practices, and internal tool development, and lab documentation to improve the overall sustainability of lab software.',
+  'Transform disparate data acquisition and processing scripts into modular classes to be reused for scientific workflows',
+  'Designed a dynamic Solr schema to index and query layered geospacial and user-defined metadata', 
+  'Implemented interactions with this database in a web application in PHP and JavaScript'),
+  'Software Verification Engineer', 'Nov 2017 – Nov 2018', 'Aptiv', 'West Lafayette, IN',
+  'Developed comprehensive Unit Test projects that utilized CAN bus protocol communications to verify automotive controller hardware.', 
+) %>% 
+  detailed_entries(Job, Year, Institution, Where, Desc)
+```
+# Publications
+
+```{r}
+library(dplyr)
+knitr::write_bib(c("vitae", "tibble"), "packages.bib")
+
+bibliography_entries("packages.bib") %>%
+  arrange(desc(author$family), issued)
+```
+
+# Honors and Awards
+
+```{r}
+tribble(
+  ~Year, ~Desc, ~Type, ~Institution,
+  2020, "Awarded for notable achievement in the advancement of science gateways", "Young Professional of the Year", "Gateways",
+  2018, 'Travel support to attend PEARC18 and attend the student program', 'Travel Grant', 'XSEDE',
+  2018, "Awarded for most transformative contributionion to PEARC2018", "Phil Andrews Award", "PEARC"
+) %>% 
+  detailed_entries(with=Type, when=Year, where=Institution, what=Desc)
+```
+<!-- Grants and Fellowships -->
+
+<!-- Invited Talks --> 
+
+# Conference Activity
+```{r}
+tribble(
+  ~Year, ~Type, ~Institution, ~Desc,
+  2018, "Purdue's All-Women Student Cluster Competition Team","Supercomputing Conference",
+  "Assembled, administrated, and optimized a five-node cluster to run scientific and engineering applications under stringent power and time constraints",
+) %>% 
+  detailed_entries(where=Institution, when=Year, with=Type, why=Desc)
+```
+
+
+# Selected Talks and Presentations
+
+```{r}
+library(dplyr)
+knitr::write_bib(c("vitae", "tibble"), "packages.bib")
+
+bibliography_entries("packages.bib") %>%
+  arrange(desc(author$family), issued)
+```
+# Teaching and Mentoring Experience
+
+```{r}
+tribble(
+  ~Date, ~Position, ~Title, ~Institution, ~Desc,
+  "Aug 2015 - May 2016", 'Undergraduate Teaching Assistant', 'Object Oriented Programming', 'Purdue Univeristy', 'Taught object oriented programming in Java, debugging In Intellij, JUnit Testing, and app development in Android Studio in laboratory',
+  'Aug 2018 - Dec 2018', 'Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led didactic activities at local middle and high schools in order to teach computer science concepts and improve the recruitment and retention of young women in technology careers'
+) %>% 
+  detailed_entries(what=Position, when=Date, with=Title, where=Institution, why=Desc)
+```
+
+# Research Experience
+```{r}
+tribble(
+  ~Year, ~Type, ~Institution, ~Desc,
+  2018, 'CSoI Channels Scholar REU',"Center for Science of Information, NSF STC", 
+  list('Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory.',
+       'Analyzed batching strategies of parallel computation to efficiently detect an unknown length of repeating sequences in long strings.',
+       'Developed a command line interface and file managment system in Python to prevent human error and enhance the usability of codebase upon inheritance.',
+       'Created a data visualization to illuminate patterns and relationships among 5-dimensions for future work.'),
+) %>% 
+  detailed_entries(what=Institution, when=Year, with=Type, why=Desc)
+```
+# Training
+
+
