@@ -59,7 +59,7 @@ tribble(
 ORCID = '0000-0002-6723-8940'
 my_dois <- rorcid::identifiers(rorcid::works(ORCID))
 pubs <- rcrossref::cr_cn(dois = my_dois, format = "bibtex")
-invisible(lapply(pubs, write, "pubs.bib", append=TRUE))
+invisible(lapply(pubs, write, "pubs.bib", append=FALSE))
 bibliography_entries("pubs.bib") %>%
   arrange(desc(author$family), issued)
 ```
@@ -92,17 +92,6 @@ tribble(
 ```
 -->
 
-# Talks and Presentations
-
-
-```{r talks}
-tribble(
- ~ title, ~ type, ~ event, ~ place, ~ date, ~ url,
- "To Be Decided",  "Invited Panelist", "International RSE Day", "Virtual", "Oct 2021", "https://us-rse.org/events/2021/2021-10-intnl-rse-day",
-) %>% 
-  brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>.  \\newline \\url{<url>}', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
-```
-
 # Research Experience
 ```{r}
 tribble(
@@ -116,6 +105,17 @@ tribble(
   detailed_entries(what=Institution, when=Year, with=Type, why=Desc)
 ```
 
+# Talks and Presentations
+
+```{r talks}
+tribble(
+ ~ title, ~ type, ~ event, ~ place, ~ date, ~ url,
+ "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "International RSE Day", "Virtual", "Oct 2021", "https://us-rse.org/events/2021/2021-10-intnl-rse-day",
+ "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", "Video Presentation", "Gateways Conference", "Virtual", "Oct 2021",
+ "https://doi.org/10.5281/zenodo.5570605"
+) %>% 
+  brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>. \\url{<url>}', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
+```
 
 # Teaching Experience
 ```{r}
