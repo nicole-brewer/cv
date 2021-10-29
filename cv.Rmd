@@ -27,13 +27,13 @@ library(rcrossref)
 
 ```{r}
 tribble(
-  ~ Degree, ~ Year, ~ Institution, ~ Where, ~Why,
-  "Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN", list('Purdue’s All-Women Student Cluster Competition Team', 'Vice President of Purdue Triathlon Club')
+  ~ Degree, ~ Year, ~ Institution, ~ Where,
+  "Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN"
 ) %>% 
-  detailed_entries(Degree, Year, Institution, Where, Why)
+  detailed_entries(Degree, Year, Institution, Where)
 ```
 
-# Experience
+# Professional Experience
 ```{r}
 tribble(
   ~ Job, ~ Year, ~ Institution, ~ Where, ~Desc,
@@ -48,6 +48,32 @@ tribble(
 ) %>% 
   detailed_entries(Job, Year, Institution, Where, Desc)
 ```
+# Training
+
+```{r}
+tribble(
+  ~Date, ~Position, ~Title, ~Institution, ~Desc,
+   "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
+  'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
+  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', 'Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving'
+) %>% 
+  detailed_entries(what=Position, when=Date, with=Title, where=Institution, why=Desc)
+```
+
+# Research Experience
+```{r}
+tribble(
+  ~Year, ~Type, ~Institution, ~Desc,
+  'June 2018 - Dec 2018', 'Purdue’s All‐Women Student Cluster Competition Team', ' Supercomputing 2018', list('Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC conference.', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted directly with the paper’s authors to reproduce specific results and conclusions from the paper.'),
+    'Jan 2016 - June 2017', 'CSoI Channels Scholar REU',"Center for Science of Information, NSF STC", 
+  list('Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory.',
+       'Analyzed batching strategies of parallel computation to efficiently detect an unknown length of repeating sequences in long strings.',
+       'Developed a command line interface and file managment system in Python to prevent human error and enhance the usability of codebase upon inheritance.',
+       'Created a data visualization to illuminate patterns and relationships among 5-dimensions for future work.'),
+) %>% 
+  detailed_entries(what=Institution, when=Year, with=Type, why=Desc)
+```
+
 # Publications
 
 ```{r}
@@ -63,19 +89,31 @@ invisible(lapply(pubs, write, "pubs.bib", append=FALSE))
 bibliography_entries("pubs.bib") %>%
   arrange(desc(author$family), issued)
 ```
+# Talks and Presentations
 
+```{r talks}
+tribble(
+ ~ title, ~ type, ~ event, ~ place, ~ date, ~ url,
+ "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "International RSE Day", "Virtual", "Oct 2021", "https://us-rse.org/events/2021/2021-10-intnl-rse-day",
+ "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", "Video Presentation", "Gateways Conference", "Virtual", "Oct 2021",
+ "https://doi.org/10.5281/zenodo.5570605"
+) %>% 
+  brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>. \\url{<url>}', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
+```
 
 # Honors and Awards
 
 ```{r}
 tribble(
   ~Year, ~Desc, ~Type, ~Institution,
+  'PSA Biennial Meeting 2021', "Travel support for early career scholars who are considering pursuing philosophy of science", 'Underrepresented Philosophy of Science Scholars Delegate', 'Baltimore, MD',
   'Gateways 2020', "Honorarium awarded for notable achievement in the advancement of science gateways", "Young Professional of the Year", "Virtual",
-  'PEARC2018', 'Travel support to attend PEARC18 and attend the student program', 'XSEDE Student Travel Grant', 'XSEDE',
+  'PEARC2018', 'Travel support to attend PEARC18 and participate in the student program', 'XSEDE Student Travel Grant', 'XSEDE',
   'PEARC2018', 'Awarded for poster presentation of "Classification of Periodicity in Subtraction Game Sequences"', "Phil Andrews Award", "Pittsburgh, PA"
 ) %>% 
   detailed_entries(with=Type, when=Year, where=Institution, what=Desc)
 ```
+
 <!-- Grants and Fellowships -->
 
 <!-- Invited Talks --> 
@@ -92,30 +130,6 @@ tribble(
 ```
 -->
 
-# Research Experience
-```{r}
-tribble(
-  ~Year, ~Type, ~Institution, ~Desc,
-  2018, 'CSoI Channels Scholar REU',"Center for Science of Information, NSF STC", 
-  list('Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory',
-       'Analyzed batching strategies of parallel computation to efficiently detect an unknown length of repeating sequences in long strings',
-       'Developed a command line interface and file managment system in Python to prevent human error and enhance the usability of codebase upon inheritance',
-       'Created a data visualization to illuminate patterns and relationships among 5-dimensions for future work'),
-) %>% 
-  detailed_entries(what=Institution, when=Year, with=Type, why=Desc)
-```
-
-# Talks and Presentations
-
-```{r talks}
-tribble(
- ~ title, ~ type, ~ event, ~ place, ~ date, ~ url,
- "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "International RSE Day", "Virtual", "Oct 2021", "https://us-rse.org/events/2021/2021-10-intnl-rse-day",
- "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", "Video Presentation", "Gateways Conference", "Virtual", "Oct 2021",
- "https://doi.org/10.5281/zenodo.5570605"
-) %>% 
-  brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>. \\url{<url>}', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
-```
 
 # Teaching Experience
 ```{r}
@@ -131,22 +145,13 @@ tribble(
 tribble(
   ~Date, ~Position, ~Group, ~Institution, ~Desc,
    'June 2020 - Present', "Co-Chair of Women in High Performance Computing", 'ITaP Research Computing', 'Purdue University', 'Started a podcast to continute to improve visibility of women in spite of discontinuing in-person events in the wake of the COVID-19 pandemic',
-  'Aug 2018 - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to improve the recruitment and retention of young women in technology careers'
+  'Aug 2018 - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to improve the recruitment and retention of young women in technology careers',
+  'Aug 2016 - Aug 2017', 'Vice President', 'Purdue Triathlon Club', 'Purdue University', 'Led and organized callouts, executive board meetings, social media campaigns, and clothing orders.'
 ) %>% 
   detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc)
 ```
 
-# Training
 
-```{r}
-tribble(
-  ~Date, ~Position, ~Title, ~Institution, ~Desc,
-   "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
-  'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
-  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', 'Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving'
-) %>% 
-  detailed_entries(what=Position, when=Date, with=Title, where=Institution, why=Desc)
-```
 
 
 <!-- Skills 
