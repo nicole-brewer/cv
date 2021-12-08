@@ -19,7 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: brewer36/r-vitae:latest
-      options: -e ORCID_TOKEN='${{ secrets.ORCID_TOKEN }}'
+      env:
+        ORCID_TOKEN: ${{ secrets.ORCID_TOKEN }}
     steps:
      - uses: actions/checkout@v2
      - name: render the curriculum vitae
