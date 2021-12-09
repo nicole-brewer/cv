@@ -82,6 +82,7 @@ tribble(
 
 # load from ORCID
 # knit requires ORCID_TOKEN in .Renviron
+# rcrossref requires crossref_email in .Renviron
 ORCID = '0000-0002-6723-8940'
 my_dois <- rorcid::identifiers(rorcid::works(ORCID))
 pubs <- rcrossref::cr_cn(dois = my_dois, format = "bibtex")
