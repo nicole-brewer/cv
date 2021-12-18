@@ -84,8 +84,15 @@ tribble(
 # knit requires ORCID_TOKEN in .Renviron
 # rcrossref requires crossref_email in .Renviron
 ORCID = '0000-0002-6723-8940'
-my_dois <- rorcid::identifiers(rorcid::works(ORCID))
-pubs <- rcrossref::cr_cn(dois = my_dois, format = "bibtex")
+my_works <- rorcid::works(ORCID)
+# get rid of the "works" class so you can use filter
+my_works <- as_tibble(my_works)
+my_works <- filter(my_works, type == "journal-article")
+# add the "works" class back in so you can use rorcid functions
+class(my_works) <- "works"
+my_dois <- rorcid::identifiers(my_works)
+my_uris <- stringr::str_c("", my_dois, sep="https://doi.org/")
+pubs <- rcrossref::cr_cn(dois = my_uris, format = "bibtex")
 invisible(lapply(pubs, write, "pubs.bib", append=FALSE))
 bibliography_entries("pubs.bib") %>%
   arrange(desc(author$family), issued)
@@ -145,6 +152,8 @@ tribble(
 ```{r}
 tribble(
   ~Date, ~Position, ~Group, ~Institution, ~Desc,
+  'Jan 2022 - Present', 'Steering Committee Member','', 'US Research Software Engineering Association',
+  'Led meetings and organized events for the diversity, equity, and inclusion working group.',
    'June 2020 - Present', "Co-Chair of Women in High Performance Computing", 'ITaP Research Computing', 'Purdue University', 'Started a podcast to continute to improve visibility of women in spite of discontinuing in-person events in the wake of the COVID-19 pandemic',
   'Aug 2018 - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to improve the recruitment and retention of young women in technology careers',
   'Aug 2016 - Aug 2017', 'Vice President', 'Purdue Triathlon Club', 'Purdue University', 'Led and organized callouts, executive board meetings, social media campaigns, and clothing orders.'
