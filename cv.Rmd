@@ -155,6 +155,10 @@ tribble(
   'Jan 2022 - Present', 'Steering Committee Member', 'Research Software Engineering Association', 'United States',
   'Led meetings and organized events for the diversity, equity, and inclusion working group.',
    'June 2020 - Present', "Co-Chair of Women in High Performance Computing", 'ITaP Research Computing', 'Purdue University', 'Started a podcast to continute to improve visibility of women in spite of discontinuing in-person events in the wake of the COVID-19 pandemic',
+  'Aug - Nov 2019', 'Staff Advisor', 'Student Cluster Competition', 'SC 2019', 
+  'Advised students in preparing for the competition I had participated in a year prior.', 
+  'June 2019', 'Mentor', 'Science Gateways Community Institute Hackathon', 'PEARC 2019' ,
+  'Supported students participating in the three day hackathon.',
   'Aug 2018 - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to improve the recruitment and retention of young women in technology careers',
   'Aug 2016 - Aug 2017', 'Vice President', 'Purdue Triathlon Club', 'Purdue University', 'Led and organized callouts, executive board meetings, social media campaigns, and clothing orders.'
 ) %>% 
