@@ -42,7 +42,7 @@ tribble(
   'Transform disparate data acquisition and processing scripts into modular classes to be reused for scientific workflows',
   'Designed a dynamic Solr schema to index and query layered geospacial and user-defined metadata', 
   'Implemented interactions with this database in a web application in PHP and JavaScript',
-  'Mentored students participating in internships, Science Gateways Student Hackathon 2019, and Purdue\'s Student Cluster Competition team'),
+  'Mentored students participating in semester-long internships'),
   'Software Verification Engineer', 'Nov 2017 – Nov 2018', 'Aptiv', 'West Lafayette, IN',
   'Developed comprehensive Unit Test projects that utilized CAN bus protocol communications to verify automotive controller hardware', 
 ) %>% 
