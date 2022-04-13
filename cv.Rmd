@@ -28,7 +28,8 @@ library(rcrossref)
 ```{r}
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where,
-  "Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN"
+  "Ph.D. Computational History and Philosophy of Science", "Incoming August 2022", "Arizona State University", "Tempe, AZ",
+  "B.S. Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN"
 ) %>% 
   detailed_entries(Degree, Year, Institution, Where)
 ```
@@ -64,7 +65,7 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Type, ~Institution, ~Desc,
-  'June 2018 - Dec 2018', 'Purdue’s All‐Women Student Cluster Competition Team', ' Supercomputing 2018', list('Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC conference.', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted directly with the paper’s authors to reproduce specific results and conclusions from the paper.'),
+  'June 2018 - Dec 2018', 'Purdue’s All‐Women Student Cluster Competition Team', 'Supercomputing 2018', list('Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC conference.', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted directly with the paper’s authors to reproduce specific results and conclusions from the paper.'),
     'Jan 2016 - June 2017', 'CSoI Channels Scholar REU',"Center for Science of Information, NSF STC", 
   list('Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory.',
        'Analyzed batching strategies of parallel computation to efficiently detect an unknown length of repeating sequences in long strings.',
@@ -83,30 +84,15 @@ tribble(
 # load from ORCID
 # knit requires ORCID_TOKEN in .Renviron
 # rcrossref requires crossref_email in .Renviron
+source('orcid2bib.R')
 ORCID = '0000-0002-6723-8940'
-my_works <- rorcid::works(ORCID)
-# get rid of the "works" class so you can use filter
-my_works <- as_tibble(my_works)
-my_works <- filter(my_works, type == "journal-article")
-# add the "works" class back in so you can use rorcid functions
-class(my_works) <- "works"
-my_dois <- rorcid::identifiers(my_works)
-my_uris <- stringr::str_c("", my_dois, sep="https://doi.org/")
-pubs <- rcrossref::cr_cn(dois = my_uris, format = "bibtex")
-invisible(lapply(pubs, write, "pubs.bib", append=FALSE))
+
+# create a pubs.bib file that contains specific types of works from orcid user
+paper_types <- c('journal-article', 'conference-paper')
+orcid2bib(ORCID, 'pubs', paper_types)
+
 bibliography_entries("pubs.bib") %>%
   arrange(desc(author$family), issued)
-```
-# Talks and Presentations
-
-```{r talks}
-tribble(
- ~ title, ~ type, ~ event, ~ place, ~ date, ~ url,
- "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "International RSE Day", "Virtual", "Oct 2021", "https://us-rse.org/events/2021/2021-10-intnl-rse-day",
- "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", "Video Presentation", "Gateways Conference", "Virtual", "Oct 2021",
- "https://doi.org/10.5281/zenodo.5570605"
-) %>% 
-  brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>. \\url{<url>}', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
 ```
 
 # Honors and Awards
@@ -114,7 +100,7 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Desc, ~Type, ~Institution,
-  'PSA Biennial Meeting 2021', "Travel support for early career scholars who are considering pursuing philosophy of science", 'Underrepresented Philosophy of Science Scholars Delegate', 'Baltimore, MD',
+  'PSA Biennial Meeting 2021', "Travel support for early career scholars who are considering pursuing philosophy of science", 'UPSS Delegate', 'Baltimore, MD',
   'Gateways 2020', "Honorarium awarded for notable achievement in the advancement of science gateways", "Young Professional of the Year", "Virtual",
   'PEARC2018', 'Travel support to attend PEARC18 and participate in the student program', 'XSEDE Student Travel Grant', 'XSEDE',
   'PEARC2018', 'Awarded for poster presentation of "Classification of Periodicity in Subtraction Game Sequences"', "Phil Andrews Award", "Pittsburgh, PA"
@@ -124,20 +110,51 @@ tribble(
 
 <!-- Grants and Fellowships -->
 
-<!-- Invited Talks --> 
-
-<!--
 # Conference Activity
 ```{r}
 tribble(
-  ~Year, ~Type, ~Sub, ~Institution, ~Desc,
-  2018, "Purdue's All-Women Team",' Student Cluster Competition', "Supercomputing Conference",
-  "Assembled, administrated, and optimized a five-node cluster to run scientific and engineering applications under stringent power and time constraints",
+ ~ Title, ~ Sub, ~ Conference, ~ Location,
+ "Committee Member", 'Reproducibility Challenge', "SC 2022", "Dallas, TX"
 ) %>% 
-  detailed_entries(where=Institution, when=Year, what=Sub, with=Type, why=Desc)
+  detailed_entries(what=Sub, when=Conference, with=Title, where=Location)
 ```
--->
 
+# Conference Presentation
+```{r}
+tribble(
+ ~ title, ~ type, ~ event, ~ place, ~ url,
+ "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", "Video Presentation", "Gateways 2021", "Virtual", "https://doi.org/10.5281/zenodo.5570605",
+ "Classification of Periodicity in Subtraction Game Sequences", "Poster", "PEARC 2018", "Pittsburg, PA", ""
+) %>% 
+  brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>. \\url{<url>}', .open = "<", .close = ">"), .protect = FALSE)
+```
+
+# Invited Talks
+
+```{r talks}
+tribble(
+ ~ title, ~ type, ~ event, ~ place, ~ date, ~ url,
+ "Research Software Engineering", "Interviewee", "Hello PhD", "Podcast", "Apr 2022",
+ "http://hellophd.com/2022/03/172-research-software-engineer/",
+ "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "International RSE Day", "Virtual", "Oct 2021", "https://us-rse.org/events/2021/2021-10-intnl-rse-day",
+) %>% 
+  brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>. \\url{<url>}', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
+```
+
+<!-- Departmental Talks -->
+
+
+# Service
+```{r}
+tribble(
+  ~Date, ~Position, ~Group, ~Institution, ~Desc,
+  'Jan 2022 - Present', 'Steering Committee Member', 'Research Software Engineering Association', 'United States',
+  'Develop the organization to support RSE\'s, build an inclusive community community, and advocate for the role of RSEs in research. Led meetings and organized events for the diversity, equity, and inclusion working group.',
+   'June 2020 - Present', "Co-Chair of Women in High Performance Computing", 'ITaP Research Computing', 'Purdue University', 'Started a podcast to continute to improve visibility of women in spite of discontinuing in-person events in the wake of the COVID-19 pandemic'
+) %>% 
+  detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc)
+  
+```
 
 # Teaching Experience
 ```{r}
@@ -148,18 +165,23 @@ tribble(
   detailed_entries(what=Position, when=Date, with=Title, where=Institution)
 ```
 
-# Service
+# Mentorship and Outreach
 ```{r}
-tribble(
+  tribble(
   ~Date, ~Position, ~Group, ~Institution, ~Desc,
-  'Jan 2022 - Present', 'Steering Committee Member', 'Research Software Engineering Association', 'United States',
-  'Develop the organization to support RSE\'s, build an inclusive community community, and advocate for the role of RSEs in research. Led meetings and organized events for the diversity, equity, and inclusion working group.',
-   'June 2020 - Present', "Co-Chair of Women in High Performance Computing", 'ITaP Research Computing', 'Purdue University', 'Started a podcast to continute to improve visibility of women in spite of discontinuing in-person events in the wake of the COVID-19 pandemic',
   'Aug - Nov 2019', 'Staff Advisor', 'Student Cluster Competition', 'SC 2019', 
   'Advised students in preparing for the competition I had participated in a year prior.', 
   'June 2019', 'Mentor', 'Science Gateways Community Institute Hackathon', 'PEARC 2019' ,
   'Supported students participating in the three day hackathon.',
-  'Aug 2018 - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to improve the recruitment and retention of young women in technology careers',
+  'Aug 2018 - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to improve the recruitment and retention of young women in technology careers'
+  ) %>% 
+  detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc)
+```
+  
+# Extracurricular Leadership
+```{r}
+  tribble(
+  ~Date, ~Position, ~Group, ~Institution, ~Desc,
   'Aug 2016 - Aug 2017', 'Vice President', 'Purdue Triathlon Club', 'Purdue University', 'Led and organized callouts, executive board meetings, social media campaigns, and clothing orders.'
 ) %>% 
   detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc)
