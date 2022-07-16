@@ -1,8 +1,8 @@
 ---
 name: Nicole
 surname: Brewer
-position: "Research Software Engineer"
-address: "Purdue University, West Lafayette, IN"
+position: "Research Software Engineer | Graduate Researcher"
+address: "Arizona State University, Tempe, AZ"
 #phone: +1 22 3333 4444
 www: nicole-brewer.com
 #email: "brewer36@purdue.edu"
@@ -28,8 +28,8 @@ library(rcrossref)
 ```{r}
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where,
-  "Ph.D. Computational History and Philosophy of Science", "Incoming August 2022", "Arizona State University", "Tempe, AZ",
-  "B.S. Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN"
+  "PhD Computational History and Philosophy of Science", "Expected May 2027", "Arizona State University", "Tempe, AZ",
+  "BS Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN"
 ) %>% 
   detailed_entries(Degree, Year, Institution, Where)
 ```
@@ -65,7 +65,7 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Type, ~Institution, ~Desc,
-  'June 2018 - Dec 2018', 'Purdue’s All‐Women Student Cluster Competition Team', 'Supercomputing 2018', list('Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC conference.', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted directly with the paper’s authors to reproduce specific results and conclusions from the paper.'),
+  'June 2018 - Dec 2018', 'Purdue’s Student Cluster Competition Team', 'Supercomputing 2018', list('Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC conference.', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted directly with the paper’s authors to reproduce specific results and conclusions from the paper.'),
     'Jan 2016 - June 2017', 'CSoI Channels Scholar REU',"Center for Science of Information, NSF STC", 
   list('Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory.',
        'Analyzed batching strategies of parallel computation to efficiently detect an unknown length of repeating sequences in long strings.',
