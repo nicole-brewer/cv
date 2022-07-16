@@ -23,8 +23,13 @@ jobs:
         ORCID_TOKEN: ${{ secrets.ORCID_TOKEN }}
     steps:
      - uses: actions/checkout@v2
-     - name: install required fonts
-       run: sudo tlmgr install enumitem
+     - name: install texlive
+       run: |
+          sudo apt-get -y update
+          sudo apt-get install -y texlive-base texlive-latex-base
+          sudo apt-get install -y texlive-latex-recommended
+          sudo apt-get install -y texlive-xetex
+          sudo apt-get install -y texlive-fonts-extra
      - name: render the curriculum vitae
        run: |
          Rscript -e "print(getwd())"
