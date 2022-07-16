@@ -23,6 +23,8 @@ jobs:
         ORCID_TOKEN: ${{ secrets.ORCID_TOKEN }}
     steps:
      - uses: actions/checkout@v2
+     - name: install required fonts
+       run: sudo tlmgr install enumitem
      - name: render the curriculum vitae
        run: |
          Rscript -e "print(getwd())"
