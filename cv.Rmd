@@ -1,7 +1,7 @@
 ---
 name: Nicole
 surname: Brewer
-position: "Research Software Engineer | Graduate Researcher"
+position: "Research Software Engineer | Graduate Research Assistant"
 address: "Arizona State University, Tempe, AZ"
 #phone: +1 22 3333 4444
 www: nicole-brewer.com
@@ -27,11 +27,11 @@ library(rcrossref)
 
 ```{r}
 tribble(
-  ~ Degree, ~ Year, ~ Institution, ~ Where,
-  "PhD Computational History and Philosophy of Science", "Expected May 2027", "Arizona State University", "Tempe, AZ",
-  "BS Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN"
+  ~ Degree, ~ Year, ~ Institution, ~ Where, ~ Info,
+  "PhD Computational History and Philosophy of Science", "Expected May 2027", "Arizona State University", "Tempe, AZ", c("Using methods from digital humanities and complex adaptive systems science to better understand reproducibility and other standards throughout the history of science"),
+  "BS Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN", "",
 ) %>% 
-  detailed_entries(Degree, Year, Institution, Where)
+  detailed_entries(Degree, Year, Institution, Where, Info)
 ```
 
 # Professional Experience
@@ -56,7 +56,7 @@ tribble(
   ~Date, ~Position, ~Title, ~Institution, ~Desc,
    "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
   'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
-  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', 'Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving'
+  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', 'Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and entrepreneurial skills essential to effective laboratory and research project managment'
 ) %>% 
   detailed_entries(what=Position, when=Date, with=Title, where=Institution, why=Desc)
 ```
