@@ -28,8 +28,8 @@ library(rcrossref)
 ```{r}
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where, ~ Info,
-  "PhD Computational History and Philosophy of Science", "Expected May 2027", "Arizona State University", "Tempe, AZ", c("Using methods from digital humanities and complex adaptive systems science to better understand reproducibility and other standards throughout the history of science"),
-  "BS Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN", "",
+  "PhD Computational History and Philosophy of Science", "Expected May 2027", "Arizona State University", "Tempe, AZ", c("Using methods from digital humanities, complex adaptive systems science, and high performance computing to better understand reproducibility and other standards throughout the history of science"),
+  "BS Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN", c("Implemented and ran the KMP string matching algorithm in parallel to create a combinatorial game theory set"),
 ) %>% 
   detailed_entries(Degree, Year, Institution, Where, Info)
 ```
@@ -91,7 +91,11 @@ ORCID = '0000-0002-6723-8940'
 paper_types <- c('journal-article', 'conference-paper')
 orcid2bib(ORCID, 'pubs', paper_types)
 
-bibliography_entries("pubs.bib") %>%
+# combine text from pubs.bib and manual_entry
+combined_bib <- c(readLines("pubs.bib"), "\n", readLines("manual_entry.bib"))
+writeLines(combined_bib, "combined.bib")
+
+bibliography_entries("combined.bib") %>%
   arrange(desc(author$family), issued)
 ```
 
