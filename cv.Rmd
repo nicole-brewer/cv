@@ -172,8 +172,8 @@ tribble(
 ```{r}
   tribble(
   ~Date, ~Position, ~Group,
-  'Aug 2016 - Aug 2017', 'Vice President', 'Purdue University Triathlon Club', 
-   'Aug 2015 - Aug 2016', 'Social Media Manager', 'Purdue University Triathlon Club', 
+  '2016', '\\textbf{Vice President}, Purdue University Triathlon Club', '',
+   '2015', '\\textbf{Social Media Manager}, Purdue University Triathlon Club',  ''
 ) %>% 
   brief_entries(what=Position, when=Date, with=Group)
 # 'Led callouts, executive board meetings, and merchandise orders',
