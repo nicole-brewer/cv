@@ -74,14 +74,15 @@ bibliography_entries("combined.bib") %>%
 
 # Presentations
 ```{r}
+# if no url, use \\newline
 tribble(
- ~ title, ~ type, ~ event, ~ place, ~ date,
-  "\\href{http://hellophd.com/2022/03/172-research-software-engineer/}{Research Software Engineering}", "Interviewee", "Hello PhD", "Podcast", "Apr 2022",
- "\\href{https://us-rse.org/events/2021/2021-10-intnl-rse-day}{How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study}",  "Invited Panelist", "International RSE Day", "Virtual", "Oct 2021",
- "\\href{https://doi.org/10.5281/zenodo.5570605}{Leveraging Traits for Highly Interactive Computational Tools in Jupyter}", "Video Presentation", "Gateways 2021", "Virtual", 'July 2021',
- "Classification of Periodicity in Subtraction Game Sequences", "Poster", "PEARC 2018", "Pittsburg, PA", 'June 2018'
+ ~ title, ~ type, ~ event, ~ place, ~ date, ~ url,
+  "Research Software Engineering", "Interviewee", "Hello PhD", "Podcast", "Apr 2022", "http://hellophd.com/2022/03/172-research-software-engineer/",
+ "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "International RSE Day", "Virtual", "Oct 2021", "https://us-rse.org/events/2021/2021-10-intnl-rse-day",
+ "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", "Video Presentation", "Gateways 2021", "Virtual", 'July 2021', "https://doi.org/10.5281/zenodo.5570605",
+ "Classification of Periodicity in Subtraction Game Sequences", "Poster", "PEARC 2018", "Pittsburg, PA", 'June 2018', "\\newline"
 ) %>% 
-  brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>.', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
+  brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>. \\url{<url>', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
 ```
 
 # Professional Experience
@@ -104,7 +105,7 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Type, ~Institution, ~Desc,
-  'Aug 2022 - Present', 'Research Assistant', 'Center for Biology and Society, Arizona State University', 'Advisor: Manfred Laubichler',
+  'Aug 2022 - Present', 'Graduate Research Assistant', 'Center for Biology and Society, Arizona State University', 'Advisor: Manfred Laubichler',
   'June 2018 - Dec 2018', 'Student Cluster Competition Team', 'Research Computing, Purdue University', list('Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC18 conference', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted directly with the paper’s authors to reproduce specific results and conclusions from the paper'),
     'Jan 2016 - June 2017', 'CSoI Channels Scholar REU',"Center for Science of Information, NSF STC", 
   list('Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory',
@@ -124,16 +125,6 @@ tribble(
 ) %>% 
   detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc, .protect = FALSE)
 ```
-
-# Conference Activity
-```{r}
-tribble(
-  ~Year, ~Desc, ~Title, ~Awarder,
-  '2022', '', '\\textbf{Committee Member}, Reproducibility Challenge', 'SC22',
-) %>% 
-  brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
-```
-
 # Training
 
 ```{r}
@@ -146,13 +137,14 @@ tribble(
   detailed_entries(what=Position, when=Date, with=Title, where=Institution, why=Desc)
 ```
 
-# Teaching Experience
+# Conference Activity
 ```{r}
 tribble(
-  ~Date, ~Position, ~Title, ~Institution, ~Desc,
-   "Aug 2015 - May 2016", 'Undergraduate Teaching Assistant', 'Object Oriented Programming', 'Purdue Univeristy', 'Taught object oriented programming in Java, debugging In Intellij, JUnit Testing, and app development in Android Studio in laboratory',
+  ~Year, ~Title, ~Awarder,
+  '2022', '\\textbf{Podcast Host}, "SC22 Mini-series: Reproducibility Initiative" (in progress), RSE Stories Podcast', 'SC22',
+  '2022', '\\textbf{Committee Member}, Reproducibility Challenge', 'SC22',
 ) %>% 
-  detailed_entries(what=Position, when=Date, with=Title, where=Institution)
+  brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
 ```
 
 # Mentorship and Outreach
@@ -167,7 +159,16 @@ tribble(
   ) %>% 
   detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc)
 ```
-  
+
+# Teaching Experience
+```{r}
+tribble(
+  ~Date, ~Position, ~Title, ~Institution, ~Desc,
+   "Aug 2015 - May 2016", 'Undergraduate Teaching Assistant', 'Object Oriented Programming', 'Purdue Univeristy', 'Taught object oriented programming in Java, debugging In Intellij, JUnit Testing, and app development in Android Studio in laboratory',
+) %>% 
+  detailed_entries(what=Position, when=Date, with=Title, where=Institution)
+```
+
 # Extracurricular Leadership
 ```{r}
   tribble(
