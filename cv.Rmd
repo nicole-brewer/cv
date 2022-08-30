@@ -44,7 +44,7 @@ tribble(
   '2018', 'Travel support to attend PEARC18 and participate in the student program', '\\textbf{Travel Grant}, XSEDE', '',
   '2018', 'Awarded for "Classification of Periodicity in Subtraction Game Sequences"', '\\textbf{Phil Andrews Award}, Practice and Experience in Advanced Research Computing Conference', ''
 ) %>% 
-  brief_entries(what=Title, when=Year, with=Awarder. .protect = FALSE)
+  brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
 ```
 
 # Publications
