@@ -38,11 +38,11 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Desc, ~Title, ~Awarder,
-  '2022', '', 'School of Life Science Fellowship, Arizona State University', '',
-  '2021', "Travel support for early career scholars who are considering pursuing philosophy of science", 'UPSS Delegate, Philosophy of Science Biennial Meeting', '',
-  '2020', "Honorarium awarded for notable achievement in the advancement of science gateways", 'Young Professional of the Year, Science Gateways Community Institute', '',
-  '2018', 'Travel support to attend PEARC18 and participate in the student program', 'Travel Grant, XSEDE', '',
-  '2018', 'Awarded for "Classification of Periodicity in Subtraction Game Sequences"', 'Phil Andrews Award, Practice and Experience in Advanced Research Computing Conference', ''
+  '2022', '', '\\textbf{School of Life Science Fellowship}, Arizona State University', '',
+  '2021', "Travel support for early career scholars who are considering pursuing philosophy of science", '\\textbf{UPSS Delegate}, Philosophy of Science Biennial Meeting', '',
+  '2020', "Honorarium awarded for notable achievement in the advancement of science gateways", '\\textbf{Young Professional of the Year}, Science Gateways Community Institute', '',
+  '2018', 'Travel support to attend PEARC18 and participate in the student program', '\\textbf{Travel Grant}, XSEDE', '',
+  '2018', 'Awarded for "Classification of Periodicity in Subtraction Game Sequences"', '\\textbf{Phil Andrews Award}, Practice and Experience in Advanced Research Computing Conference', ''
 ) %>% 
   brief_entries(what=Title, when=Year, with=Awarder)
 ```
@@ -128,10 +128,10 @@ tribble(
 # Conference Activity
 ```{r}
 tribble(
- ~ Title, ~ Sub, ~ Conference, ~ Location,
- "Committee Member", 'Reproducibility Challenge', "SC 2022", "Dallas, TX"
+  ~Year, ~Desc, ~Title, ~Awarder,
+  '2022', '', '\\textbf{Committee Member}, Reproducibility Challenge', 'SC22',
 ) %>% 
-  detailed_entries(what=Sub, when=Conference, with=Title, where=Location)
+  brief_entries(what=Title, when=Year, with=Awarder)
 ```
 
 # Training
