@@ -38,10 +38,10 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Desc, ~Title, ~Awarder,
-  '2022', '', '\\textbf{School of Life Science Fellowship}, Arizona State University', '',
-  '2021', "Travel support for early career scholars who are considering pursuing philosophy of science", '\\textbf{UPSS Delegate}, Philosophy of Science Biennial Meeting', '',
-  '2020', "Honorarium awarded for notable achievement in the advancement of science gateways", '\\textbf{Young Professional of the Year}, Science Gateways Community Institute', '',
-  '2018', 'Travel support to attend PEARC18 and participate in the student program', '\\textbf{Travel Grant}, XSEDE', '',
+  '2022', '', '\\textbf{School of Life Science Fellowship} ($2500), Arizona State University', '',
+  '2021', "Travel support for early career scholars who are considering pursuing philosophy of science", '\\textbf{UPSS Delegate} ($500), Philosophy of Science Biennial Meeting', '',
+  '2020', "Honorarium awarded for notable achievement in the advancement of science gateways", '\\textbf{Young Professional of the Year} ($500), Science Gateways Community Institute', '',
+  '2018', 'Travel support to attend PEARC18 and participate in the student program', '\\textbf{Travel Grant} ($500), XSEDE', '',
   '2018', 'Awarded for "Classification of Periodicity in Subtraction Game Sequences"', '\\textbf{Phil Andrews Award}, Practice and Experience in Advanced Research Computing Conference', ''
 ) %>% 
   brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
@@ -80,7 +80,7 @@ tribble(
   "Research Software Engineering", "Interviewee", "Hello PhD", "Podcast", "Apr 2022", "http://hellophd.com/2022/03/172-research-software-engineer/",
  "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "International RSE Day", "Virtual", "Oct 2021", "https://us-rse.org/events/2021/2021-10-intnl-rse-day",
  "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", "Video Presentation", "Gateways 2021", "Virtual", 'July 2021', "https://doi.org/10.5281/zenodo.5570605",
- "Classification of Periodicity in Subtraction Game Sequences", "Poster", "PEARC 2018", "Pittsburg, PA", 'June 2018', "\\newline"
+ "Classification of Periodicity in Subtraction Game Sequences", "Poster", "PEARC18", "Pittsburg, PA", 'June 2018', paste0("", "\\newline")
 ) %>% 
   brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>. \\url{<url>}', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
 ```
@@ -151,9 +151,9 @@ tribble(
 ```{r}
   tribble(
   ~Date, ~Position, ~Group, ~Institution, ~Desc,
-  'Aug - Nov 2019', 'Staff Advisor', 'Student Cluster Competition', 'SC 2019', 
+  'Aug - Nov 2019', 'Staff Advisor', 'Student Cluster Competition', 'SC19', 
   'Advised students in preparing for the competition I had participated in a year prior', 
-  'June 2019', 'Mentor', 'Science Gateways Community Institute Hackathon', 'PEARC 2019' ,
+  'June 2019', 'Mentor', 'Science Gateways Community Institute Hackathon', 'PEARC19' ,
   'Supported students participating in the three day conference hackathon',
   'Aug 2018 - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to improve the recruitment and retention of young women in technology careers'
   ) %>% 
