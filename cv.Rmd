@@ -82,7 +82,7 @@ tribble(
  "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", "Video Presentation", "Gateways 2021", "Virtual", 'July 2021', "https://doi.org/10.5281/zenodo.5570605",
  "Classification of Periodicity in Subtraction Game Sequences", "Poster", "PEARC 2018", "Pittsburg, PA", 'June 2018', "\\newline"
 ) %>% 
-  brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>. \\url{<url>', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
+  brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>. \\url{<url>}', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
 ```
 
 # Professional Experience
