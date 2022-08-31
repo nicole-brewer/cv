@@ -38,10 +38,10 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Desc, ~Title, ~Awarder,
-  '2022', '', '\\textbf{School of Life Science Fellowship} ($2500), Arizona State University', '',
-  '2021', "Travel support for early career scholars who are considering pursuing philosophy of science", '\\textbf{UPSS Delegate} ($500), Philosophy of Science Biennial Meeting', '',
-  '2020', "Honorarium awarded for notable achievement in the advancement of science gateways", '\\textbf{Young Professional of the Year} ($500), Science Gateways Community Institute', '',
-  '2018', 'Travel support to attend PEARC18 and participate in the student program', '\\textbf{Travel Grant} ($500), XSEDE', '',
+  '2022', '', '\\textbf{School of Life Science Fellowship} (\$2500), Arizona State University', '',
+  '2021', "Travel support for early career scholars who are considering pursuing philosophy of science", '\\textbf{UPSS Delegate} (\$500), Philosophy of Science Biennial Meeting', '',
+  '2020', "Honorarium awarded for notable achievement in the advancement of science gateways", '\\textbf{Young Professional of the Year} (\$500), Science Gateways Community Institute', '',
+  '2018', 'Travel support to attend PEARC18 and participate in the student program', '\\textbf{Travel Grant} (\$500), XSEDE', '',
   '2018', 'Awarded for "Classification of Periodicity in Subtraction Game Sequences"', '\\textbf{Phil Andrews Award}, Practice and Experience in Advanced Research Computing Conference', ''
 ) %>% 
   brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
