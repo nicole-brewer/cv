@@ -80,7 +80,7 @@ tribble(
   "Research Software Engineering", "Interviewee", "Hello PhD", "Podcast", "Apr 2022", "http://hellophd.com/2022/03/172-research-software-engineer/",
  "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "International RSE Day", "Virtual", "Oct 2021", "https://us-rse.org/events/2021/2021-10-intnl-rse-day",
  "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", "Video Presentation", "Gateways 2021", "Virtual", 'July 2021', "https://doi.org/10.5281/zenodo.5570605",
- "Classification of Periodicity in Subtraction Game Sequences", "Poster", "PEARC18", "Pittsburg, PA", 'June 2018', paste0("", "\\newline")
+ "Classification of Periodicity in Subtraction Game Sequences", "Poster", "PEARC18", "Pittsburg, PA", 'June 2018', "\\\"
 ) %>% 
   brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>. \\url{<url>}', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
 ```
