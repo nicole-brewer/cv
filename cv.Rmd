@@ -109,7 +109,7 @@ tribble(
     'Jan 2016 - June 2017', 'CSoI Channels Scholar REU',"Center for Science of Information, NSF STC", 
   list('Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory',
        'Analyzed batching strategies of parallel computation to efficiently detect an unknown length of repeating sequences in long strings',
-       'Developed a command line interface and file managment system in Python to prevent human error and enhance the usability of codebase upon inheritance'),
+       'Developed a command line interface and file managment system in Python to prevent human error and enhance the usability of codebase'),
 ) %>% 
   detailed_entries(what=Institution, when=Year, with=Type, why=Desc)
 ```
@@ -129,6 +129,8 @@ tribble(
 ```{r}
 tribble(
   ~Date, ~Position, ~Title, ~Institution, ~Desc,
+  'Aug - Dec 2022', 'K - 12 STEM Education & Outreach', 'Graduate Partners in Science Education', 'Arizona State University', 
+  c('created an interactive lesson about parallel and distributed computing', 'modified existing lesson for remote instruction', 'leanred teaching practices that support inclusion'), 
    "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
   'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
   'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', 'Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and entrepreneurial skills essential to effective laboratory and research project managment'
@@ -150,11 +152,15 @@ tribble(
 ```{r}
   tribble(
   ~Date, ~Position, ~Group, ~Institution, ~Desc,
+  'Oct - Nov 2022', 'Mentor', 'Mentor–Protégé Matching' 'SC22',
+  'Participated in virtual activities in the months leading up to the conference and provided career and educational advise to two mentees at the conference',
   'Aug - Nov 2019', 'Staff Advisor', 'Student Cluster Competition', 'SC19', 
-  'Advised students in preparing for the competition I had participated in a year prior', 
+  'Mentored students taking a weekly, two credit hour course in preparation for a competition that I had participated in the year prior', 
   'June 2019', 'Mentor', 'Science Gateways Community Institute Hackathon', 'PEARC19' ,
-  'Supported students participating in the three day conference hackathon',
-  'Aug 2018 - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to improve the recruitment and retention of young women in technology careers'
+  'Answered students code-related questions over the course of an intensive, three day conference hackathon',
+  'Aug 2018 - May 2019', 'Staff Mentor', 'Discover Park Undergraduate Research Internship', 'Purdue University', 
+  'Defined the scope of a small project related to our ongoing research projects and met with each student bi-weekly during the course of the semester to help them set achievable short-term goals and guide them through roadblocks they encountered',
+  'Aug - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to improve the recruitment and retention of young women in technology careers'
   ) %>% 
   detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc)
 ```
