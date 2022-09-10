@@ -77,7 +77,7 @@ bibliography_entries("combined.bib") %>%
 # if no url, use \\newline
 tribble( 
  ~ title, ~ type, ~ event, ~ place, ~ date, ~ url,
- "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience 2022", "Salt Lake City, UT", "",
+ "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience 2022", "Salt Lake City, UT", "Oct 2022", '',
    "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "International RSE Day", "Virtual", "Oct 2021", "\\url{https://us-rse.org/events/2021/2021-10-intnl-rse-day}",
  "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", "Abstract, Video Presentation", "Gateways 2021", "Virtual", 'July 2021', "\\url{https://doi.org/10.5281/zenodo.5570605}",
  "Classification of Periodicity in Subtraction Game Sequences", "Poster", "PEARC18", "Pittsburg, PA", 'June 2018', '\\newline' ) %>% 
