@@ -152,7 +152,7 @@ tribble(
 ```{r}
   tribble(
   ~Date, ~Position, ~Group, ~Institution, ~Desc,
-  'Oct - Nov 2022', 'Mentor', 'Mentor–Protégé Matching' 'SC22',
+  'Oct - Nov 2022', 'Mentor', 'Mentor–Protégé Matching', 'SC22',
   'Participated in virtual activities in the months leading up to the conference and provided career and educational advise to two mentees at the conference',
   'Aug - Nov 2019', 'Staff Advisor', 'Student Cluster Competition', 'SC19', 
   'Mentored students taking a weekly, two credit hour course in preparation for a competition that I had participated in the year prior', 
