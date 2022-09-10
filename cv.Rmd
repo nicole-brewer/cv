@@ -75,13 +75,13 @@ bibliography_entries("combined.bib") %>%
 # Presentations
 ```{r}
 # if no url, use \\newline
-tribble(
+tribble( 
  ~ title, ~ type, ~ event, ~ place, ~ date, ~ url,
-  "Research Software Engineering", "Interviewee", "Hello PhD", "Podcast", "Apr 2022", "http://hellophd.com/2022/03/172-research-software-engineer/",
- "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "International RSE Day", "Virtual", "Oct 2021", "https://us-rse.org/events/2021/2021-10-intnl-rse-day",
- "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", "Video Presentation", "Gateways 2021", "Virtual", 'July 2021', "https://doi.org/10.5281/zenodo.5570605",
- "Classification of Periodicity in Subtraction Game Sequences", "Poster", "PEARC18", "Pittsburg, PA", 'June 2018', '\\\ ' ) %>% 
-  brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>. \\url{<url>}', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
+ "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience 2022", "Salt Lake City, UT", "",
+   "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "International RSE Day", "Virtual", "Oct 2021", "\\url{https://us-rse.org/events/2021/2021-10-intnl-rse-day}",
+ "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", "Abstract, Video Presentation", "Gateways 2021", "Virtual", 'July 2021', "\\url{https://doi.org/10.5281/zenodo.5570605}",
+ "Classification of Periodicity in Subtraction Game Sequences", "Poster", "PEARC18", "Pittsburg, PA", 'June 2018', '\\newline' ) %>% 
+  brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>. <url>', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
 ```
 
 # Professional Experience
@@ -130,7 +130,7 @@ tribble(
 tribble(
   ~Date, ~Position, ~Title, ~Institution, ~Desc,
   'Aug - Dec 2022', 'K - 12 STEM Education & Outreach', 'Graduate Partners in Science Education', 'Arizona State University', 
-  c('created an interactive lesson about parallel and distributed computing', 'modified existing lesson for remote instruction', 'leanred teaching practices that support inclusion'), 
+  c('created an interactive lesson about parallel and distributed computing and modified existing lessons for remote instruction', 'learned teaching practices that are engaging and inclusive'), 
    "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
   'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
   'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', 'Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and entrepreneurial skills essential to effective laboratory and research project managment'
@@ -142,7 +142,6 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Title, ~Awarder,
-  '2022', '\\textbf{Podcast Host}, "SC22 Mini-series: Reproducibility Initiative" (in progress), RSE Stories Podcast', 'SC22',
   '2022', '\\textbf{Committee Member}, Reproducibility Challenge', 'SC22',
 ) %>% 
   brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
@@ -163,6 +162,24 @@ tribble(
   'Aug - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to improve the recruitment and retention of young women in technology careers'
   ) %>% 
   detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc)
+```
+
+# Science Communication and Broader Impacts
+```{r}
+# if no url, use \\newline
+tribble(
+ ~ title, ~ type, ~ event, ~ place, ~ date, ~ url,
+ 'SC22 Mini-series: Reproducibility Initiative (in progress)', 'Host', 'RSE Stories', 'Podcast', 'Nov 2022', '',
+ 'Trial by Fire', 'Host', 'Long Tales of Science', 'Podcast' , 'May 2022',
+ '\\url{https://nicole-brewer.github.io/long-tales-of-science/004/}',
+  "Research Software Engineering", "Interviewee", "Hello PhD", "Podcast", "Apr 2022",
+ "\\url{http://hellophd.com/2022/03/172-research-software-engineer/}",
+ 'Call 1-800-HLP-DESK', 'Host', 'Long Tales of Science', 'Podcast', 'Dec 2021', 
+ '\\url{https://nicole-brewer.github.io/long-tales-of-science/003/}',
+ 'Models and Simulations Run on the Cluster and in the Family', 'Host', 'Long Tales of Science', 'Podcast', 'Oct 2020',
+ '\\url{https://nicole-brewer.github.io/long-tales-of-science/002/}'
+)  %>% 
+   brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>. <url>', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
 ```
 
 # Teaching Experience
