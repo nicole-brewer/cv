@@ -28,7 +28,7 @@ library(rcrossref)
 ```{r}
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where, ~ Info,
-  "PhD Computational History and Philosophy of Science", "Expected May 2027", "Arizona State University", "Tempe, AZ", c("Using methods from digital humanities, complex adaptive systems science, and high performance computing to better understand reproducibility and other standards throughout the history of science"),
+  "PhD Computational History and Philosophy of Science", "Expected May 2027", "Arizona State University", "Tempe, AZ", c("Using natural language processing, network analysis, agent-based modeling, and high performance computing (HPC) to better understand how scientific standards of practice are motivated by reproducibility and other values"),
   "BS Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN", c("Implemented and ran the KMP string matching algorithm in parallel to create a combinatorial game theory set"),
 ) %>% 
   detailed_entries(Degree, Year, Institution, Where, Info)
