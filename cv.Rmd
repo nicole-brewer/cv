@@ -84,6 +84,10 @@ tribble(
   brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>. <url>', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
 ```
 
+
+<!-- # Interactive Notebooks and Scientific Web Applications -->
+
+
 # Professional Experience
 ```{r}
 tribble(
@@ -125,13 +129,11 @@ tribble(
 ) %>% 
   detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc, .protect = FALSE)
 ```
-# Training
+# Certifications and Training
 
 ```{r}
 tribble(
   ~Date, ~Position, ~Title, ~Institution, ~Desc,
-  'Aug - Dec 2022', 'K - 12 STEM Education & Outreach', 'Graduate Partners in Science Education', 'Arizona State University', 
-  c('created an interactive lesson about parallel and distributed computing and modified existing lessons for remote instruction', 'learned teaching practices that are engaging and inclusive'), 
    "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
   'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
   'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', 'Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and entrepreneurial skills essential to effective laboratory and research project managment'
@@ -152,6 +154,8 @@ tribble(
 ```{r}
   tribble(
   ~Date, ~Position, ~Group, ~Institution, ~Desc,
+    'Aug - Dec 2022', 'Trainee', 'K - 12 STEM Education & Outreach', 'Graduate Partners in Science Education', 'Arizona State University', 
+  c('created an interactive lesson about parallel and distributed computing and modified existing lessons for remote instruction', 'learned teaching practices that are engaging and inclusive'), 
   'Oct - Nov 2022', 'Mentor', 'Mentor–Protégé Matching', 'SC22',
   'Participated in virtual activities in the months leading up to the conference and provided career and educational advise to two mentees at the conference',
   'Aug - Nov 2019', 'Staff Advisor', 'Student Cluster Competition', 'SC19', 
@@ -171,7 +175,7 @@ tribble(
 tribble(
  ~ title, ~ type, ~ event, ~ place, ~ date, ~ url,
  'SC22 Mini-series: Reproducibility Initiative (in progress)', 'Host', 'RSE Stories', 'Podcast', 'Nov 2022', 
- 'http://us-rse.org/rse-stories/posts/',
+ '\\url{http://us-rse.org/rse-stories/posts/}',
  'Trial by Fire', 'Host', 'Long Tales of Science', 'Podcast' , 'May 2022',
  '\\url{https://nicole-brewer.github.io/long-tales-of-science/004/}',
   "Research Software Engineering", "Interviewee", "Hello PhD", "Podcast", "Apr 2022",
@@ -182,6 +186,16 @@ tribble(
  '\\url{https://nicole-brewer.github.io/long-tales-of-science/002/}'
 )  %>% 
    brief_entries(glue::glue('\\textbf{<title>} (<type>), <event>, <place>. <url>', .open = "<", .close = ">"), paste0(date, "\\newline"), .protect = FALSE)
+```
+
+# Education and Training Resources
+```{r}
+# if no url, use \\newline
+tribble( 
+ ~ title, ~ type, ~ url,
+ "R for Research Scientists", "Booklet", 'https://www.nicole-brewer.com/r-for-research-scientists/'
+ ) %>% 
+  brief_entries(glue::glue('\\textbf{<title>}, \\url{<url>}', .open = "<", .close = ">"), type, .protect = FALSE)
 ```
 
 # Teaching Experience
