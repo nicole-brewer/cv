@@ -78,7 +78,7 @@ bibliography_entries("combined.bib") %>%
 # if no url, use \\newline
 tribble( 
  ~ title, ~ type, ~ event, ~ place, ~ date, ~ url,
- "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience 2022", "Salt Lake City, UT", "Oct 2022", '\\newline',
+ "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience 2022", "Salt Lake City, UT", "Oct 2022", 'https://se4science.org/workshops/se4escience22/schedule.htm',
    "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "International RSE Day", "Virtual", "Oct 2021", "\\url{https://us-rse.org/events/2021/2021-10-intnl-rse-day}",
  "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", "Abstract, Video Presentation", "Gateways 2021", "Virtual", 'July 2021', "\\url{https://doi.org/10.5281/zenodo.5570605}",
  "Classification of Periodicity in Subtraction Game Sequences", "Poster", "PEARC18", "Pittsburg, PA", 'June 2018', '\\newline' ) %>% 
@@ -192,10 +192,10 @@ tribble(
 # if no url, use \\newline
 tribble( 
  ~ title, ~ type, ~ url,
- 'Corpus Creation with Scopus (in progress)', 'Binder', 'https://www.nicole-brewer.com/corpus_creation_with_scopus',
+ 'Corpus Creation with Scopus (in progress)', 'Binder', 'https://mybinder.org/v2/gh/nicole-brewer/corpus_creation_with_scopus/HEAD',
  "R for Research Scientists", "Booklet", 'https://www.nicole-brewer.com/r-for-research-scientists/'
  ) %>% 
-  brief_entries(glue::glue('\\textbf{<title>}, \\url{<url>}', .open = "<", .close = ">"), type, .protect = FALSE)
+  brief_entries(glue::glue('\\textbf{<title>}, \\url{<url>}', .open = "<", .close = ">"),paste0(type, "\\newline"), .protect = FALSE)
 ```
 
 # Teaching Experience
