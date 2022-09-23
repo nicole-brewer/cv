@@ -38,6 +38,7 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Desc, ~Title, ~Awarder,
+  '2022', '', '\\textbf{eScience Travel Grant} (\\$700)', 'NSF',
   '2022', '', '\\textbf{School of Life Science Fellowship} (\\$2,500), Arizona State University', '',
   '2021', "Travel support for early career scholars who are considering pursuing philosophy of science", '\\textbf{UPSS Delegate} (\\$500), Philosophy of Science Biennial Meeting', '',
   '2020', "Honorarium awarded for notable achievement in the advancement of science gateways", '\\textbf{Young Professional of the Year} (\\$500), Science Gateways Community Institute', '',
@@ -92,7 +93,7 @@ tribble(
 ```{r}
 tribble(
   ~ Job, ~ Year, ~ Institution, ~ Where, ~Desc,
-  "Research Software Engineer", "Feb 2019 - Present", "ITaP Research Computing", "Purdue University", list('Implemented a highly interactive, Jupyter-based, GUI wrapper for power analysis software in order to expand the audience and ease of use of a rich set of computational functions via a user-friendly interface', 
+  "Research Software Engineer", "Feb 2019 - Apr 2022", "ITaP Research Computing", "Purdue University", list('Implemented a highly interactive, Jupyter-based, GUI wrapper for power analysis software in order to expand the audience and ease of use of a rich set of computational functions via a user-friendly interface', 
   'Facilitated software design, the implementation of best practices, and internal tool development, and lab documentation to improve the overall sustainability of lab software',
   'Transform disparate data acquisition and processing scripts into modular classes to be reused for scientific workflows'),
   'Software Verification Engineer', 'Nov 2017 – Nov 2018', 'Aptiv', 'West Lafayette, IN',
@@ -154,8 +155,6 @@ tribble(
 ```{r}
   tribble(
   ~Date, ~Position, ~Group, ~Institution, ~Desc,
-    'Aug - Dec 2022', 'Trainee', 'K - 12 STEM Education & Outreach', 'Graduate Partners in Science Education', 'Arizona State University', 
-  c('created an interactive lesson about parallel and distributed computing and modified existing lessons for remote instruction', 'learned teaching practices that are engaging and inclusive'), 
   'Oct - Nov 2022', 'Mentor', 'Mentor–Protégé Matching', 'SC22',
   'Participated in virtual activities in the months leading up to the conference and provided career and educational advise to two mentees at the conference',
   'Aug - Nov 2019', 'Staff Advisor', 'Student Cluster Competition', 'SC19', 
@@ -193,6 +192,7 @@ tribble(
 # if no url, use \\newline
 tribble( 
  ~ title, ~ type, ~ url,
+ 'Corpus Creation with Scopus (in progress)', 'Binder', 'https://www.nicole-brewer.com/corpus_creation_with_scopus',
  "R for Research Scientists", "Booklet", 'https://www.nicole-brewer.com/r-for-research-scientists/'
  ) %>% 
   brief_entries(glue::glue('\\textbf{<title>}, \\url{<url>}', .open = "<", .close = ">"), type, .protect = FALSE)
@@ -202,6 +202,8 @@ tribble(
 ```{r}
 tribble(
   ~Date, ~Position, ~Title, ~Institution, ~Desc,
+      'Aug - Dec 2022', 'Curriculum Developer', 'K - 12 STEM Education & Outreach', 'Graduate Partners in Science Education', 'Arizona State University', 
+  c('created an interactive lesson about parallel and distributed computing and modified existing lessons for remote instruction', 'learned teaching practices that are engaging and inclusive'), 
    "Aug 2015 - May 2016", 'Undergraduate Teaching Assistant', 'Object Oriented Programming', 'Purdue Univeristy', 'Taught object oriented programming in Java, debugging In Intellij, JUnit Testing, and app development in Android Studio in laboratory',
 ) %>% 
   detailed_entries(what=Position, when=Date, with=Title, where=Institution)
