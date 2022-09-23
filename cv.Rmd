@@ -202,7 +202,7 @@ tribble(
 ```{r}
 tribble(
   ~Date, ~Position, ~Title, ~Institution, ~Desc,
-      'Aug - Dec 2022', 'Curriculum Developer', 'K - 12 STEM Education & Outreach', 'Graduate Partners in Science Education', 'Arizona State University', 
+      'Aug - Dec 2022', 'Curriculum Developer', 'Graduate Partners in Science Education: K - 12 STEM Education & Outreach', 'Arizona State University', 
   c('created an interactive lesson about parallel and distributed computing and modified existing lessons for remote instruction', 'learned teaching practices that are engaging and inclusive'), 
    "Aug 2015 - May 2016", 'Undergraduate Teaching Assistant', 'Object Oriented Programming', 'Purdue Univeristy', 'Taught object oriented programming in Java, debugging In Intellij, JUnit Testing, and app development in Android Studio in laboratory',
 ) %>% 
