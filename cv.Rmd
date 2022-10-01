@@ -83,7 +83,7 @@ tribble(
  ' (\\underline{\\href{https://www.youtube.com/watch?v=O_KAupUYcyk}{video}}).',
  "Classification of Periodicity in Subtraction Game Sequences", "Poster", "PEARC18", "Pittsburg, PA", 'June 2018', 'https://doi.org/10.5281/zenodo.7133317', '.',
  ) %>% 
-  brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<format>}}), <event>, <place> <additional>', .open = "<", .close = ">"), date, .protect = FALSE)
+  brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<format>}}) <additional>', .open = "<", .close = ">"), date, event, .protect = FALSE)
 ```
 
 
