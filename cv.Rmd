@@ -122,6 +122,18 @@ tribble(
   detailed_entries(what=Institution, when=Year, with=Type, why=Desc)
 ```
 
+# Certifications and Training
+
+```{r}
+tribble(
+  ~Date, ~Position, ~Title, ~Institution, ~Desc,
+   "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
+  'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
+  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', 'Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and entrepreneurial skills essential to effective laboratory and research project managment'
+) %>% 
+  detailed_entries(what=Position, when=Date, with=Title, where=Institution, why=Desc)
+```
+
 # Service
 ```{r}
 tribble(
@@ -146,22 +158,6 @@ tribble(
 
 ```
 
-# Mentorship and Outreach
-```{r}
-  tribble(
-  ~Date, ~Position, ~Group, ~Institution, ~Desc,
-  'Oct - Nov 2022', 'Mentor', 'Mentor–Protégé Matching', 'SC22',
-  'Participated in virtual activities in the months leading up to the conference and provided career and educational advise to two mentees at the conference',
-  'Aug - Nov 2019', 'Staff Advisor', 'Student Cluster Competition', 'SC19', 
-  'Mentored students taking a weekly, two credit hour course in preparation for a competition that I had participated in the year prior', 
-  'June 2019', 'Mentor', 'Science Gateways Community Institute Hackathon', 'PEARC19' ,
-  'Answered students code-related questions over the course of an intensive, three day conference hackathon',
-  'Aug 2018 - May 2019', 'Staff Mentor', 'Discover Park Undergraduate Research Internship', 'Purdue University', 
-  'Defined the scope of a small project related to our ongoing research projects and met with each student bi-weekly during the course of the semester to help them set achievable short-term goals and guide them through roadblocks they encountered',
-  'Aug - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to improve the recruitment and retention of young women in technology careers'
-  ) %>% 
-  detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc)
-```
 
 # Science Communication and Broader Impacts
 ```{r}
@@ -183,16 +179,22 @@ tribble(
 )  %>% 
    brief_entries(glue::glue('\\textbf{<type>}, <title>, \\textit{<event>}. (\\underline{\\href{<url>}{<format>}})', .open = "<", .close = ">"), date, .protect = FALSE)
 ```
-# Certifications and Training
 
+# Mentorship and Outreach
 ```{r}
-tribble(
-  ~Date, ~Position, ~Title, ~Institution, ~Desc,
-   "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
-  'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
-  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', 'Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and entrepreneurial skills essential to effective laboratory and research project managment'
-) %>% 
-  detailed_entries(what=Position, when=Date, with=Title, where=Institution, why=Desc)
+  tribble(
+  ~Date, ~Position, ~Group, ~Institution, ~Desc,
+  'Oct - Nov 2022', 'Mentor', 'Mentor–Protégé Matching', 'SC22',
+  'Participated in virtual activities in the months leading up to the conference and provided career and educational advise to two mentees at the conference',
+  'Aug - Nov 2019', 'Staff Advisor', 'Student Cluster Competition', 'SC19', 
+  'Mentored students taking a weekly, two credit hour course in preparation for a competition that I had participated in the year prior', 
+  'June 2019', 'Mentor', 'Science Gateways Community Institute Hackathon', 'PEARC19' ,
+  'Answered students code-related questions over the course of an intensive, three day conference hackathon',
+  'Aug 2018 - May 2019', 'Staff Mentor', 'Discover Park Undergraduate Research Internship', 'Purdue University', 
+  'Defined the scope of a small project related to our ongoing research projects and met with each student bi-weekly during the course of the semester to help them set achievable short-term goals and guide them through roadblocks they encountered',
+  'Aug - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to improve the recruitment and retention of young women in technology careers'
+  ) %>% 
+  detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc)
 ```
 
 # Open Source Education and Training Resources
