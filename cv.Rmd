@@ -140,7 +140,7 @@ tribble(
    "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience", "Salt Lake City, UT", "Oct 2022", '', #"https://us-rse.org/events/2021/2021-10-intnl-rse-day", 
   "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "International RSE Day Virtual Workshop", "Virtual", "Oct 2021", '(\\underline{\\href{https://doi.org/10.5281/zenodo.7133472}{slides}})',
 ) %>% 
-  brief_entries(glue::glue('\\textbf{<Role>}, <Activity>, <Conference>. <Link>', .open = "<", .close = ">"), When, Conference, .protect = FALSE)
+  brief_entries(glue::glue('\\textbf{<Role>}, <Activity>, <Conference>. <Link>', .open = "<", .close = ">"), When, .protect = FALSE)
 
 ```
 
@@ -179,7 +179,7 @@ tribble(
  'Models and Simulations Run on the Cluster and in the Family', 'Host', 'Long Tales of Science', 'Podcast', 'Oct 2020',
  'https://nicole-brewer.github.io/long-tales-of-science/002/', 'episode'
 )  %>% 
-   brief_entries(glue::glue('<title>,\\textbf{<type>}, <event>, <place>. (\\underline{\\href{<url>}{<format>}})', .open = "<", .close = ">"), date, .protect = FALSE)
+   brief_entries(glue::glue('\\textbf{<title>}, \textit{<event>}, <date>. (\\underline{\\href{<url>}{<format>}})', .open = "<", .close = ">"), type, .protect = FALSE)
 ```
 # Certifications and Training
 
@@ -198,11 +198,11 @@ tribble(
 # if no url, use \\newline
 tribble( 
  ~ title, ~ type, ~ year, ~url,
- 'HPC Unplugged: A lesson plan for teaching parallel and distributed computing in middle school', 'Booklet', 'Sep 2022', 'https://www.nicole-brewer.com/hpc-unplugged/',
+ 'HPC Unplugged: A lesson plan for teaching parallel and distributed computing', 'Booklet', 'Sep 2022', 'https://www.nicole-brewer.com/hpc-unplugged/',
  'Corpus Creation with Scopus (in progress)', 'Binder', 'Aug 2022', 'https://mybinder.org/v2/gh/nicole-brewer/corpus_creation_with_scopus/HEAD',
  "R for Research Scientists", "Booklet", 'Mar 2020', 'https://www.nicole-brewer.com/r-for-research-scientists/'
  ) %>% 
-  brief_entries(glue::glue('\\textbf{<title>} (\\href{<url>}{<type>})', .open = "<", .close = ">"), year, .protect = FALSE)
+  brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<type>}})', .open = "<", .close = ">"), year, .protect = FALSE)
 ```
 
 # Teaching Experience
