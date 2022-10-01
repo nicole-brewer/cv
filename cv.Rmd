@@ -74,7 +74,17 @@ bibliography_entries("combined.bib") %>%
   arrange(desc(issued))
 ```
 
-
+# Posters and Presentations
+```{r}
+# if no additional format, use a '.'
+tribble( 
+ ~ title, ~ format, ~ event, ~ place, ~ date, ~ url, ~ additional, 
+ "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", 'Abstract', "Gateways 2021", "Virtual", 'July 2021','https://doi.org/10.5281/zenodo.5570605', 
+ ' (\\underline{\\href{https://www.youtube.com/watch?v=O_KAupUYcyk}{video}}).',
+ "Classification of Periodicity in Subtraction Game Sequences", "Poster", "PEARC18", "Pittsburg, PA", 'June 2018', 'https://doi.org/10.5281/zenodo.7133317', '.',
+ ) %>% 
+  brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<format>}{<url>}}), <event>, <place> <additional>', .open = "<", .close = ">"), date, .protect = FALSE)
+```
 
 
 <!-- # Interactive Notebooks and Scientific Web Applications -->
@@ -124,7 +134,6 @@ tribble(
 
 # Conference Activity
 ```{r}
-# if no link, use a '.'
 tribble(
   ~Activity, ~Role, ~Conference, ~Location, ~When, ~Link, ~Type,
  'Reproducibility Challenge Committee', 'Member', 'Supercomputing', 'Dallas, TX',  'Nov 2022', 
