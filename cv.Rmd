@@ -134,7 +134,6 @@ tribble(
 # Conference Activity
 ```{r}
 # if no link, use a '.'
-  brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
 tribble(
   ~Activity, ~Role, ~Conference, ~Location, ~When, ~Link, ~Type,
  'Reproducibility Challenge Committee', 'Member', 'Supercomputing', 'Dallas, TX',  'Nov 2022', 
