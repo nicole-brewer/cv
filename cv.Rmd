@@ -79,9 +79,9 @@ bibliography_entries("combined.bib") %>%
 # if no additional format, use a '.'
 tribble( 
  ~ title, ~ format, ~ event, ~ place, ~ date, ~ url, ~ additional, 
- "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", 'Abstract', "Gateways 2021", "Virtual", 'July 2021','https://doi.org/10.5281/zenodo.5570605', 
+ "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", 'abstract', "Gateways 2021", "Virtual", 'July 2021','https://doi.org/10.5281/zenodo.5570605', 
  ' (\\underline{\\href{https://www.youtube.com/watch?v=O_KAupUYcyk}{video}}).',
- "Classification of Periodicity in Subtraction Game Sequences", "Poster", "PEARC18", "Pittsburg, PA", 'June 2018', 'https://doi.org/10.5281/zenodo.7133317', '.',
+ "Classification of Periodicity in Subtraction Game Sequences", "poster", "PEARC18", "Pittsburg, PA", 'June 2018', 'https://doi.org/10.5281/zenodo.7133317', '.',
  ) %>% 
   brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<format>}}) <additional>', .open = "<", .close = ">"), date, event, .protect = FALSE)
 ```
@@ -110,7 +110,7 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Type, ~Institution, ~Desc,
-  'Aug 2022 - Present', 'Graduate Research Assistant', 'Center for Biology and Society, Arizona State University', 'Advisor: Manfred Laubichler',
+  'Aug 2022 - Present', 'Graduate Research Assistant', 'Center for Biology and Society, Arizona State University', c('Advisor: Manfred Laubichler', 'Documenting and adapting code and data from prior projects for reuse.'),
   'June 2018 - Dec 2018', 'Student Cluster Competition Team', 'Research Computing, Purdue University', list('Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC18 conference', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted directly with the paper’s authors to reproduce specific results and conclusions from the paper'),
     'Jan 2016 - June 2017', 'CSoI Channels Scholar REU',"Center for Science of Information, NSF STC", 
   list('Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory',
@@ -136,11 +136,11 @@ tribble(
 ```{r}
 tribble(
   ~Activity, ~Role, ~Conference, ~Location, ~When, ~Link, 
- 'Reproducibility Challenge Committee', 'Member', 'Supercomputing', 'Dallas, TX',  'Nov 2022', '', #'https://se4science.org/workshops/se4escience22/schedule.htm',
-   "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience", "Salt Lake City, UT", "Oct 2022", '', #"https://us-rse.org/events/2021/2021-10-intnl-rse-day", 
-  "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "International RSE Day Virtual Workshop", "Virtual", "Oct 2021", '(\\underline{\\href{https://doi.org/10.5281/zenodo.7133472}{slides}})',
+ 'Reproducibility Challenge', 'Committee Member', 'SC22', 'Dallas, TX',  'Nov 2022', '', #'https://se4science.org/workshops/se4escience22/schedule.htm',
+   "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience22", "Salt Lake City, UT", "Oct 2022", '', #"https://us-rse.org/events/2021/2021-10-intnl-rse-day", 
+  "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "Int'l RSE Day Workshop", "Virtual", "Oct 2021", '(\\underline{\\href{https://doi.org/10.5281/zenodo.7133472}{slides}})',
 ) %>% 
-  brief_entries(glue::glue('\\textbf{<Role>}, <Activity>, <Conference>. <Link>', .open = "<", .close = ">"), When, .protect = FALSE)
+  brief_entries(glue::glue('\\textbf{<Activity>}, <Role>. <Link>', .open = "<", .close = ">"), When, Conference, .protect = FALSE)
 
 ```
 
@@ -198,9 +198,9 @@ tribble(
 # if no url, use \\newline
 tribble( 
  ~ title, ~ type, ~ year, ~url,
- 'HPC Unplugged: A lesson plan for teaching parallel and distributed computing', 'Booklet', 'Sep 2022', 'https://www.nicole-brewer.com/hpc-unplugged/',
- 'Corpus Creation with Scopus (in progress)', 'Binder', 'Aug 2022', 'https://mybinder.org/v2/gh/nicole-brewer/corpus_creation_with_scopus/HEAD',
- "R for Research Scientists", "Booklet", 'Mar 2020', 'https://www.nicole-brewer.com/r-for-research-scientists/'
+ 'HPC Unplugged: A lesson plan for teaching parallel and distributed computing', 'booklet', 'Sep 2022', 'https://www.nicole-brewer.com/hpc-unplugged/',
+ 'Corpus Creation with Scopus (in progress)', 'binder', 'Aug 2022', 'https://mybinder.org/v2/gh/nicole-brewer/corpus_creation_with_scopus/HEAD',
+ "R for Research Scientists", "booklet", 'Mar 2020', 'https://www.nicole-brewer.com/r-for-research-scientists/'
  ) %>% 
   brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<type>}})', .open = "<", .close = ">"), year, .protect = FALSE)
 ```
