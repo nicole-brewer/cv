@@ -38,8 +38,8 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Desc, ~Title, ~Awarder,
-  '2022', '', '\\textbf{GPSA Individual Travel Award} (\\$950)', 'ASU Graduate and Professional Student Association',
-  '2022', '', '\\textbf{eScience Travel Grant} (\\$700)', 'NSF',
+  '2022', '', '\\textbf{GPSA Individual Travel Award} (\\$950), ASU Graduate and Professional Student Association', '',
+  '2022', '', '\\textbf{eScience Travel Grant} (\\$700), NSF', '',
   '2022', '', '\\textbf{School of Life Science Fellowship} (\\$2,500), Arizona State University', '',
   '2021', "Travel support for early career scholars who are considering pursuing philosophy of science", '\\textbf{UPSS Delegate} (\\$500), Philosophy of Science Biennial Meeting', '',
   '2020', "Honorarium awarded for notable achievement in the advancement of science gateways", '\\textbf{Young Professional of the Year} (\\$500), Science Gateways Community Institute', '',
