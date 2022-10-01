@@ -110,7 +110,7 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Type, ~Institution, ~Desc,
-  'Aug 2022 - Present', 'Graduate Research Assistant', 'Center for Biology and Society, Arizona State University', c('Advisor: Manfred Laubichler', 'Documenting and adapting code and data from prior projects for reuse.'),
+  'Aug 2022 - Present', 'Graduate Research Assistant', 'Center for Biology and Society, Arizona State University', c('Advisor: Manfred Laubichler', 'Documenting and adapting code and data from prior projects for reuse'),
   'June 2018 - Dec 2018', 'Student Cluster Competition Team', 'Research Computing, Purdue University', list('Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC18 conference', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted directly with the paper’s authors to reproduce specific results and conclusions from the paper'),
     'Jan 2016 - June 2017', 'CSoI Channels Scholar REU',"Center for Science of Information, NSF STC", 
   list('Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory',
@@ -179,7 +179,7 @@ tribble(
  'Models and Simulations Run on the Cluster and in the Family', 'Host', 'Long Tales of Science', 'Podcast', 'Oct 2020',
  'https://nicole-brewer.github.io/long-tales-of-science/002/', 'episode'
 )  %>% 
-   brief_entries(glue::glue('\\textbf{<title>}, \textit{<event>}, <date>. (\\underline{\\href{<url>}{<format>}})', .open = "<", .close = ">"), type, .protect = FALSE)
+   brief_entries(glue::glue('\\textbf{<type>}, <title>, \\textit{<event>}. (\\underline{\\href{<url>}{<format>}})', .open = "<", .close = ">"), date, .protect = FALSE)
 ```
 # Certifications and Training
 
