@@ -106,6 +106,8 @@ tribble(
   #'Mentored students participating in semester-long internships'
 ```
 
+\newpage
+
 # Research Experience
 ```{r}
 tribble(
@@ -168,15 +170,15 @@ tribble(
  ~ title, ~ type, ~ event, ~ place, ~ date, ~ url, ~ format,
   'Scientific Web Applications Template', 'Presenter', 'US-RSE Community Call', 'Virtual', 'Mar 2022',
  'https://doi.org/10.5281/zenodo.7133296', 'slides',
- 'SC22 Mini-series: Reproducibility Initiative (in progress)', 'Host', 'RSE Stories', 'Podcast', 'Nov 2022', 
+ 'SC22 Mini-series: Reproducibility Initiative (in progress)', 'Podcast Host', 'RSE Stories', 'Podcast', 'Nov 2022', 
  'http://us-rse.org/rse-stories/posts/','episode',
- 'Trial by Fire', 'Host', 'Long Tales of Science', 'Podcast' , 'May 2022',
+ 'Trial by Fire', 'Podcast Host', 'Long Tales of Science', 'Podcast' , 'May 2022',
  'https://nicole-brewer.github.io/long-tales-of-science/004/', 'episode',
-  "Research Software Engineering", "Interviewee", "Hello PhD", "Podcast", "Apr 2022",
+  "Research Software Engineering", "Podcast Interviewee", "Hello PhD", "Podcast", "Apr 2022",
  'http://hellophd.com/2022/03/172-research-software-engineer/','episode',
- 'Call 1-800-HLP-DESK', 'Host', 'Long Tales of Science', 'Podcast', 'Dec 2021', 
+ 'Call 1-800-HLP-DESK', 'Podcast Host', 'Long Tales of Science', 'Podcast', 'Dec 2021', 
  'https://nicole-brewer.github.io/long-tales-of-science/003/', 'epidode',
- 'Models and Simulations Run on the Cluster and in the Family', 'Host', 'Long Tales of Science', 'Podcast', 'Oct 2020',
+ 'Models and Simulations Run on the Cluster and in the Family', 'Podcast Host', 'Long Tales of Science', 'Podcast', 'Oct 2020',
  'https://nicole-brewer.github.io/long-tales-of-science/002/', 'episode'
 )  %>% 
    brief_entries(glue::glue('\\textbf{<type>}, <title>, \\textit{<event>}. (\\underline{\\href{<url>}{<format>}})', .open = "<", .close = ">"), date, .protect = FALSE)
