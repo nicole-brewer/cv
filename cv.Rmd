@@ -138,7 +138,7 @@ tribble(
   ~Activity, ~Role, ~Conference, ~Location, ~When, ~Link, 
  'Reproducibility Challenge Committee', 'Member', 'Supercomputing', 'Dallas, TX',  'Nov 2022', '', #'https://se4science.org/workshops/se4escience22/schedule.htm',
    "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience", "Salt Lake City, UT", "Oct 2022", '', #"https://us-rse.org/events/2021/2021-10-intnl-rse-day", 
-  "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "International RSE Day Virtual Workshop", "Virtual", "Oct 2021", '(\\underscore\\href{https://doi.org/10.5281/zenodo.7133472}{slides}})',
+  "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "International RSE Day Virtual Workshop", "Virtual", "Oct 2021", '(\\underline{\\href{https://doi.org/10.5281/zenodo.7133472}{slides}})',
 ) %>% 
   brief_entries(glue::glue('\\textbf{<Role>}, <Activity>, <Conference>. <Link>', .open = "<", .close = ">"), When, Conference, .protect = FALSE)
 
