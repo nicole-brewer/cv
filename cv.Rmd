@@ -28,7 +28,7 @@ library(rcrossref)
 ```{r}
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where, ~ Info,
-  "PhD Computational History and Philosophy of Science", "Expected May 2027", "Arizona State University", "Tempe, AZ", c("Using natural language processing, machine learning, network analysis, agent-based modeling, high performance computing (HPC) resources, and ethnographic and social science methods to better understand how scientific standards of practice are motivated by reproducibility and other values"),
+  "PhD Computational History and Philosophy of Science", "Expected May 2027", "Arizona State University", "Tempe, AZ", c("Using natural language processing, machine learning, network analysis, high performance computing, and mixed social science methods to model the evolution of scientific standards through time"),
   "BS Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN", c("Implemented and ran the KMP string matching algorithm in parallel to create a combinatorial game theory set"),
 ) %>% 
   detailed_entries(Degree, Year, Institution, Where, Info)
@@ -38,6 +38,7 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Desc, ~Title, ~Awarder,
+  '2022', '', '\\textbf{Outstanding Mentorship Award} (\\$750), ASU Graduate and Professional Student Association', '',
   '2022', '', '\\textbf{GPSA Individual Travel Award} (\\$950), ASU Graduate and Professional Student Association', '',
   '2022', '', '\\textbf{eScience Travel Grant} (\\$700), National Science Foundation', '',
   '2022', '', '\\textbf{School of Life Science Fellowship} (\\$2,500), Arizona State University', '',
@@ -96,7 +97,7 @@ tribble(
   ~ Job, ~ Year, ~ Institution, ~ Where, ~Desc,
   "Research Software Engineer", "Feb 2019 - Apr 2022", "ITaP Research Computing", "Purdue University", list('Implemented a highly interactive, Jupyter-based, GUI wrapper for power analysis software in order to expand the audience and ease of use of a rich set of computational functions via a user-friendly interface', 
   'Facilitated software design, the implementation of best practices, and internal tool development, and lab documentation to improve the overall sustainability of lab software',
-  'TraNational Science Foundationorm disparate data acquisition and processing scripts into modular classes to be reused for scientific workflows'),
+  'Transform disparate data acquisition and processing scripts into modular classes to be reused for scientific workflows'),
   'Software Verification Engineer', 'Nov 2017 – Nov 2018', 'Aptiv', 'West Lafayette, IN',
   'Developed comprehensive Unit Test projects that utilized CAN bus protocol communications to verify automotive controller hardware', 
 ) %>% 
@@ -112,7 +113,7 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Type, ~Institution, ~Desc,
-  'Aug 2022 - Present', 'Graduate Research Assistant', 'Center for Biology and Society, Arizona State University', c('Advisor: Manfred Laubichler', 'Documenting and adapting code and data from prior projects for reuse'),
+  'Aug 2022 - Present', 'Graduate Research Assistant', 'Laubichler Lab, Arizona State University', c('Documenting and adapting code and data from prior projects for reuse'),
   'June 2018 - Dec 2018', 'Student Cluster Competition Team', 'Research Computing, Purdue University', list('Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC18 conference', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted directly with the paper’s authors to reproduce specific results and conclusions from the paper'),
     'Jan 2016 - June 2017', 'CSoI Channels Scholar REU',"Center for Science of Information, NSF STC", 
   list('Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory',
