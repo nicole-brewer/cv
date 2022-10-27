@@ -80,6 +80,8 @@ bibliography_entries("combined.bib") %>%
 # if no additional format, use a '.'
 tribble( 
  ~ title, ~ format, ~ event, ~ place, ~ date, ~ url, ~ additional, 
+   'Scientific Web Applications Template', 'presentation', 'US-RSE Community Call', 'Virtual', 'Mar 2022',
+ 'https://doi.org/10.5281/zenodo.7133296', '.',
  "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", 'abstract', "Gateways 2021", "Virtual", 'July 2021','https://doi.org/10.5281/zenodo.5570605', 
  ' (\\underline{\\href{https://www.youtube.com/watch?v=O_KAupUYcyk}{video}}).',
  "Classification of Periodicity in Subtraction Game Sequences", "poster", "PEARC18", "Pittsburg, PA", 'June 2018', 'https://doi.org/10.5281/zenodo.7133317', '.',
@@ -165,21 +167,22 @@ tribble(
 # if no url, use \\newline
 tribble(
  ~ title, ~ type, ~ event, ~ place, ~ date, ~ url, ~ format,
-  'Scientific Web Applications Template', 'Presenter', 'US-RSE Community Call', 'Virtual', 'Mar 2022',
- 'https://doi.org/10.5281/zenodo.7133296', 'slides',
- 'SC22 Mini-series: Reproducibility Initiative (in progress)', 'Podcast Host', 'RSE Stories', 'Podcast', 'Nov 2022', 
+ 'SC22 Mini-series: Reproducibility Initiative (in progress)', 'Host', 'RSE Stories', 'Podcast', 'Nov 2022', 
  'http://us-rse.org/rse-stories/posts/','episode',
  'Trial by Fire', 'Podcast Host', 'Long Tales of Science', 'Podcast' , 'May 2022',
  'https://nicole-brewer.github.io/long-tales-of-science/004/', 'episode',
-  "Research Software Engineering", "Podcast Interviewee", "Hello PhD", "Podcast", "Apr 2022",
+  "Research Software Engineering", "Interviewee", "Hello PhD", "Podcast", "Apr 2022",
  'http://hellophd.com/2022/03/172-research-software-engineer/','episode',
- 'Call 1-800-HLP-DESK', 'Podcast Host', 'Long Tales of Science', 'Podcast', 'Dec 2021', 
+ 'A kind-of brief shared early history of US-RSE', 'Co-Author', 'US-RSE', 'Blog', 'Feb 2022',
+ 'https://us-rse.org/2022-02-06-a-brief-history-of-usrse/', '',
+ 'Call 1-800-HLP-DESK', 'Host', 'Long Tales of Science', 'Podcast', 'Dec 2021', 
  'https://nicole-brewer.github.io/long-tales-of-science/003/', 'epidode',
- 'Models and Simulations Run on the Cluster and in the Family', 'Podcast Host', 'Long Tales of Science', 'Podcast', 'Oct 2020',
+ 'Models and Simulations Run on the Cluster and in the Family', 'Host', 'Long Tales of Science', 'Podcast', 'Oct 2020',
  'https://nicole-brewer.github.io/long-tales-of-science/002/', 'episode'
 )  %>% 
    brief_entries(glue::glue('\\textbf{<type>}, <title>, \\textit{<event>}. (\\underline{\\href{<url>}{<format>}})', .open = "<", .close = ">"), date, .protect = FALSE)
 ```
+\newpage
 
 # Mentorship and Outreach
 ```{r}
@@ -214,7 +217,7 @@ tribble(
 ```{r}
 tribble(
   ~Date, ~Position, ~Title, ~Institution, ~Desc,
-      'Aug - Dec 2022', 'Curriculum Developer', 'Graduate Partners in Science Education: K - 12 STEM Education & Outreach', 'Arizona State University', 
+  'Aug - Dec 2022', 'Curriculum Developer', 'Graduate Partners in Science Education: K - 12 STEM Education & Outreach', 'Arizona State University', 
   c('created an interactive lesson about parallel and distributed computing and modified existing lessons for remote instruction', 'learned teaching practices that are engaging and inclusive'), 
    "Aug 2015 - May 2016", 'Undergraduate Teaching Assistant', 'Object Oriented Programming', 'Purdue Univeristy', 'Taught object oriented programming in Java, debugging In Intellij, JUnit Testing, and app development in Android Studio in laboratory',
 ) %>% 
