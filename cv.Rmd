@@ -109,7 +109,6 @@ tribble(
   #'Mentored students participating in semester-long internships'
 ```
 
-\newpage
 
 # Research Experience
 ```{r}
@@ -167,8 +166,6 @@ tribble(
 # if no url, use \\newline
 tribble(
  ~ title, ~ type, ~ event, ~ place, ~ date, ~ url, ~ format,
- 'SC22 Mini-series: Reproducibility Initiative (in progress)', 'Host', 'RSE Stories', 'Podcast', 'Nov 2022', 
- 'http://us-rse.org/rse-stories/posts/','episode',
  'Trial by Fire', 'Podcast Host', 'Long Tales of Science', 'Podcast' , 'May 2022',
  'https://nicole-brewer.github.io/long-tales-of-science/004/', 'episode',
   "Research Software Engineering", "Interviewee", "Hello PhD", "Podcast", "Apr 2022",
