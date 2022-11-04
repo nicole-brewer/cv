@@ -28,8 +28,8 @@ library(rcrossref)
 ```{r}
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where, ~ Info,
-  "PhD Computational History and Philosophy of Science", "Expected May 2027", "Arizona State University", "Tempe, AZ", c("Using natural language processing, machine learning, network analysis, high performance computing, and mixed social science methods to model the evolution of scientific standards through time"),
-  "BS Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN", c("Implemented and ran the KMP string matching algorithm in parallel to create a combinatorial game theory set"),
+  "PhD Computational History and Philosophy of Science", "Expected May 2027", "Arizona State University", "Tempe, AZ", c('Advisor: Manfred Laubichler'),
+  "BS Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN", c(),
 ) %>% 
   detailed_entries(Degree, Year, Institution, Where, Info)
 ```
@@ -93,7 +93,7 @@ tribble(
 <!-- # Interactive Notebooks and Scientific Web Applications -->
 
 
-# Professional Experience
+# Professional Software Engineering Experience
 ```{r}
 tribble(
   ~ Job, ~ Year, ~ Institution, ~ Where, ~Desc,
@@ -110,14 +110,16 @@ tribble(
 ```
 
 
-# Research Experience
+# Research Software Engineering Experience
 ```{r}
 tribble(
   ~Year, ~Type, ~Institution, ~Desc,
-  'Aug 2022 - Present', 'Graduate Research Assistant', 'Laubichler Lab, Arizona State University', c('Documenting and adapting code and data from prior projects for reuse'),
-  'June 2018 - Dec 2018', 'Student Cluster Competition Team', 'Research Computing, Purdue University', list('Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC18 conference', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted directly with the paper’s authors to reproduce specific results and conclusions from the paper'),
+  'Aug 2022 - Present', 'Graduate Research Assistant', 'Laubichler Lab, Arizona State University', c("Using natural language processing, machine learning, network analysis, high performance computing, and mixed social science methods to model the evolution of scientific standards through time", 'Documenting and adapting code and data from prior projects for reuse'),
+  'June 2018 - Dec 2018', 'Student Cluster Competition, Reproducibility Challenge', 'Research Computing, Purdue University', list(
+    'Advisor: Betsy Hillery', 'Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC18 conference', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted directly with the paper’s authors to reproduce specific results and conclusions from the paper'),
     'Jan 2016 - June 2017', 'CSoI Channels Scholar REU',"Center for Science of Information, NSF STC", 
-  list('Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory',
+  list('Advisor: Mark Daniel Ward', 
+       'Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory',
        'Analyzed batching strategies of parallel computation to efficiently detect an unknown length of repeating sequences in long strings',
        'Developed a command line interface and file managment system in Python to prevent human error and enhance the usability of codebase'),
 ) %>% 
@@ -221,6 +223,8 @@ tribble(
   detailed_entries(what=Position, when=Date, with=Title, where=Institution)
 ```
 
+
+
 # Extracurricular Leadership
 ```{r}
   tribble(
@@ -233,7 +237,24 @@ tribble(
 ```
 
 
-
+\cvsection{Skills}
+\begin{cvskills}
+  \cvskill
+    {DevOps} % Category
+    {AWS, Docker, Kubernetes, Rancher, Vagrant, Packer, Terraform, Jenkins, CircleCI} % Skills
+  \cvskill
+    {Back-end} % Category
+    {Koa, Express, Django, REST API} % Skills
+  \cvskill
+    {Front-end} % Category
+    {Hugo, Redux, React, HTML5, LESS, SASS} % Skills
+  \cvskill
+    {Programming} % Category
+    {Node.js, Python, JAVA, OCaml, LaTeX} % Skills
+  \cvskill
+    {Languages} % Category
+    {Korean, English, Japanese} % Skills
+\end{cvskills}
 
 <!-- Skills 
 Languages Python, R, PHP, JavaScript, Java, C, C#, HTML/CSS
