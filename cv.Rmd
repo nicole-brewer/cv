@@ -256,12 +256,15 @@ tribble(
 
 tribble(
   ~BottomLeft, ~BottomRight, ~TopLeft, ~TopRight,
-   'ASU Psychodelic Rock Band, RuQe', '', 'Vocalist and Keyboardist', 'Aug 2022 - Dec 2022',
-   '', '', 'Music Theory and Piano Lessons', 'Jan 2023 - May 2023'
+   'Private lessons from ASU faculty associate Cathy Bates', '', 'Music Theory and Piano Lessons', 'Jan 2023 - May 2023',
+    'ASU Psychodelic Rock Band, RuQe', '', 'Vocalist and Keyboardist', 'Aug 2022 - Dec 2022'
+
 
 ) %>% 
   detailed_entries(what=BottomLeft, when=BottomRight, with=TopLeft, where=TopRight)
-
+```
+## Endurance Events
+```{r} 
   tribble(
   ~Date, ~Event, ~Location,
   'Apr 2019', 'USA Triathlon Collegiate Club National Championships', 'Tempe, AZ',
