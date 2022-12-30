@@ -149,7 +149,7 @@ tribble(
    "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience22", "Salt Lake City, UT", "Oct 2022", '', #"https://us-rse.org/rse-escience-2022/abstracts", 
   "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "Int'l RSE Day", "Virtual", "Oct 2021", '(\\underline{\\href{https://doi.org/10.5281/zenodo.7133472}{slides}})',
 ) %>% 
-  brief_entries(glue::glue('\\textbf{<Activity>}, <Role>. <Link>', .open = "<", .close = ">"), When, Conference, .protect = FALSE)
+  brief_entries(glue::glue('\\textbf{<Role>}, <Activity>. <Link>', .open = "<", .close = ">"), When, Conference, .protect = FALSE)
 
 ```
 
@@ -158,11 +158,12 @@ tribble(
 tribble(
   ~Date, ~Position, ~Group, ~Institution, ~Desc,
   'Jan 2022 - Present', 'Steering Committee Member', 'Research Software Engineering Association', 'United States',
-  c('Committed at least five hours per week to steering committee and other meetings including the Diversity Equity and Inclusion (DEI), Outreach, and Code of Conduct and Moderation working groups', 'Established the DEI Speaker Series and DEI Media Meetings. Currently developing a DEI Toolkit for members'),
-   'June 2020 - May 2022', "Co-Chair of Women in High Performance Computing", 'ITaP Research Computing', 'Purdue University', 
-  c('Organized and served as the host for invited talks where members shared their work or research', 'Established the \\href{https://www.nicole-brewer.com/long-tales-of-science/}{Long Tales of Science podcast} to continute to improve visibility of women in HPC in spite of discontinuing in-person events in the wake of the COVID-19 pandemic')
+  c('Committed at least five hours per week to steering committee and other meetings including the Diversity Equity and Inclusion (DEI), Outreach, and Code of Conduct and Moderation working groups', 'Established the DEI Speaker Series and DEI Media Meetings.'),
+   'Jan 2020 - May 2022', "Co-Chair", 'Women in High Performance Computing', 'Purdue University', 
+  c('Organized and served as the host for invited talks where members shared their work or research', 'Created and maintained a formal newsletter featuring opportunities and events for members', 'Submitted annual reports and participated in conference events for the international umberella orgainzation')
+    #'Established the \\href{https://www.nicole-brewer.com/long-tales-of-science/}{Long Tales of Science podcast} to continute to improve visibility of women in HPC in spite of discontinuing in-person events in the wake of the COVID-19 pandemic')
 ) %>% 
-  detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc, .protect = FALSE)
+  detailed_entries(what=Group, when=Date, with=Position, where=Institution, why=Desc, .protect = FALSE)
 ```
 
 # Certifications and Training
@@ -174,7 +175,7 @@ tribble(
   'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
   'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', 'Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and entrepreneurial skills essential to effective laboratory and research project managment'
 ) %>% 
-  detailed_entries(what=Position, when=Date, with=Title, where=Institution, why=Desc)
+  detailed_entries(what=Title, when=Date, with=Position, where=Institution, why=Desc)
 ```
 
 \newpage
@@ -184,7 +185,7 @@ tribble(
 # if no url, use \\newline
 tribble(
  ~ title, ~ type, ~ event, ~ place, ~ date, ~ url, ~ format,
- 'Reproducibility Initiative at SC22', 'Host', 'Long Tales of Science', 'Podcast', 'Forthcoming', 'https://nicole-brewer.github.io/long-tales-of-science/004/', 'episode',
+ 'Reproducibility Initiative at SC22', 'Host', 'Long Tales of Science', 'Podcast', 'Jan 2023', 'https://nicole-brewer.github.io/long-tales-of-science/005/', 'episode',
  'Trial by Fire', 'Host', 'Long Tales of Science', 'Podcast' , 'May 2022',
  'https://nicole-brewer.github.io/long-tales-of-science/004/', 'episode',
   "Research Software Engineering", "Interviewee", "Hello PhD", "Podcast", "Apr 2022",
@@ -252,15 +253,24 @@ tribble(
 
 # Extracurricular Activity
 ```{r}
+
+tribble(
+  ~BottomLeft, ~BottomRight, ~TopLeft, ~TopRight,
+   'ASU Psychodelic Rock Band, RuQe', '', 'Vocalist and Keyboardist', 'Aug 2022 - Dec 2022',
+   '', '', 'Music Theory and Piano Lessons', 'Jan 2023 - May 2023'
+
+) %>% 
+  detailed_entries(what=BottomLeft, when=BottomRight, with=TopLeft, where=TopRight)
+
   tribble(
   ~Date, ~Event, ~Location,
   'Apr 2019', 'USA Triathlon Collegiate Club National Championships', 'Tempe, AZ',
   'Oct 2018', 'Chicago Marathon', 'Chicago, IL', 
-  'Aug 2018', 'Ironman 70.3 Steelhead Triathlon', 'MI',
-  'Aug 2017', 'Ironman 70.3 Steelhead Triathlon', 'MI',
+  'Aug 2018', 'Ironman 70.3 Steelhead Triathlon', 'Benton Harbor, MI',
+  'Aug 2017', 'Ironman 70.3 Steelhead Triathlon', 'Benton Harbor, MI',
   'Apr 2017', 'USA Triathlon Collegiate Club National Championships', 'Tuscaloosa, AL',
   'Nov 2016', 'Monumental Marathon', 'Indianapolis, IN',
-  'Aug 2016', 'Ironman 70.3 Steelhead Triathlon', 'MI',
+  'Aug 2016', 'Ironman 70.3 Steelhead Triathlon', 'Benton Harbor, MI',
   'Apr 2016', 'USA Triathlon Collegiate Club National Championships', 'Clemson, SC',
   'Jan 2016', 'Disney World Marathon', 'Orlando, FL',
 ) %>% 
