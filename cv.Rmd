@@ -90,7 +90,7 @@ tribble(
 # if no url, use \\newline
 tribble(
  ~ title, ~ role, ~ amount, ~ funder, ~ date,
- 'Better Scientific Software Fellowship', 'Awardee', 'Up to $25,000', 'Exascale Computing Project (DOE/NSF)', 'Mar 2023 - Mar 2024',
+ 'Better Scientific Software Fellowship', 'Awardee', 'Up to \\$25,000', 'Exascale Computing Project (DOE/NSF)', 'Mar 2023 - Mar 2024',
 )  %>% 
    brief_entries(glue::glue('\\textbf{<title>} (<amount>), <funder>, <role>.', .open = "<", .close = ">"), date, .protect = FALSE)
 ```
@@ -201,7 +201,6 @@ tribble(
 )  %>% 
    brief_entries(glue::glue('\\textbf{<type>}, <title>, \\textit{<event>}. (\\underline{\\href{<url>}{<format>}})', .open = "<", .close = ">"), date, .protect = FALSE)
 ```
-\newpage
 
 # Mentorship and Outreach
 ```{r}
