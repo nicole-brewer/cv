@@ -5,7 +5,7 @@ position: "Research Software Engineer | Graduate Research Assistant"
 address: "Arizona State University, Tempe, AZ"
 #phone: +1 22 3333 4444
 www: nicole-brewer.com
-#email: "brewer36@purdue.edu"
+#email: "nbrewer6@asu.edu"
 twitter: catch_me_coding
 github: nicole-brewer
 linkedin: nicole-brewer
@@ -33,22 +33,6 @@ tribble(
 ) %>% 
   detailed_entries(Degree, Year, Institution, Where, Info)
 ```
-# Grants, Fellowhips, and Awards
-
-```{r}
-tribble(
-  ~Year, ~Desc, ~Title, ~Awarder,
-  '2022', '', '\\textbf{Outstanding Mentorship Award} (\\$750), ASU Graduate and Professional Student Association', '',
-  '2022', '', '\\textbf{GPSA Individual Travel Award} (\\$950), ASU Graduate and Professional Student Association', '',
-  '2022', '', '\\textbf{eScience Travel Grant} (\\$700), National Science Foundation', '',
-  '2022', '', '\\textbf{School of Life Science Fellowship} (\\$2,500), Arizona State University', '',
-  '2021', "Travel support for early career scholars who are considering pursuing philosophy of science", '\\textbf{UPSS Delegate} (\\$500), Philosophy of Science Biennial Meeting', '',
-  '2020', "Honorarium awarded for notable achievement in the advancement of science gateways", '\\textbf{Young Professional of the Year} (\\$500), Science Gateways Community Institute', '',
-  '2018', 'Travel support to attend PEARC18 and participate in the student program', '\\textbf{Travel Grant} (\\$500), XSEDE', '',
-  '2018', 'Awarded for "Classification of Periodicity in Subtraction Game Sequences"', '\\textbf{Phil Andrews Award}, Practice and Experience in Advanced Research Computing Conference', ''
-) %>% 
-  brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
-```
 
 # Publications
 
@@ -75,16 +59,51 @@ bibliography_entries("combined.bib") %>%
   arrange(desc(issued))
 ```
 
+## Honors and Awards
+
+```{r}
+tribble(
+  ~Year, ~Desc, ~Title, ~Awarder,
+  #'2022', '', '\\textbf{eScience Travel Grant} (\\$700), National Science Foundation', '',
+  '2021', "Travel support for early career scholars who are considering pursuing philosophy of science", '\\textbf{UPSS Delegate} (\\$500), Philosophy of Science Biennial Meeting', '',
+  '2020', "Honorarium awarded for notable achievement in the advancement of science gateways", '\\textbf{Young Professional of the Year} (\\$500), Science Gateways Community Institute', '',
+  #'2018', 'Travel support to attend PEARC18 and participate in the student program', '\\textbf{Travel Grant} (\\$500), XSEDE', '',
+  '2018', 'Awarded for "Classification of Periodicity in Subtraction Game Sequences"', '\\textbf{Phil Andrews Award for Most Transformative Contribution}, Practice and Experience in Advanced Research Computing Conference', ''
+) %>% 
+  brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
+```
+
+## Intramural Fellowships and Awards
+```{r}
+tribble(
+  ~Year, ~Desc, ~Title, ~Awarder,
+  '2022', '', '\\textbf{Outstanding Mentorship Award} (\\$750), ASU Graduate and Professional Student Association', '',
+  '2022', '', '\\textbf{GPSA Individual Travel Award} (\\$950), ASU Graduate and Professional Student Association', '',
+  '2022', '', '\\textbf{School of Life Science Fellowship} (\\$2,500), Arizona State University', '',
+) %>% 
+  brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
+```
+
+# Grants and Fellowships
+
+```{r}
+# if no url, use \\newline
+tribble(
+ ~ title, ~ role, ~ amount, ~ funder, ~ date,
+ 'Better Scientific Software Fellowship', 'Awardee', 'Up to $25,000', 'Exascale Computing Project (DOE/NSF)', 'Mar 2023 - Mar 2024',
+)  %>% 
+   brief_entries(glue::glue('\\textbf{<title>} (<amount>), <funder>, <role>.', .open = "<", .close = ">"), date, .protect = FALSE)
+```
+
 # Posters and Presentations
 ```{r}
-# if no additional format, use a '.'
 tribble( 
  ~ title, ~ format, ~ event, ~ place, ~ date, ~ url, ~ additional, 
-   'Scientific Web Applications Template', 'presentation', 'US-RSE Community Call', 'Virtual', 'Mar 2022',
- 'https://doi.org/10.5281/zenodo.7133296', '.',
+   'Scientific Web Applications Template', 'presentation', 'RSE Comm. Call', 'Virtual', 'Mar 2022',
+ 'https://doi.org/10.5281/zenodo.7133296', '',
  "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", 'abstract', "Gateways 2021", "Virtual", 'July 2021','https://doi.org/10.5281/zenodo.5570605', 
- ' (\\underline{\\href{https://www.youtube.com/watch?v=O_KAupUYcyk}{video}}).',
- "Classification of Periodicity in Subtraction Game Sequences", "poster", "PEARC18", "Pittsburg, PA", 'June 2018', 'https://doi.org/10.5281/zenodo.7133317', '.',
+ ' (\\underline{\\href{https://www.youtube.com/watch?v=O_KAupUYcyk}{video}})',
+ "Classification of Periodicity in Subtraction Game Sequences", "poster", "PEARC18", "Pittsburg, PA", 'June 2018', 'https://doi.org/10.5281/zenodo.7133317', '',
  ) %>% 
   brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<format>}}) <additional>', .open = "<", .close = ">"), date, event, .protect = FALSE)
 ```
@@ -93,7 +112,7 @@ tribble(
 <!-- # Interactive Notebooks and Scientific Web Applications -->
 
 
-# Professional Software Engineering Experience
+# Professional Experience
 ```{r}
 tribble(
   ~ Job, ~ Year, ~ Institution, ~ Where, ~Desc,
@@ -110,7 +129,7 @@ tribble(
 ```
 
 
-# Research Software Engineering Experience
+# Research Experience
 ```{r}
 tribble(
   ~Year, ~Type, ~Institution, ~Desc,
@@ -126,16 +145,17 @@ tribble(
   detailed_entries(what=Institution, when=Year, with=Type, why=Desc)
 ```
 
-# Certifications and Training
-
+# Conference Activity
 ```{r}
 tribble(
-  ~Date, ~Position, ~Title, ~Institution, ~Desc,
-   "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
-  'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
-  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', 'Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and entrepreneurial skills essential to effective laboratory and research project managment'
+  ~Activity, ~Role, ~Conference, ~Location, ~When, ~Link,
+  'US-RSE Booth', 'Coordinator', 'SC22', 'Dallas, TX', 'Nov 2022', '',
+ 'Reproducibility Challenge', 'Committee Member', 'SC22', 'Dallas, TX',  'Nov 2022', '', #'https://se4science.org/workshops/se4escience22/schedule.htm',
+   "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience22", "Salt Lake City, UT", "Oct 2022", '', #"https://us-rse.org/events/2021/2021-10-intnl-rse-day", 
+  "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "Int'l RSE Day", "Virtual", "Oct 2021", '(\\underline{\\href{https://doi.org/10.5281/zenodo.7133472}{slides}})',
 ) %>% 
-  detailed_entries(what=Position, when=Date, with=Title, where=Institution, why=Desc)
+  brief_entries(glue::glue('\\textbf{<Activity>}, <Role>. <Link>', .open = "<", .close = ">"), When, Conference, .protect = FALSE)
+
 ```
 
 # Service
@@ -150,25 +170,25 @@ tribble(
   detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc, .protect = FALSE)
 ```
 
-# Conference Activity
+# Certifications and Training
+
 ```{r}
 tribble(
-  ~Activity, ~Role, ~Conference, ~Location, ~When, ~Link, 
- 'Reproducibility Challenge', 'Committee Member', 'SC22', 'Dallas, TX',  'Nov 2022', '', #'https://se4science.org/workshops/se4escience22/schedule.htm',
-   "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience22", "Salt Lake City, UT", "Oct 2022", '', #"https://us-rse.org/events/2021/2021-10-intnl-rse-day", 
-  "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "Int'l RSE Day Workshop", "Virtual", "Oct 2021", '(\\underline{\\href{https://doi.org/10.5281/zenodo.7133472}{slides}})',
+  ~Date, ~Position, ~Title, ~Institution, ~Desc,
+   "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
+  'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
+  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', 'Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and entrepreneurial skills essential to effective laboratory and research project managment'
 ) %>% 
-  brief_entries(glue::glue('\\textbf{<Activity>}, <Role>. <Link>', .open = "<", .close = ">"), When, Conference, .protect = FALSE)
-
+  detailed_entries(what=Position, when=Date, with=Title, where=Institution, why=Desc)
 ```
-
 
 # Science Communication and Broader Impacts
 ```{r}
 # if no url, use \\newline
 tribble(
  ~ title, ~ type, ~ event, ~ place, ~ date, ~ url, ~ format,
- 'Trial by Fire', 'Podcast Host', 'Long Tales of Science', 'Podcast' , 'May 2022',
+ 'Reproducibility Initiative at SC22', 'Host', 'Long Tales of Science', 'Podcast', 'Forthcoming', 'https://nicole-brewer.github.io/long-tales-of-science/004/', 'episode',
+ 'Trial by Fire', 'Host', 'Long Tales of Science', 'Podcast' , 'May 2022',
  'https://nicole-brewer.github.io/long-tales-of-science/004/', 'episode',
   "Research Software Engineering", "Interviewee", "Hello PhD", "Podcast", "Apr 2022",
  'http://hellophd.com/2022/03/172-research-software-engineer/','episode',
@@ -188,7 +208,7 @@ tribble(
   tribble(
   ~Date, ~Position, ~Group, ~Institution, ~Desc,
   'Oct - Nov 2022', 'Mentor', 'Mentor–Protégé Matching', 'SC22',
-  'Participated in virtual activities in the months leading up to the conference and provided career and educational advise to two mentees at the conference',
+  'Provided career and educational advise and helped extend the professional network of an undergraduate mentee at the Supercomputing conference',
   'Aug - Nov 2019', 'Staff Advisor', 'Student Cluster Competition', 'SC19', 
   'Mentored students taking a weekly, two credit hour course in preparation for a competition that I had participated in the year prior', 
   'June 2019', 'Mentor', 'Science Gateways Community Institute Hackathon', 'PEARC19' ,
@@ -200,61 +220,55 @@ tribble(
   detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc)
 ```
 
-# Open Source Education and Training Resources
-```{r}
-# if no url, use \\newline
-tribble( 
- ~ title, ~ type, ~ year, ~url,
- 'HPC Unplugged: A lesson plan for teaching parallel and distributed computing', 'booklet', 'Sep 2022', 'https://www.nicole-brewer.com/hpc-unplugged/',
- 'Corpus Creation with Scopus (in progress)', 'binder', 'Aug 2022', 'https://mybinder.org/v2/gh/nicole-brewer/corpus_creation_with_scopus/HEAD',
- "R for Research Scientists", "booklet", 'Mar 2020', 'https://www.nicole-brewer.com/r-for-research-scientists/'
- ) %>% 
-  brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<type>}})', .open = "<", .close = ">"), year, .protect = FALSE)
-```
-
 # Teaching Experience
 ```{r}
 tribble(
   ~Date, ~Position, ~Title, ~Institution, ~Desc,
   'Aug - Dec 2022', 'Curriculum Developer', 'Graduate Partners in Science Education: K - 12 STEM Education & Outreach', 'Arizona State University', 
   c('created an interactive lesson about parallel and distributed computing and modified existing lessons for remote instruction', 'learned teaching practices that are engaging and inclusive'), 
-   "Aug 2015 - May 2016", 'Undergraduate Teaching Assistant', 'Object Oriented Programming', 'Purdue Univeristy', 'Taught object oriented programming in Java, debugging In Intellij, JUnit Testing, and app development in Android Studio in laboratory',
+   "Aug 2015 - May 2016", 'Undergraduate Teaching Assistant', 'Object-Oriented Programming', 'Purdue Univeristy', 'Taught object oriented programming in Java, debugging In Intellij, JUnit Testing, and app development in Android Studio in laboratory',
 ) %>% 
   detailed_entries(what=Position, when=Date, with=Title, where=Institution)
 ```
 
-
+# Open Source Education and Training Resources
+```{r}
+# if no url, use \\newline
+tribble( 
+ ~ title, ~ type, ~ year, ~url,
+ 'HPC Unplugged: A lesson plan for teaching parallel and distributed computing', 'booklet', 'Sep 2022', 'https://www.nicole-brewer.com/hpc-unplugged/',
+ #'Corpus Creation with Scopus (in progress)', 'binder', 'Aug 2022', 'https://mybinder.org/v2/gh/nicole-brewer/corpus_creation_with_scopus/HEAD',
+ "R for Research Scientists", "booklet", 'Mar 2020', 'https://www.nicole-brewer.com/r-for-research-scientists/'
+ ) %>% 
+  brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<type>}})', .open = "<", .close = ">"), year, .protect = FALSE)
+```
 
 # Extracurricular Leadership
 ```{r}
   tribble(
   ~Date, ~Position, ~Group,
-  '2016', '\\textbf{Vice President}, Purdue University Triathlon Club', '',
-   '2015', '\\textbf{Social Media Manager}, Purdue University Triathlon Club',  ''
+  'Aug 2016 - May 2016', 'Vice President', 'Purdue University Triathlon Club', 
+   'Aug 2015 - May 2016', 'Social Media Manager', 'Purdue University Triathlon Club', 
 ) %>% 
-  brief_entries(what=Position, when=Date, with=Group, .protect = FALSE)
-# 'Led callouts, executive board meetings, and merchandise orders',
+  brief_entries(glue::glue('\\textbf{<Position>}, <Group>', .open = "<", .close = ">"), Date, .protect = FALSE)
 ```
 
-
-\cvsection{Skills}
-\begin{cvskills}
-  \cvskill
-    {DevOps} % Category
-    {AWS, Docker, Kubernetes, Rancher, Vagrant, Packer, Terraform, Jenkins, CircleCI} % Skills
-  \cvskill
-    {Back-end} % Category
-    {Koa, Express, Django, REST API} % Skills
-  \cvskill
-    {Front-end} % Category
-    {Hugo, Redux, React, HTML5, LESS, SASS} % Skills
-  \cvskill
-    {Programming} % Category
-    {Node.js, Python, JAVA, OCaml, LaTeX} % Skills
-  \cvskill
-    {Languages} % Category
-    {Korean, English, Japanese} % Skills
-\end{cvskills}
+# Extracurricular Activity
+```{r}
+  tribble(
+  ~Date, ~Event, ~Location,
+  'Apr 2019', 'USA Triathlon Collegiate Club National Championships', 'Tempe, AZ',
+  'Oct 2018', 'Chicago Marathon', 'Chicago, IL', 
+  'Aug 2018', 'Ironman 70.3 Steelhead Triathlon', 'MI',
+  'Aug 2017', 'Ironman 70.3 Steelhead Triathlon', 'MI',
+  'Apr 2017', 'USA Triathlon Collegiate Club National Championships', 'Tuscaloosa, AL',
+  'Nov 2016', 'Monumental Marathon', 'Indianapolis, IN',
+  'Aug 2016', 'Ironman 70.3 Steelhead Triathlon', 'MI',
+  'Apr 2016', 'USA Triathlon Collegiate Club National Championships', 'Clemson, SC',
+  'Jan 2016', 'Disney World Marathon', 'Orlando, FL',
+) %>% 
+   brief_entries(glue::glue('\\textbf{<Event>}, <Location>', .open = "<", .close = ">"), Date, .protect = FALSE)
+```
 
 <!-- Skills 
 Languages Python, R, PHP, JavaScript, Java, C, C#, HTML/CSS
