@@ -126,8 +126,8 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Type, ~Institution, ~Desc,
-  'Aug 2022 - Present', 'Graduate Research Assistant', 'Laubichler Lab, Arizona State University', c("Advisor: Manfred Laubichler',
-  Using natural language processing, machine learning, network analysis, high performance computing, and mixed social science methods to model the evolution of scientific standards through time", 'Documenting and adapting code and data from prior projects for reuse'),
+  'Aug 2022 - Present', 'Graduate Research Assistant', 'Complex Adaptive Systems, Arizona State University', c('Advisor: Manfred Laubichler',
+  'Using natural language processing, machine learning, network analysis, high performance computing, and mixed social science methods to model the evolution of scientific standards through time', 'Documenting and adapting code and data from prior projects for reuse'),
   'June 2018 - Dec 2018', 'Student Cluster Competition, Reproducibility Challenge', 'Research Computing, Purdue University', list(
     'Advisors: Betsy Hillery', 'Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC18 conference', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted directly with the paper’s authors to reproduce specific results and conclusions from the paper'),
     'Jan 2016 - June 2017', 'CSoI Channels Scholar REU',"Center for Science of Information, NSF STC", 
@@ -177,6 +177,7 @@ tribble(
   detailed_entries(what=Position, when=Date, with=Title, where=Institution, why=Desc)
 ```
 
+\newpage
 
 # Science Communication and Broader Impacts
 ```{r}
@@ -189,7 +190,7 @@ tribble(
   "Research Software Engineering", "Interviewee", "Hello PhD", "Podcast", "Apr 2022",
  'http://hellophd.com/2022/03/172-research-software-engineer/','episode',
  'A kind-of brief shared early history of US-RSE', 'Co-Author', 'US-RSE', 'Blog', 'Feb 2022',
- 'https://us-rse.org/2022-02-06-a-brief-history-of-usrse/', '',
+ 'https://us-rse.org/2022-02-06-a-brief-history-of-usrse/', 'post',
  'Call 1-800-HLP-DESK', 'Host', 'Long Tales of Science', 'Podcast', 'Dec 2021', 
  'https://nicole-brewer.github.io/long-tales-of-science/003/', 'epidode',
  'Models and Simulations Run on the Cluster and in the Family', 'Host', 'Long Tales of Science', 'Podcast', 'Oct 2020',
@@ -219,8 +220,8 @@ tribble(
 ```{r}
 tribble(
   ~Date, ~Position, ~Title, ~Institution, ~Desc,
-  'Aug - Dec 2022', 'Curriculum Developer', 'Graduate Partners in Science Education: K - 12 STEM Education & Outreach', 'Arizona State University', 
-  c('created an interactive lesson about parallel and distributed computing and modified existing lessons for remote instruction', 'learned teaching practices that are engaging and inclusive'), 
+  #'Aug 2022 - Dec 2022', 'Curriculum Developer', 'Graduate Partners in Science Education: K - 12 STEM Education & Outreach', 'Arizona State University', 
+  #c('created an interactive lesson about parallel and distributed computing and modified existing lessons for remote instruction', 'learned teaching practices that are engaging and inclusive'), 
    "Aug 2015 - May 2016", 'Undergraduate Teaching Assistant', 'Object-Oriented Programming', 'Purdue Univeristy', 'Taught object oriented programming in Java, debugging In Intellij, JUnit Testing, and app development in Android Studio in laboratory',
 ) %>% 
   detailed_entries(what=Position, when=Date, with=Title, where=Institution)
@@ -242,11 +243,12 @@ tribble(
 ```{r}
   tribble(
   ~Date, ~Position, ~Group,
-  'Aug 2016 - May 2016', 'Vice President', 'Purdue University Triathlon Club', 
-   'Aug 2015 - May 2016', 'Social Media Manager', 'Purdue University Triathlon Club', 
+  'Aug 2016', 'Vice President', 'Purdue University Triathlon Club', 
+   'Aug 2015', 'Social Media Manager', 'Purdue University Triathlon Club', 
 ) %>% 
   brief_entries(glue::glue('\\textbf{<Position>}, <Group>', .open = "<", .close = ">"), Date, .protect = FALSE)
 ```
+\newpage
 
 # Extracurricular Activity
 ```{r}
