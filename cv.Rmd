@@ -60,11 +60,13 @@ bibliography_entries("combined.bib") %>%
 ```
 
 # Honors and Awards
-## Intermural 
 
 ```{r}
 tribble(
   ~Year, ~Desc, ~Title, ~Awarder,
+  '2022', '', '\\textbf{Outstanding Mentorship Award} (\\$750), ASU Graduate and Professional Student Association', '',
+  '2022', '', '\\textbf{GPSA Individual Travel Award} (\\$950), ASU Graduate and Professional Student Association', '',
+  '2022', '', '\\textbf{School of Life Science Fellowship} (\\$2,500), Arizona State University', '',
   #'2022', '', '\\textbf{eScience Travel Grant} (\\$700), National Science Foundation', '',
   '2021', "Travel support for early career scholars who are considering pursuing philosophy of science", '\\textbf{UPSS Delegate} (\\$500), Philosophy of Science Biennial Meeting', '',
   '2020', "Honorarium awarded for notable achievement in the advancement of science gateways", '\\textbf{Young Professional of the Year} (\\$500), Science Gateways Community Institute', '',
@@ -74,24 +76,13 @@ tribble(
   brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
 ```
 
-## Extramural
-```{r}
-tribble(
-  ~Year, ~Desc, ~Title, ~Awarder,
-  '2022', '', '\\textbf{Outstanding Mentorship Award} (\\$750), ASU Graduate and Professional Student Association', '',
-  '2022', '', '\\textbf{GPSA Individual Travel Award} (\\$950), ASU Graduate and Professional Student Association', '',
-  '2022', '', '\\textbf{School of Life Science Fellowship} (\\$2,500), Arizona State University', '',
-) %>% 
-  brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
-```
-
-## Grants and Fellowships
+# Grants and Fellowships
 
 ```{r}
 # if no url, use \\newline
 tribble(
  ~ title, ~ role, ~ amount, ~ funder, ~ date,
- 'Better Scientific Software Fellowship', 'Awardee', 'Up to \\$25,000', 'Exascale Computing Project (DOE/NSF)', 'Mar 2023 - Mar 2024',
+ 'Better Scientific Software Fellowship', 'Awardee', 'Up to \\$25,000', 'Exascale Computing Project (DOE/NSF)', 'Jan 2023',
 )  %>% 
    brief_entries(glue::glue('\\textbf{<title>} (<amount>), <funder>, <role>.', .open = "<", .close = ">"), date, .protect = FALSE)
 ```
@@ -150,9 +141,10 @@ tribble(
 ```{r}
 tribble(
   ~Activity, ~Role, ~Conference, ~Location, ~When, ~Link,
-  'US-RSE Booth', 'Coordinator', 'SC22', 'Dallas, TX', 'Nov 2022', '',
- 'Reproducibility Challenge', 'Committee Member', 'SC22', 'Dallas, TX',  'Nov 2022', '', #'https://se4science.org/workshops/se4escience22/schedule.htm',
-   "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience22", "Salt Lake City, UT", "Oct 2022", '', #"https://us-rse.org/events/2021/2021-10-intnl-rse-day", 
+  'Student Program', 'Co-Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
+  'United States Research Software Engineering Association', 'Booth Coordinator', 'SC22', 'Dallas, TX', 'Nov 2022', '',
+ 'Reproducibility Challenge', 'Committee Member', 'SC22', 'Dallas, TX',  'Nov 2022', '', 
+   "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience22", "Salt Lake City, UT", "Oct 2022", '', #"https://us-rse.org/rse-escience-2022/abstracts", 
   "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "Int'l RSE Day", "Virtual", "Oct 2021", '(\\underline{\\href{https://doi.org/10.5281/zenodo.7133472}{slides}})',
 ) %>% 
   brief_entries(glue::glue('\\textbf{<Activity>}, <Role>. <Link>', .open = "<", .close = ">"), When, Conference, .protect = FALSE)
