@@ -27,11 +27,11 @@ library(rcrossref)
 
 ```{r}
 tribble(
-  ~ Degree, ~ Year, ~ Institution, ~ Where, ~ Info,
-  "PhD Computational History and Philosophy of Science", "Expected May 2027", "Arizona State University", "Tempe, AZ", c('Advisor: Manfred Laubichler'),
-  "BS Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN", c(),
+  ~ Degree, ~ Year, ~ Institution, ~ Where,
+  "PhD Computational History and Philosophy of Science", "Expected May 2027", "Arizona State University", "Tempe, AZ",
+  "BS Mathematics with Computer Science", "December 2018", "Purdue Univeristy", "West Lafayette, IN",
 ) %>% 
-  detailed_entries(Degree, Year, Institution, Where, Info)
+  detailed_entries(Degree, Year, Institution, Where)
 ```
 
 # Publications
@@ -59,7 +59,8 @@ bibliography_entries("combined.bib") %>%
   arrange(desc(issued))
 ```
 
-## Honors and Awards
+# Honors and Awards
+## Intermural 
 
 ```{r}
 tribble(
@@ -73,7 +74,7 @@ tribble(
   brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
 ```
 
-## Intramural Fellowships and Awards
+## Extramural
 ```{r}
 tribble(
   ~Year, ~Desc, ~Title, ~Awarder,
@@ -84,7 +85,7 @@ tribble(
   brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
 ```
 
-# Grants and Fellowships
+## Grants and Fellowships
 
 ```{r}
 # if no url, use \\newline
