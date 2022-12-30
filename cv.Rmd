@@ -91,7 +91,7 @@ tribble(
 ```{r}
 tribble( 
  ~ title, ~ format, ~ event, ~ place, ~ date, ~ url, ~ additional, 
-   'Scientific Web Applications Template', 'presentation', 'RSE Comm. Call', 'Virtual', 'Mar 2022',
+   'Scientific Web Applications Template', 'presenter', 'Mini Gateways 2022', 'Virtual', 'Mar 2022',
  'https://doi.org/10.5281/zenodo.7133296', '',
  "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", 'abstract', "Gateways 2021", "Virtual", 'July 2021','https://doi.org/10.5281/zenodo.5570605', 
  ' (\\underline{\\href{https://www.youtube.com/watch?v=O_KAupUYcyk}{video}})',
@@ -120,14 +120,16 @@ tribble(
   #'Mentored students participating in semester-long internships'
 ```
 
+\newpage
 
 # Research Experience
 ```{r}
 tribble(
   ~Year, ~Type, ~Institution, ~Desc,
-  'Aug 2022 - Present', 'Graduate Research Assistant', 'Laubichler Lab, Arizona State University', c("Using natural language processing, machine learning, network analysis, high performance computing, and mixed social science methods to model the evolution of scientific standards through time", 'Documenting and adapting code and data from prior projects for reuse'),
+  'Aug 2022 - Present', 'Graduate Research Assistant', 'Laubichler Lab, Arizona State University', c("Advisor: Manfred Laubichler',
+  Using natural language processing, machine learning, network analysis, high performance computing, and mixed social science methods to model the evolution of scientific standards through time", 'Documenting and adapting code and data from prior projects for reuse'),
   'June 2018 - Dec 2018', 'Student Cluster Competition, Reproducibility Challenge', 'Research Computing, Purdue University', list(
-    'Advisor: Betsy Hillery', 'Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC18 conference', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted directly with the paper’s authors to reproduce specific results and conclusions from the paper'),
+    'Advisors: Betsy Hillery', 'Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC18 conference', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted directly with the paper’s authors to reproduce specific results and conclusions from the paper'),
     'Jan 2016 - June 2017', 'CSoI Channels Scholar REU',"Center for Science of Information, NSF STC", 
   list('Advisor: Mark Daniel Ward', 
        'Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory',
@@ -142,7 +144,7 @@ tribble(
 tribble(
   ~Activity, ~Role, ~Conference, ~Location, ~When, ~Link,
   'Student Program', 'Co-Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
-  'United States Research Software Engineering Association', 'Booth Coordinator', 'SC22', 'Dallas, TX', 'Nov 2022', '',
+  'United States Research Software Engineering Association', 'Booth Event Coordinator', 'SC22', 'Dallas, TX', 'Nov 2022', '',
  'Reproducibility Challenge', 'Committee Member', 'SC22', 'Dallas, TX',  'Nov 2022', '', 
    "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience22", "Salt Lake City, UT", "Oct 2022", '', #"https://us-rse.org/rse-escience-2022/abstracts", 
   "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "Int'l RSE Day", "Virtual", "Oct 2021", '(\\underline{\\href{https://doi.org/10.5281/zenodo.7133472}{slides}})',
@@ -174,6 +176,7 @@ tribble(
 ) %>% 
   detailed_entries(what=Position, when=Date, with=Title, where=Institution, why=Desc)
 ```
+
 
 # Science Communication and Broader Impacts
 ```{r}
