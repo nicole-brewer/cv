@@ -149,7 +149,7 @@ tribble(
    "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience22", "Salt Lake City, UT", "Oct 2022", '', #"https://us-rse.org/rse-escience-2022/abstracts", 
   "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "Int'l RSE Day", "Virtual", "Oct 2021", '(\\underline{\\href{https://doi.org/10.5281/zenodo.7133472}{slides}})',
 ) %>% 
-  brief_entries(glue::glue('\\textbf{<Role>}, <Activity>. <Link>', .open = "<", .close = ">"), When, Conference, .protect = FALSE)
+  brief_entries(glue::glue('\\textbf{<Role>}, <Activity>, <Conference>. <Link>', .open = "<", .close = ">"), When, .protect = FALSE)
 
 ```
 
@@ -158,7 +158,7 @@ tribble(
 tribble(
   ~Date, ~Position, ~Group, ~Institution, ~Desc,
   'Jan 2022 - Present', 'Steering Committee Member', 'Research Software Engineering Association', 'United States',
-  c('Committed at least five hours per week to steering committee and other meetings including the Diversity Equity and Inclusion (DEI), Outreach, and Code of Conduct and Moderation working groups', 'Established the DEI Speaker Series and DEI Media Meetings.'),
+  c('Committed at least five hours per week to steering committee and other meetings including the Diversity, Equity, \\newline and Inclusion (DEI), Outreach, and Code of Conduct and Moderation working groups', 'Established the DEI Speaker Series and DEI Media Meetings.'),
    'Jan 2020 - May 2022', "Co-Chair", 'Women in High Performance Computing', 'Purdue University', 
   c('Organized and served as the host for invited talks where members shared their work or research', 'Created and maintained a formal newsletter featuring opportunities and events for members', 'Submitted annual reports and participated in conference events for the international umberella orgainzation')
     #'Established the \\href{https://www.nicole-brewer.com/long-tales-of-science/}{Long Tales of Science podcast} to continute to improve visibility of women in HPC in spite of discontinuing in-person events in the wake of the COVID-19 pandemic')
@@ -192,7 +192,7 @@ tribble(
   detailed_entries(what=Position, when=Date, with=Title, where=Institution)
 ```
 
-# Open Source Education and Training Resources
+# Open Source Education and Training Materials
 ```{r}
 # if no url, use \\newline
 tribble( 
