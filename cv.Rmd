@@ -5,7 +5,7 @@ position: "Research Software Engineer | Graduate Research Assistant"
 address: "Arizona State University, Tempe, AZ"
 #phone: +1 22 3333 4444
 www: nicole-brewer.com
-mastodon: @catch_me_coding@fosstodon.org
+mastodon: "\\@catch_me_coding\\@fosstodon.org"
 twitter: catch_me_coding
 github: nicole-brewer
 linkedin: nicole-brewer
