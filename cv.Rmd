@@ -5,7 +5,7 @@ position: "Research Software Engineer | Graduate Research Assistant"
 address: "Arizona State University, Tempe, AZ"
 #phone: +1 22 3333 4444
 www: nicole-brewer.com
-#email: "nbrewer6@asu.edu"
+mastodon: @catch_me_coding@fosstodon.org
 twitter: catch_me_coding
 github: nicole-brewer
 linkedin: nicole-brewer
@@ -66,10 +66,9 @@ tribble(
   ~Year, ~Desc, ~Title, ~Awarder,
   '2022', '', '\\textbf{Outstanding Mentorship Award} (\\$750), ASU Graduate and Professional Student Association', '',
   '2022', '', '\\textbf{GPSA Individual Travel Award} (\\$950), ASU Graduate and Professional Student Association', '',
-  '2022', '', '\\textbf{School of Life Science Fellowship} (\\$2,500), Arizona State University', '',
   #'2022', '', '\\textbf{eScience Travel Grant} (\\$700), National Science Foundation', '',
   '2021', "Travel support for early career scholars who are considering pursuing philosophy of science", '\\textbf{UPSS Delegate} (\\$500), Philosophy of Science Biennial Meeting', '',
-  '2020', "Honorarium awarded for notable achievement in the advancement of science gateways", '\\textbf{Young Professional of the Year} (\\$500), Science Gateways Community Institute', '',
+  '2020', "Honorarium awarded for notable achievement in the advancement of science gateways", '\\textbf{Young Professional of the Year Award} (\\$500), Science Gateways Community Institute', '',
   #'2018', 'Travel support to attend PEARC18 and participate in the student program', '\\textbf{Travel Grant} (\\$500), XSEDE', '',
   '2018', 'Awarded for "Classification of Periodicity in Subtraction Game Sequences"', '\\textbf{Phil Andrews Award for Most Transformative Contribution}, Practice and Experience in Advanced Research Computing Conference', ''
 ) %>% 
@@ -83,6 +82,7 @@ tribble(
 tribble(
  ~ title, ~ role, ~ amount, ~ funder, ~ date,
  'Better Scientific Software Fellowship', 'Awardee', 'Up to \\$25,000', 'Exascale Computing Project (DOE/NSF)', 'Jan 2023',
+ 'School of Life Science Fellowship', 'Awardee', '\\$2,500', 'Arizona State University', 'Aug 2022',
 )  %>% 
    brief_entries(glue::glue('\\textbf{<title>} (<amount>), <funder>, <role>.', .open = "<", .close = ">"), date, .protect = FALSE)
 ```
@@ -108,11 +108,11 @@ tribble(
 ```{r}
 tribble(
   ~ Job, ~ Year, ~ Institution, ~ Where, ~Desc,
-  "Research Software Engineer", "Feb 2019 - Apr 2022", "ITaP Research Computing", "Purdue University", list('Implemented a highly interactive, Jupyter-based, GUI wrapper for power analysis software in order to expand the audience and ease of use of a rich set of computational functions via a user-friendly interface', 
-  'Facilitated software design, the implementation of best practices, and internal tool development, and lab documentation to improve the overall sustainability of lab software',
+  "Research Software Engineer", "Feb 2019 - Apr 2022", "ITaP Research Computing", "Purdue University", list('Implemented a highly interactive, Jupyter-based, GUI wrapper for power analysis software in order to expand \\newline the audience and ease of use of a rich set of computational functions via a user-friendly interface', 
+  'Facilitated software design, the implementation of best practices, and internal tool development, and lab \\newline documentation to improve the overall sustainability of lab software',
   'Transform disparate data acquisition and processing scripts into modular classes to be reused for scientific workflows'),
   'Software Verification Engineer', 'Nov 2017 – Nov 2018', 'Aptiv', 'West Lafayette, IN',
-  'Developed comprehensive Unit Test projects that utilized CAN bus protocol communications to verify automotive controller hardware', 
+  'Developed comprehensive Unit Test projects that utilized CAN bus protocol communications to verify \\newline automotive controller hardware', 
 ) %>% 
   detailed_entries(Job, Year, Institution, Where, Desc)
   # 'Designed a dynamic Solr schema to index and query layered geospacial and user-defined metadata', 
@@ -127,9 +127,9 @@ tribble(
 tribble(
   ~Year, ~Type, ~Institution, ~Desc,
   'Aug 2022 - Present', 'Graduate Research Assistant', 'Complex Adaptive Systems, Arizona State University', c('Advisor: Manfred Laubichler',
-  'Using natural language processing, machine learning, network analysis, high performance computing, and mixed social science methods to model the evolution of scientific standards through time', 'Documenting and adapting code and data from prior projects for reuse'),
+  'Using natural language processing, machine learning, network analysis, high performance computing, and mixed \\newline social science methods to model the evolution of scientific standards through time', 'Documenting and adapting code and data from prior projects for reuse'),
   'June 2018 - Dec 2018', 'Student Cluster Competition, Reproducibility Challenge', 'Research Computing, Purdue University', list(
-    'Advisors: Betsy Hillery', 'Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC18 conference', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted directly with the paper’s authors to reproduce specific results and conclusions from the paper'),
+    'Advisors: Betsy Hillery', 'Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC18 conference', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted \\newline directly with the paper’s authors to reproduce specific results and conclusions from the paper'),
     'Jan 2016 - June 2017', 'CSoI Channels Scholar REU',"Center for Science of Information, NSF STC", 
   list('Advisor: Mark Daniel Ward', 
        'Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory',
@@ -173,7 +173,7 @@ tribble(
   ~Date, ~Position, ~Title, ~Institution, ~Desc,
    "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
   'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
-  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', 'Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and entrepreneurial skills essential to effective laboratory and research project managment'
+  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', 'Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and \\newline entrepreneurial skills essential to effective laboratory and research project managment'
 ) %>% 
   detailed_entries(what=Title, when=Date, with=Position, where=Institution, why=Desc)
 ```
@@ -209,14 +209,14 @@ tribble(
   tribble(
   ~Date, ~Position, ~Group, ~Institution, ~Desc,
   'Oct - Nov 2022', 'Mentor', 'Mentor–Protégé Matching', 'SC22',
-  'Provided career and educational advise and helped extend the professional network of an undergraduate mentee at the Supercomputing conference',
+  'Provided career and educational advise and helped extend the professional network of an undergraduate mentee \\newline at the Supercomputing conference',
   'Aug - Nov 2019', 'Staff Advisor', 'Student Cluster Competition', 'SC19', 
-  'Mentored students taking a weekly, two credit hour course in preparation for a competition that I had participated in the year prior', 
+  'Mentored students taking a weekly, two credit hour course in preparation for a competition that I had participated in \\newline the year prior', 
   'June 2019', 'Mentor', 'Science Gateways Community Institute Hackathon', 'PEARC19' ,
   'Answered students code-related questions over the course of an intensive, three day conference hackathon',
   'Aug 2018 - May 2019', 'Staff Mentor', 'Discover Park Undergraduate Research Internship', 'Purdue University', 
-  'Defined the scope of a small project related to our ongoing research projects and met with each student bi-weekly during the course of the semester to help them set achievable short-term goals and guide them through roadblocks they encountered',
-  'Aug - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to improve the recruitment and retention of young women in technology careers'
+  'Defined the scope of a small project related to our ongoing research projects and met with each student bi-weekly \\newline during the course of the semester to help them set achievable short-term goals and guide \\newline them through roadblocks they encountered',
+  'Aug - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to \\newline improve the recruitment and retention of young women in technology careers'
   ) %>% 
   detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc)
 ```
@@ -258,11 +258,11 @@ tribble(
 tribble(
   ~BottomLeft, ~BottomRight, ~TopLeft, ~TopRight,
    'Private lessons from ASU faculty associate Cathy Bates', '', 'Music Theory and Piano Lessons', 'Jan 2023 - May 2023',
-    '\\href{https://www.youtube.com/watch?v=8Nhctug40i4}{ASU Psychodelic Rock Band, RuQe}', '', 'Vocalist and Keyboardist', 'Aug 2022 - Dec 2022'
+    'ASU Psychodelic Rock Band, RuQe', '', 'Vocalist and Keyboardist', 'Aug 2022 - Dec 2022'
 
 
 ) %>% 
-  detailed_entries(what=BottomLeft, when=BottomRight, with=TopLeft, where=TopRight)
+  detailed_entries(what=BottomLeft, when=BottomRight, with=TopLeft, where=TopRight, .protect = FALSE)
 ```
 \newpage
 
