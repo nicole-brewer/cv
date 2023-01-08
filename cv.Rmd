@@ -173,7 +173,7 @@ tribble(
   ~Date, ~Position, ~Title, ~Institution, ~Desc,
    "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
   'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
-  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', 'Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and \\newline entrepreneurial skills essential to effective laboratory and research project managment'
+  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'West Lafayette, IN', list('Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and \\newline entrepreneurial skills essential to effective laboratory and research project managment')
 ) %>% 
   detailed_entries(what=Title, when=Date, with=Position, where=Institution, why=Desc)
 ```
