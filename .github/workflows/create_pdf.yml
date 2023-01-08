@@ -7,28 +7,20 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 0 1 * *"
-#  push:
-#    branches: master
+  push:
+    branches: master
 
 name: docker_cv
 
 jobs:
   build:
     name: create the curriculum vitae pdf file
-    runs-on: ubuntu-latest
     container:
       image: brewer36/r-vitae:latest
       env:
         ORCID_TOKEN: ${{ secrets.ORCID_TOKEN }}
     steps:
      - uses: actions/checkout@v2
-     - name: install texlive
-       run: |
-          sudo apt-get -y update
-          sudo apt-get install -y texlive-base texlive-latex-base
-          sudo apt-get install -y texlive-latex-recommended
-          sudo apt-get install -y texlive-xetex
-          sudo apt-get install -y texlive-fonts-extra
      - name: render the curriculum vitae
        run: |
          Rscript -e "print(getwd())"
