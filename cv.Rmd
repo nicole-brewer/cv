@@ -112,7 +112,7 @@ tribble(
   'Facilitated software design, the implementation of best practices, and internal tool development, and lab \\newline documentation to improve the overall sustainability of lab software',
   'Transform disparate data acquisition and processing scripts into modular classes to be reused for scientific workflows'),
   'Software Verification Engineer', 'Nov 2017 – Nov 2018', 'Aptiv', 'West Lafayette, IN',
-  'Developed comprehensive Unit Test projects that utilized CAN bus protocol communications to verify \\newline automotive controller hardware', 
+  list('Developed comprehensive Unit Test projects that utilized CAN bus protocol communications to verify \\newline automotive controller hardware'), 
 ) %>% 
   detailed_entries(Job, Year, Institution, Where, Desc)
   # 'Designed a dynamic Solr schema to index and query layered geospacial and user-defined metadata', 
