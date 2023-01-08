@@ -3,13 +3,12 @@
 #    https://stackoverflow.com/a/64051330/8302386
 #................................................
 
-
 on:
   workflow_dispatch:
   schedule:
     - cron: "0 0 1 * *"
-  push:
-    branches: master
+#  push:
+#    branches: master
 
 name: docker_cv
 
