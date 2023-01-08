@@ -126,7 +126,7 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Type, ~Institution, ~Desc,
-  'Aug 2022 - Present', 'Graduate Research Assistant', 'Complex Adaptive Systems, Arizona State University', c('Advisor: Manfred Laubichler',
+  'Aug 2022 - Present', 'Graduate Research Assistant', 'Complex Adaptive Systems, Arizona State University', list('Advisor: Manfred Laubichler',
   'Using natural language processing, machine learning, network analysis, high performance computing, and mixed \\newline social science methods to model the evolution of scientific standards through time', 'Documenting and adapting code and data from prior projects for reuse'),
   'June 2018 - Dec 2018', 'Student Cluster Competition, Reproducibility Challenge', 'Research Computing, Purdue University', list(
     'Advisors: Betsy Hillery', 'Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC18 conference', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted \\newline directly with the paper’s authors to reproduce specific results and conclusions from the paper'),
