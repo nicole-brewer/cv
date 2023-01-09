@@ -24,6 +24,7 @@ jobs:
      - uses: actions/checkout@v2
      - name: render the curriculum vitae
        run: |
+         find .
          Rscript -e "print(getwd())"
          Rscript -e "rmarkdown::render(input = file.path(getwd(), 'cv.Rmd'), params = list(work_dir = getwd()))"
      - name: Commit files
