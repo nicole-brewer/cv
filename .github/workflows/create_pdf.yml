@@ -22,14 +22,17 @@ jobs:
         ORCID_TOKEN: ${{ secrets.ORCID_TOKEN }}
     steps:
      - uses: actions/checkout@v2
-     - name: render the curriculum vitae
+     - name: list files
+       run: find .
+     - name: Render the curriculum vitae
        run: |
          Rscript -e "print(getwd())"
          Rscript -e "rmarkdown::render(input = file.path(getwd(), 'cv.Rmd'), params = list(work_dir = getwd()))"
-     - name: Commit files
+     - name: Configure repo
        run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
+     - name: Commit files
           git add --all
           git commit -am "add the cv.pdf file to the repository"
           git push
