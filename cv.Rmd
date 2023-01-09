@@ -10,7 +10,9 @@ twitter: catch_me_coding
 github: nicole-brewer
 linkedin: nicole-brewer
 date: "`r format(Sys.time(), '%B %Y')`"
-output: vitae::awesomecv
+output:
+  vitae::awesomecv:
+    keep_tex: true
 headcolor: '000000'
 ---
 
@@ -18,9 +20,7 @@ headcolor: '000000'
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(vitae)
 library(tibble)
-library(rorcid)
 library(dplyr)
-library(rcrossref)
 ```
 
 # Education
@@ -43,12 +43,12 @@ tribble(
 # load from ORCID
 # knit requires ORCID_TOKEN in .Renviron
 # rcrossref requires crossref_email in .Renviron
-source('orcid2bib.R')
-ORCID = '0000-0002-6723-8940'
+#source('orcid2bib.R')
+#ORCID = '0000-0002-6723-8940'
 
 # create a pubs.bib file that contains specific types of works from orcid user
-paper_types <- c('journal-article', 'conference-paper')
-orcid2bib(ORCID, 'pubs', paper_types)
+#paper_types <- c('journal-article', 'conference-paper')
+#orcid2bib(ORCID, 'pubs', paper_types)
 
 # combine text from pubs.bib and manual_entry
 combined_bib <- c(readLines("pubs.bib"), "\n", readLines("manual_entry.bib"))
@@ -173,7 +173,7 @@ tribble(
   ~Date, ~Position, ~Title, ~Institution, ~Desc,
    "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
   'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
-  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'Purdue University', list('A "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and \\newline entrepreneurial skills essential to effective laboratory and research project managment')
+  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'Purdue University', c('Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and entrepreneurial skills essential to effective laboratory and research project managment')
 ) %>% 
   detailed_entries(what=Title, when=Date, with=Position, where=Institution, why=Desc)
 ```
@@ -218,7 +218,7 @@ tribble(
   'Defined the scope of a small project related to our ongoing research projects and met with each student bi-weekly \\newline during the course of the semester to help them set achievable short-term goals and guide \\newline them through roadblocks they encountered',
   'Aug - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to \\newline improve the recruitment and retention of young women in technology careers'
   ) %>% 
-  detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc)
+  detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc, .protect=FALSE)
 ```
 
 # Science Communication and Broader Impacts
