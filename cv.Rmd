@@ -37,23 +37,6 @@ tribble(
 # Publications
 
 ```{r}
-# load from a file
-# knitr::write_bib(c("vitae", "tibble"), "packages.bib")
-
-# load from ORCID
-# knit requires ORCID_TOKEN in .Renviron
-# rcrossref requires crossref_email in .Renviron
-#source('orcid2bib.R')
-#ORCID = '0000-0002-6723-8940'
-
-# create a pubs.bib file that contains specific types of works from orcid user
-#paper_types <- c('journal-article', 'conference-paper')
-#orcid2bib(ORCID, 'pubs', paper_types)
-
-# combine text from pubs.bib and manual_entry
-combined_bib <- c(readLines("pubs.bib"), "\n", readLines("manual_entry.bib"))
-writeLines(combined_bib, "combined.bib")
-
 # sort entries by date issued
 bibliography_entries("combined.bib") %>%
   arrange(desc(issued))
@@ -150,13 +133,14 @@ tribble(
   "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "Int'l RSE Day", "Virtual", "Oct 2021", '(\\underline{\\href{https://doi.org/10.5281/zenodo.7133472}{slides}})',
 ) %>% 
   brief_entries(glue::glue('\\textbf{<Role>}, <Activity>, <Conference>. <Link>', .open = "<", .close = ">"), When, .protect = FALSE)
-
 ```
 
-# Service
+# Professional Service
 ```{r}
 tribble(
   ~Date, ~Position, ~Group, ~Institution, ~Desc,
+  'Jan 2022 - Present', 'Council Member', 'International Council of RSE Association', "Int'l", 
+  c('Chaired and organized council meetings', 'Participated in coordinated efforts, such as conferences, workshops, and podcast episodes, that fostered international collaboration'),
   'Jan 2022 - Present', 'Steering Committee Member', 'Research Software Engineering Association', 'United States',
   c('Committed at least five hours per week to steering committee and other meetings including the Diversity, Equity, \\newline and Inclusion (DEI), Outreach, and Code of Conduct and Moderation working groups', 'Established the DEI Speaker Series and DEI Media Meetings.'),
    'Jan 2020 - May 2022', "Co-Chair", 'Women in High Performance Computing', 'Purdue University', 
@@ -164,6 +148,17 @@ tribble(
     #'Established the \\href{https://www.nicole-brewer.com/long-tales-of-science/}{Long Tales of Science podcast} to continute to improve visibility of women in HPC in spite of discontinuing in-person events in the wake of the COVID-19 pandemic')
 ) %>% 
   detailed_entries(what=Group, when=Date, with=Position, where=Institution, why=Desc, .protect = FALSE)
+```
+
+## Reviewing
+
+```{r} 
+  tribble(
+  ~Date, ~Role, ~Program,
+  '2023', 'Reviewer', 'GPSA Travel Grant Program',
+  '2022', 'Reviewer', 'Reproducibility Paper, Student Cluster Competition, SC22', 
+) %>% 
+   brief_entries(glue::glue('\\textbf{<Role>}, <Program>', .open = "<", .close = ">"), Date, .protect = FALSE)
 ```
 
 # Certifications and Training
