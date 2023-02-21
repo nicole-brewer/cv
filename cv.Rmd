@@ -64,7 +64,7 @@ tribble(
 # if no url, use \\newline
 tribble(
  ~ title, ~ role, ~ amount, ~ funder, ~ date,
- 'Better Scientific Software Fellowship', 'Awardee', 'Up to \\$25,000', 'Exascale Computing Project (DOE/NSF)', 'Jan 2023',
+ 'Better Scientific Software Fellowship', 'Awardee', '\\$25,000', 'Exascale Computing Project (DOE/NSF)', 'Jan 2023',
  'School of Life Science Fellowship', 'Awardee', '\\$2,500', 'Arizona State University', 'Aug 2022',
 )  %>% 
    brief_entries(glue::glue('\\textbf{<title>} (<amount>), <funder>, <role>.', .open = "<", .close = ">"), date, .protect = FALSE)
@@ -73,9 +73,9 @@ tribble(
 # Posters and Presentations
 ```{r}
 tribble( 
- ~ title, ~ format, ~ event, ~ place, ~ date, ~ url, ~ additional, 
-   'Scientific Web Applications Template', 'presenter', 'Mini Gateways 2022', 'Virtual', 'Mar 2022',
- 'https://doi.org/10.5281/zenodo.7133296', '',
+ ~ title, ~ format, ~ event, ~ place, ~ date, ~ url, ~ additional,
+    'Standalone Web Application Template', 'presenter', 'Mini Gateways 2022', 'Virtual', 'Mar 2022','https://youtu.be/iv6KswTyVLE?t=4086', '',
+   'Scientific Web Applications with Jupyter Notebooks', 'presenter', 'US-RSE Comm. Call', 'Virtual', 'Mar 2022','https://doi.org/10.5281/zenodo.6345262', '',
  "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", 'abstract', "Gateways 2021", "Virtual", 'July 2021','https://doi.org/10.5281/zenodo.5570605', 
  ' (\\underline{\\href{https://www.youtube.com/watch?v=O_KAupUYcyk}{video}})',
  "Classification of Periodicity in Subtraction Game Sequences", "poster", "PEARC18", "Pittsburg, PA", 'June 2018', 'https://doi.org/10.5281/zenodo.7133317', '',
@@ -83,9 +83,7 @@ tribble(
   brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<format>}}) <additional>', .open = "<", .close = ">"), date, event, .protect = FALSE)
 ```
 
-
-<!-- # Interactive Notebooks and Scientific Web Applications -->
-
+<!-- # Peer-Reviewed Notebooks and Scientific Web Applications -->
 
 # Professional Experience
 ```{r}
@@ -103,7 +101,6 @@ tribble(
   #'Mentored students participating in semester-long internships'
 ```
 
-\newpage
 
 # Research Experience
 ```{r}
@@ -126,11 +123,11 @@ tribble(
 ```{r}
 tribble(
   ~Activity, ~Role, ~Conference, ~Location, ~When, ~Link,
+  'Notebook Submission Subcommittee', 'Co-Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
   'Student Program', 'Co-Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
-  'United States Research Software Engineering Association', 'Booth Event Coordinator', 'SC22', 'Dallas, TX', 'Nov 2022', '',
  'Reproducibility Challenge', 'Committee Member', 'SC22', 'Dallas, TX',  'Nov 2022', '', 
    "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience22", "Salt Lake City, UT", "Oct 2022", '', #"https://us-rse.org/rse-escience-2022/abstracts", 
-  "How to Recruit and Sustain a Diverse and Inclusive Workforce: A Case Study",  "Invited Panelist", "Int'l RSE Day", "Virtual", "Oct 2021", '(\\underline{\\href{https://doi.org/10.5281/zenodo.7133472}{slides}})',
+  "How to Recruit and Sustain a Diverse and Inclusive Workforce",  "Invited Panelist", "Int'l RSE Day", "Virtual", "Oct 2021", '(\\underline{\\href{https://doi.org/10.5281/zenodo.7133472}{slides}})',
 ) %>% 
   brief_entries(glue::glue('\\textbf{<Role>}, <Activity>, <Conference>. <Link>', .open = "<", .close = ">"), When, .protect = FALSE)
 ```
@@ -139,7 +136,7 @@ tribble(
 ```{r}
 tribble(
   ~Date, ~Position, ~Group, ~Institution, ~Desc,
-  'Jan 2022 - Present', 'Council Member', 'International Council of RSE Association', "Int'l", 
+  'Jan 2022 - Present', 'Council Member', 'International Council of RSE Association', "International", 
   c('Chaired and organized council meetings', 'Participated in coordinated efforts, such as conferences, workshops, and podcast episodes, that fostered international collaboration'),
   'Jan 2022 - Present', 'Steering Committee Member', 'Research Software Engineering Association', 'United States',
   c('Committed at least five hours per week to steering committee and other meetings including the Diversity, Equity, \\newline and Inclusion (DEI), Outreach, and Code of Conduct and Moderation working groups', 'Established the DEI Speaker Series and DEI Media Meetings.'),
@@ -150,12 +147,13 @@ tribble(
   detailed_entries(what=Group, when=Date, with=Position, where=Institution, why=Desc, .protect = FALSE)
 ```
 
+\medskip
 ## Reviewing
 
 ```{r} 
   tribble(
   ~Date, ~Role, ~Program,
-  '2023', 'Reviewer', 'GPSA Travel Grant Program',
+  '2023', 'Reviewer', 'Notebook Submissions, US-RSE Conference',
   '2022', 'Reviewer', 'Reproducibility Paper, Student Cluster Competition, SC22', 
 ) %>% 
    brief_entries(glue::glue('\\textbf{<Role>}, <Program>', .open = "<", .close = ">"), Date, .protect = FALSE)
@@ -173,8 +171,6 @@ tribble(
   detailed_entries(what=Title, when=Date, with=Position, where=Institution, why=Desc)
 ```
 
-\newpage
-
 
 # Teaching Experience
 ```{r}
@@ -187,13 +183,15 @@ tribble(
   detailed_entries(what=Position, when=Date, with=Title, where=Institution)
 ```
 
-# Open Source Education and Training Materials
+\medskip
+
+<!-- Add "peer reviewed" -->
+## Open Source Education and Training Materials
 ```{r}
 # if no url, use \\newline
 tribble( 
  ~ title, ~ type, ~ year, ~url,
  'HPC Unplugged: A lesson plan for teaching parallel and distributed computing', 'booklet', 'Sep 2022', 'https://www.nicole-brewer.com/hpc-unplugged/',
- #'Corpus Creation with Scopus (in progress)', 'binder', 'Aug 2022', 'https://mybinder.org/v2/gh/nicole-brewer/corpus_creation_with_scopus/HEAD',
  "R for Research Scientists", "booklet", 'Mar 2020', 'https://www.nicole-brewer.com/r-for-research-scientists/'
  ) %>% 
   brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<type>}})', .open = "<", .close = ">"), year, .protect = FALSE)
@@ -221,7 +219,7 @@ tribble(
 # if no url, use \\newline
 tribble(
  ~ title, ~ type, ~ event, ~ place, ~ date, ~ url, ~ format,
- 'Reproducibility Initiative at SC22', 'Host', 'Long Tales of Science', 'Podcast', 'Jan 2023', 'https://nicole-brewer.github.io/long-tales-of-science/005/', 'episode',
+ 'Reproducibility Initiative at SC22', 'Host', 'Long Tales of Science', 'Podcast', 'Mar 2023', 'https://nicole-brewer.github.io/long-tales-of-science/005/', 'episode',
  'Trial by Fire', 'Host', 'Long Tales of Science', 'Podcast' , 'May 2022',
  'https://nicole-brewer.github.io/long-tales-of-science/004/', 'episode',
   "Research Software Engineering", "Interviewee", "Hello PhD", "Podcast", "Apr 2022",
@@ -236,7 +234,6 @@ tribble(
    brief_entries(glue::glue('\\textbf{<type>}, <title>, \\textit{<event>}. (\\underline{\\href{<url>}{<format>}})', .open = "<", .close = ">"), date, .protect = FALSE)
 ```
 
-
 # Extracurricular Leadership
 ```{r}
   tribble(
@@ -246,6 +243,8 @@ tribble(
 ) %>% 
   brief_entries(glue::glue('\\textbf{<Position>}, <Group>', .open = "<", .close = ">"), Date, .protect = FALSE)
 ```
+
+\newpage
 
 # Extracurricular Activity
 ```{r}
@@ -259,7 +258,7 @@ tribble(
 ) %>% 
   detailed_entries(what=BottomLeft, when=BottomRight, with=TopLeft, where=TopRight, .protect = FALSE)
 ```
-\newpage
+
 
 ## Major Endurance Sport Events
 ```{r} 
