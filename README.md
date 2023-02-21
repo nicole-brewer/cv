@@ -26,4 +26,4 @@ Make sure you have Docker installed, then run...
 
 This will start an instance of RStudio Server. There will be a printed message that tells you your password. To get to the login page, visit localhost:8787 in a browser. Use the given password with the username "rstudio" to login to the RStudio Server.
 
-If you click on the "workspace" directory in the "Files" pane, you will see all of your repository files are present. They are [mounted with a volume](https://rocker-project.org/use/shared_volumes.html#bind-mounts) so any changes you make will persist after shutting down the Docker container. From here, you can edit your files and use the `rmarkdown::render('workspace/cv.Rmd')` command to render cv.PDF.
+If you click on the "workspace" directory in the "Files" pane, you will see all of your repository files are present. They are [mounted with a volume](https://rocker-project.org/use/shared_volumes.html#bind-mounts) so any changes you make will persist after shutting down the Docker container. From here, you can edit your files and use the `rmarkdown::render('cv.Rmd')` command to render cv.PDF.
