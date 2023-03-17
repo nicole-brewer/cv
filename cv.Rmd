@@ -70,12 +70,11 @@ tribble(
    brief_entries(glue::glue('\\textbf{<title>} (<amount>), <funder>, <role>.', .open = "<", .close = ">"), date, .protect = FALSE)
 ```
 
-# Posters and Presentations
+# Posters and Abstracts
 ```{r}
 tribble( 
  ~ title, ~ format, ~ event, ~ place, ~ date, ~ url, ~ additional,
     'Standalone Web Application Template', 'presenter', 'Mini Gateways 2022', 'Virtual', 'Mar 2022','https://youtu.be/iv6KswTyVLE?t=4086', '',
-   'Scientific Web Applications with Jupyter Notebooks', 'presenter', 'US-RSE Comm. Call', 'Virtual', 'Mar 2022','https://doi.org/10.5281/zenodo.6345262', '',
  "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", 'abstract', "Gateways 2021", "Virtual", 'July 2021','https://doi.org/10.5281/zenodo.5570605', 
  ' (\\underline{\\href{https://www.youtube.com/watch?v=O_KAupUYcyk}{video}})',
  "Classification of Periodicity in Subtraction Game Sequences", "poster", "PEARC18", "Pittsburg, PA", 'June 2018', 'https://doi.org/10.5281/zenodo.7133317', '',
@@ -83,7 +82,9 @@ tribble(
   brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<format>}}) <additional>', .open = "<", .close = ">"), date, event, .protect = FALSE)
 ```
 
+
 <!-- # Peer-Reviewed Notebooks and Scientific Web Applications -->
+
 
 # Professional Experience
 ```{r}
@@ -100,6 +101,8 @@ tribble(
   #'Implemented interactions with this database in a web application in PHP and JavaScript',
   #'Mentored students participating in semester-long internships'
 ```
+
+\newpage
 
 
 # Research Experience
@@ -119,6 +122,18 @@ tribble(
   detailed_entries(what=Institution, when=Year, with=Type, why=Desc)
 ```
 
+# Talks and Panels
+```{r}
+tribble( 
+ ~ title, ~ format, ~ event, ~ place, ~ date, ~ url, ~ additional,
+ 'Notebooks as Scholarly Objects', 'host', 'US-RSE Comm. Call', 'Virtual', 'Mar 2023',
+ 'https://www.youtube.com/watch?v=Z4QXKDIDu6k', '',
+   "Software Engineering Topics Relevant to eScience", "invited panelist", "eScience22", "Salt Lake City, UT", "Oct 2022", "https://us-rse.org/rse-escience-2022/abstracts", '',
+ 'Scientific Web Applications with Jupyter Notebooks', 'presenter', 'US-RSE Comm. Call', 'Virtual', 'Mar 2022','https://doi.org/10.5281/zenodo.6345262', '',
+  "How to Recruit and Sustain a Diverse and Inclusive Workforce",  "invited panelist", "Int'l RSE Day", "Virtual", "Oct 2021", 'https://doi.org/10.5281/zenodo.7133472', ''
+ ) %>% 
+  brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<format>}}) <additional>', .open = "<", .close = ">"), date, event, .protect = FALSE)
+```
 # Conference Activity
 ```{r}
 tribble(
@@ -126,8 +141,6 @@ tribble(
   'Notebook Submission Subcommittee', 'Co-Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
   'Student Program', 'Co-Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
  'Reproducibility Challenge', 'Committee Member', 'SC22', 'Dallas, TX',  'Nov 2022', '', 
-   "Software Engineering Topics Relevant to eScience", "Invited Panelist", "eScience22", "Salt Lake City, UT", "Oct 2022", '', #"https://us-rse.org/rse-escience-2022/abstracts", 
-  "How to Recruit and Sustain a Diverse and Inclusive Workforce",  "Invited Panelist", "Int'l RSE Day", "Virtual", "Oct 2021", '(\\underline{\\href{https://doi.org/10.5281/zenodo.7133472}{slides}})',
 ) %>% 
   brief_entries(glue::glue('\\textbf{<Role>}, <Activity>, <Conference>. <Link>', .open = "<", .close = ">"), When, .protect = FALSE)
 ```
@@ -148,28 +161,19 @@ tribble(
 ```
 
 \medskip
-## Reviewing
+## **Reviewing**
 
 ```{r} 
   tribble(
-  ~Date, ~Role, ~Program,
-  '2023', 'Reviewer', 'Notebook Submissions, US-RSE Conference',
-  '2022', 'Reviewer', 'Reproducibility Paper, Student Cluster Competition, SC22', 
+  ~Venue, ~Role, ~Type, ~Program,
+  '2023', 'Reviewer', 'Notebook Submissions', 'US-RSE',
+  '2023', 'Reviewer', 'Tutorials and Digital Humanities', 'SciPy',
+  '2022', 'Reviewer', 'Student Cluster Competition, Reproducibility Paper', 'SC' 
 ) %>% 
-   brief_entries(glue::glue('\\textbf{<Role>}, <Program>', .open = "<", .close = ">"), Date, .protect = FALSE)
+   brief_entries(glue::glue('\\textbf{<Program>}, <Type>', .open = "<", .close = ">"), Venue , .protect = FALSE)
 ```
+\newpage
 
-# Certifications and Training
-
-```{r}
-tribble(
-  ~Date, ~Position, ~Title, ~Institution, ~Desc,
-   "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
-  'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
-  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'Purdue University', c('Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and entrepreneurial skills essential to effective laboratory and research project managment')
-) %>% 
-  detailed_entries(what=Title, when=Date, with=Position, where=Institution, why=Desc)
-```
 
 
 # Teaching Experience
@@ -182,11 +186,19 @@ tribble(
 ) %>% 
   detailed_entries(what=Position, when=Date, with=Title, where=Institution)
 ```
-
+\medskip
+## **Tutorials**
+```{r}
+tribble(
+  ~Title, ~Hours, ~Event, ~Location, ~Date, ~Link, 
+  'Notebook Submission Tutorial', '1.5', 'US-RSE', 'Virtual', 'Apr 2023', 'https://us-rse.org/usrse23/2023-03-03-notebook-submission-tutorial',
+) %>% 
+  brief_entries(glue::glue('\\textbf{<Title>} (\\underline{\\href{<Link>}{<Hours> hours}}), <Event>, <Location>', .open = "<", .close = ">"), Date, .protect = FALSE)
+```
 \medskip
 
 <!-- Add "peer reviewed" -->
-## Open Source Education and Training Materials
+## **Open Source Education and Training Materials**
 ```{r}
 # if no url, use \\newline
 tribble( 
@@ -195,23 +207,6 @@ tribble(
  "R for Research Scientists", "booklet", 'Mar 2020', 'https://www.nicole-brewer.com/r-for-research-scientists/'
  ) %>% 
   brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<type>}})', .open = "<", .close = ">"), year, .protect = FALSE)
-```
-
-# Mentorship and Outreach
-```{r}
-  tribble(
-  ~Date, ~Position, ~Group, ~Institution, ~Desc,
-  'Oct - Nov 2022', 'Mentor', 'Mentor–Protégé Matching', 'SC22',
-  'Provided career and educational advise and helped extend the professional network of an undergraduate mentee \\newline at the Supercomputing conference',
-  'Aug - Nov 2019', 'Staff Advisor', 'Student Cluster Competition', 'SC19', 
-  'Mentored students taking a weekly, two credit hour course in preparation for a competition that I had participated in \\newline the year prior', 
-  'June 2019', 'Mentor', 'Science Gateways Community Institute Hackathon', 'PEARC19' ,
-  'Answered students code-related questions over the course of an intensive, three day conference hackathon',
-  'Aug 2018 - May 2019', 'Staff Mentor', 'Discover Park Undergraduate Research Internship', 'Purdue University', 
-  'Defined the scope of a small project related to our ongoing research projects and met with each student bi-weekly \\newline during the course of the semester to help them set achievable short-term goals and guide \\newline them through roadblocks they encountered',
-  'Aug - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to \\newline improve the recruitment and retention of young women in technology careers'
-  ) %>% 
-  detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc, .protect=FALSE)
 ```
 
 # Science Communication and Broader Impacts
@@ -234,6 +229,38 @@ tribble(
    brief_entries(glue::glue('\\textbf{<type>}, <title>, \\textit{<event>}. (\\underline{\\href{<url>}{<format>}})', .open = "<", .close = ">"), date, .protect = FALSE)
 ```
 
+# Mentorship and Outreach
+```{r}
+  tribble(
+  ~Date, ~Position, ~Group, ~Institution, ~Desc,
+  'Oct - Nov 2022', 'Mentor', 'Mentor–Protégé Matching', 'SC22',
+  'Provided career and educational advise and helped extend the professional network of an undergraduate mentee \\newline at the Supercomputing conference',
+  'Aug - Nov 2019', 'Staff Advisor', 'Student Cluster Competition', 'SC19', 
+  'Mentored students taking a weekly, two credit hour course in preparation for a competition that I had participated in \\newline the year prior', 
+  'June 2019', 'Mentor', 'Science Gateways Community Institute Hackathon', 'PEARC19' ,
+  'Answered students code-related questions over the course of an intensive, three day conference hackathon',
+  'Aug 2018 - May 2019', 'Staff Mentor', 'Discover Park Undergraduate Research Internship', 'Purdue University', 
+  'Defined the scope of a small project related to our ongoing research projects and met with each student bi-weekly \\newline during the course of the semester to help them set achievable short-term goals and guide \\newline them through roadblocks they encountered',
+  'Aug - Dec 2018', 'Near-Peer Mentor', 'Mentors for Aspiring Girls in Computing', 'Purdue University', 'Led hands-on activities to teach computer science concepts to local middle and high school students in order to \\newline improve the recruitment and retention of young women in technology careers'
+  ) %>% 
+  detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc, .protect=FALSE)
+```
+
+# Certifications and Training
+
+```{r}
+tribble(
+  ~Date, ~Position, ~Title, ~Institution, ~Desc,
+   "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
+  'Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization',
+  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'Purdue University', c('Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and entrepreneurial skills essential to effective laboratory and research project managment')
+) %>% 
+  detailed_entries(what=Title, when=Date, with=Position, where=Institution, why=Desc)
+```
+
+
+\newpage
+
 # Extracurricular Leadership
 ```{r}
   tribble(
@@ -244,7 +271,6 @@ tribble(
   brief_entries(glue::glue('\\textbf{<Position>}, <Group>', .open = "<", .close = ">"), Date, .protect = FALSE)
 ```
 
-\newpage
 
 # Extracurricular Activity
 ```{r}
