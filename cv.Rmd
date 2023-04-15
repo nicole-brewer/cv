@@ -53,7 +53,7 @@ tribble(
   '2021', "Travel support for early career scholars who are considering pursuing philosophy of science", '\\textbf{UPSS Delegate} (\\$500), Philosophy of Science Biennial Meeting', '',
   '2020', "Honorarium awarded for notable achievement in the advancement of science gateways", '\\textbf{Young Professional of the Year Award} (\\$500), Science Gateways Community Institute', '',
   #'2018', 'Travel support to attend PEARC18 and participate in the student program', '\\textbf{Travel Grant} (\\$500), XSEDE', '',
-  '2018', 'Awarded for "Classification of Periodicity in Subtraction Game Sequences"', '\\textbf{Phil Andrews Award for Most Transformative Contribution}, Practice and Experience in Advanced Research Computing Conference', ''
+  '2018', 'Awarded for "Classification of Periodicity in Subtraction Game Sequences"', '\\textbf{Phil Andrews Award}, Practice and Experience in Advanced Research Computing Conference', ''
 ) %>% 
   brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
 ```
@@ -138,8 +138,8 @@ tribble(
 ```{r}
 tribble(
   ~Activity, ~Role, ~Conference, ~Location, ~When, ~Link,
-  'Notebook Submission Subcommittee', 'Co-Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
-  'Student Program', 'Co-Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
+  'Notebook Submission Subcommittee', 'Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
+  'Student Program Committee', 'Co-Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
  'Reproducibility Challenge', 'Committee Member', 'SC22', 'Dallas, TX',  'Nov 2022', '', 
 ) %>% 
   brief_entries(glue::glue('\\textbf{<Role>}, <Activity>, <Conference>. <Link>', .open = "<", .close = ">"), When, .protect = FALSE)
@@ -191,9 +191,11 @@ tribble(
 ```{r}
 tribble(
   ~Title, ~Hours, ~Event, ~Location, ~Date, ~Link, 
+  'How the Little Jupyter Notebook Became a Web App: Managing Increasing Complexity with nbdev', '4', 'SciPy', 'Austin, TX', 'July 2023', 'https://www.scipy2023.scipy.org/',
   'Notebook Submission Tutorial', '1.5', 'US-RSE', 'Virtual', 'Apr 2023', 'https://us-rse.org/usrse23/2023-03-03-notebook-submission-tutorial',
 ) %>% 
   brief_entries(glue::glue('\\textbf{<Title>} (\\underline{\\href{<Link>}{<Hours> hours}}), <Event>, <Location>', .open = "<", .close = ">"), Date, .protect = FALSE)
+
 ```
 \medskip
 
@@ -214,7 +216,7 @@ tribble(
 # if no url, use \\newline
 tribble(
  ~ title, ~ type, ~ event, ~ place, ~ date, ~ url, ~ format,
- 'Reproducibility Initiative at SC22', 'Host', 'Long Tales of Science', 'Podcast', 'Mar 2023', 'https://nicole-brewer.github.io/long-tales-of-science/005/', 'episode',
+ 'Reproducibility Initiative at SC22', 'Host', 'Long Tales of Science', 'Podcast', 'May 2023', 'https://nicole-brewer.github.io/long-tales-of-science/005/', 'episode',
  'Trial by Fire', 'Host', 'Long Tales of Science', 'Podcast' , 'May 2022',
  'https://nicole-brewer.github.io/long-tales-of-science/004/', 'episode',
   "Research Software Engineering", "Interviewee", "Hello PhD", "Podcast", "Apr 2022",
