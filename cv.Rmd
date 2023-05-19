@@ -74,10 +74,12 @@ tribble(
 ```{r}
 tribble( 
  ~ title, ~ format, ~ event, ~ place, ~ date, ~ url, ~ additional,
-    'Standalone Web Application Template', 'presenter', 'Mini Gateways 2022', 'Virtual', 'Mar 2022','https://youtu.be/iv6KswTyVLE?t=4086', '',
- "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", 'abstract', "Gateways 2021", "Virtual", 'July 2021','https://doi.org/10.5281/zenodo.5570605', 
+ 'Recommended Libraries for Cyberinfrastructure Users Developing Jupyter Notebooks', 'poster', 'RMACC HPC Sym.', 'Scottsdale, AZ', 'June 2023',
+ 'https://doi.org/10.5281/zenodo.7950944', '' ,
+    'Standalone Web Application Template', 'presenter', 'Mini Gateways', 'Virtual', 'Mar 2022','https://youtu.be/iv6KswTyVLE?t=4086', '',
+ "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", 'abstract', "Gateways", "Virtual", 'July 2021','https://doi.org/10.5281/zenodo.5570605', 
  ' (\\underline{\\href{https://www.youtube.com/watch?v=O_KAupUYcyk}{video}})',
- "Classification of Periodicity in Subtraction Game Sequences", "poster", "PEARC18", "Pittsburg, PA", 'June 2018', 'https://doi.org/10.5281/zenodo.7133317', '',
+ "Classification of Periodicity in Subtraction Game Sequences", "poster", "PEARC", "Pittsburg, PA", 'June 2018', 'https://doi.org/10.5281/zenodo.7133317', '',
  ) %>% 
   brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<format>}}) <additional>', .open = "<", .close = ">"), date, event, .protect = FALSE)
 ```
