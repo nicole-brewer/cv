@@ -33,6 +33,46 @@ tribble(
 ) %>% 
   detailed_entries(Degree, Year, Institution, Where)
 ```
+# Professional Employment
+
+```{r}
+tribble(
+  ~ Job, ~ Year, ~ Institution, ~ Where, ~Desc,
+     'Graduate Research Assistant', 'Aug 2022 - Present', 'Complex Adaptive Systems', 'Arizona State University', list('Advisor: Manfred Laubichler',
+  'Using natural language processing, machine learning, network analysis, high performance computing, and mixed \\newline social science methods to model the evolution of scientific standards through time', 'Documenting and adapting code and data from prior projects for reuse'),
+  "Research Software Engineer", "Feb 2019 - Apr 2022", "ITaP Research Computing", "Purdue University", list('Implemented a highly interactive, Jupyter-based, GUI wrapper for power analysis software in order to expand \\newline the audience and ease of use of a rich set of computational functions via a user-friendly interface', 
+  'Facilitated software design, the implementation of best practices, and internal tool development, and lab \\newline documentation to improve the overall sustainability of lab software',
+  'Transform disparate data acquisition and processing scripts into modular classes to be reused for scientific workflows'),
+  'Software Engineer', 'Nov 2017 – Nov 2018', 'Aptiv', 'West Lafayette, IN',
+  list('Developed comprehensive Unit Test projects that utilized CAN bus protocol communications to verify \\newline automotive controller hardware'), 
+      'CSoI Channels Scholar REU','Jan 2016 - June 2017', "Center for Science of Information, NSF STC", 'West Lafayette, IN',
+  list('Advisor: Mark Daniel Ward', 
+       'Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory',
+       'Analyzed batching strategies of parallel computation to efficiently detect an unknown length of repeating sequences in long strings',
+       'Developed a command line interface and file managment system in Python to prevent human error and enhance the usability of codebase'),
+) %>% 
+  detailed_entries(Institution, Year, Job, Where, Desc)
+  # 'Designed a dynamic Solr schema to index and query layered geospacial and user-defined metadata', 
+  #'Implemented interactions with this database in a web application in PHP and JavaScript',
+  #'Mentored students participating in semester-long internships'
+```
+
+
+# Grants, Awards, and Fellowships
+
+```{r}
+# if no url, use \\newline
+tribble(
+ ~ title, ~ role, ~ amount, ~ funder, ~ date, ~url,
+ 'Better Scientific Software Fellowship', ', Internal PI', ' (\\$25,000)', 'Exascale Computing Project (DOE/NSF)', 'Jan 2023', 'https://bssw.io/fellows/nicole-brewer',
+ 'Outstanding Mentorship Award', '', ' (\\$750)', 'ASU Graduate and Professional Student Association','Dec 2022', '',
+ 'School of Life Science Fellowship','', ' (\\$2,500)', 'Arizona State University', 'Aug 2022', '',
+ 'Young Professional of the Year Award', '', '(\\$500)', 'Science Gateways Community Institute', 'July 2020', '', #"Honorarium awarded for notable achievement in the advancement of science gateways",
+ 'Phil Andrews Award', '', '', 'Practice and Experience in Advanced Research Computing Conference', 'June 2018', '', #'Awarded for "Classification of Periodicity in Subtraction Game Sequences"'
+
+)  %>% 
+   brief_entries(glue::glue('\\textbf{\\href{<url>}{<title>}}<amount> <funder><role>.', .open = "<", .close = ">"), date, .protect = FALSE)
+```
 
 # Publications
 
@@ -42,87 +82,31 @@ bibliography_entries("combined.bib") %>%
   arrange(desc(issued))
 ```
 
-# Honors and Awards
+\pagebreak
 
-```{r}
-tribble(
-  ~Year, ~Desc, ~Title, ~Awarder,
-  '2022', '', '\\textbf{Outstanding Mentorship Award} (\\$750), ASU Graduate and Professional Student Association', '',
-  '2022', '', '\\textbf{GPSA Individual Travel Award} (\\$950), ASU Graduate and Professional Student Association', '',
-  #'2022', '', '\\textbf{eScience Travel Grant} (\\$700), National Science Foundation', '',
-  '2021', "Travel support for early career scholars who are considering pursuing philosophy of science", '\\textbf{UPSS Delegate} (\\$500), Philosophy of Science Biennial Meeting', '',
-  '2020', "Honorarium awarded for notable achievement in the advancement of science gateways", '\\textbf{Young Professional of the Year Award} (\\$500), Science Gateways Community Institute', '',
-  #'2018', 'Travel support to attend PEARC18 and participate in the student program', '\\textbf{Travel Grant} (\\$500), XSEDE', '',
-  '2018', 'Awarded for "Classification of Periodicity in Subtraction Game Sequences"', '\\textbf{Phil Andrews Award}, Practice and Experience in Advanced Research Computing Conference', ''
-) %>% 
-  brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
-```
 
-# Grants and Fellowships
-
-```{r}
-# if no url, use \\newline
-tribble(
- ~ title, ~ role, ~ amount, ~ funder, ~ date,
- 'Better Scientific Software Fellowship', 'Awardee', '\\$25,000', 'Exascale Computing Project (DOE/NSF)', 'Jan 2023',
- 'School of Life Science Fellowship', 'Awardee', '\\$2,500', 'Arizona State University', 'Aug 2022',
-)  %>% 
-   brief_entries(glue::glue('\\textbf{<title>} (<amount>), <funder>, <role>.', .open = "<", .close = ">"), date, .protect = FALSE)
-```
 
 # Posters and Abstracts
 ```{r}
 tribble( 
  ~ title, ~ format, ~ event, ~ place, ~ date, ~ url, ~ additional,
- 'Recommended Libraries for Cyberinfrastructure Users Developing Jupyter Notebooks', 'poster', 'RMACC HPC Sym.', 'Scottsdale, AZ', 'June 2023',
+ 'Building Web Applications with Jupyter Notebooks among researchers and RSEs', '2nd author', 
+ 'US-RSE', 'Chicago, IL', 'Oct 2023', '', '',
+  'JupyterIDE: Promoting JupyterLab features and extensions that facilitate collaboration', '2nd author', 
+ 'US-RSE', 'Chicago, IL', 'Oct 2023', '', '',
+ 'Recommended Libraries for Cyberinfrastructure Users Developing Jupyter Notebooks', 'presenter', 'RMACC HPC Sym.', 'Scottsdale, AZ', 'June 2023',
  'https://doi.org/10.5281/zenodo.7950944', '' ,
     'Standalone Web Application Template', 'presenter', 'Mini Gateways', 'Virtual', 'Mar 2022','https://youtu.be/iv6KswTyVLE?t=4086', '',
- "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", 'abstract', "Gateways", "Virtual", 'July 2021','https://doi.org/10.5281/zenodo.5570605', 
- ' (\\underline{\\href{https://www.youtube.com/watch?v=O_KAupUYcyk}{video}})',
- "Classification of Periodicity in Subtraction Game Sequences", "poster", "PEARC", "Pittsburg, PA", 'June 2018', 'https://doi.org/10.5281/zenodo.7133317', '',
+ "Leveraging Traits for Highly Interactive Computational Tools in Jupyter", 'virual presenter', "Gateways", "Virtual", 'July 2021','https://www.youtube.com/watch?v=O_KAupUYcyk', 
+ ' (\\underline{\\href{https://doi.org/10.5281/zenodo.5570605}{abstract}})',
+ "Classification of Periodicity in Subtraction Game Sequences", "presenter", "PEARC", "Pittsburg, PA", 'June 2018', 'https://doi.org/10.5281/zenodo.7133317', '',
  ) %>% 
-  brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<format>}}) <additional>', .open = "<", .close = ">"), date, event, .protect = FALSE)
+  brief_entries(glue::glue('\\textbf{\\href{<url>}{<title>}} (<format>) <additional>', .open = "<", .close = ">"), date, event, .protect = FALSE)
 ```
 
 
-<!-- # Peer-Reviewed Notebooks and Scientific Web Applications -->
+<!-- # Peer-Reviewed Notebooks and Reproducible Documents -->
 
-
-# Professional Experience
-```{r}
-tribble(
-  ~ Job, ~ Year, ~ Institution, ~ Where, ~Desc,
-  "Research Software Engineer", "Feb 2019 - Apr 2022", "ITaP Research Computing", "Purdue University", list('Implemented a highly interactive, Jupyter-based, GUI wrapper for power analysis software in order to expand \\newline the audience and ease of use of a rich set of computational functions via a user-friendly interface', 
-  'Facilitated software design, the implementation of best practices, and internal tool development, and lab \\newline documentation to improve the overall sustainability of lab software',
-  'Transform disparate data acquisition and processing scripts into modular classes to be reused for scientific workflows'),
-  'Software Verification Engineer', 'Nov 2017 – Nov 2018', 'Aptiv', 'West Lafayette, IN',
-  list('Developed comprehensive Unit Test projects that utilized CAN bus protocol communications to verify \\newline automotive controller hardware'), 
-) %>% 
-  detailed_entries(Job, Year, Institution, Where, Desc)
-  # 'Designed a dynamic Solr schema to index and query layered geospacial and user-defined metadata', 
-  #'Implemented interactions with this database in a web application in PHP and JavaScript',
-  #'Mentored students participating in semester-long internships'
-```
-
-\newpage
-
-
-# Research Experience
-```{r}
-tribble(
-  ~Year, ~Type, ~Institution, ~Desc,
-  'Aug 2022 - Present', 'Graduate Research Assistant', 'Complex Adaptive Systems, Arizona State University', list('Advisor: Manfred Laubichler',
-  'Using natural language processing, machine learning, network analysis, high performance computing, and mixed \\newline social science methods to model the evolution of scientific standards through time', 'Documenting and adapting code and data from prior projects for reuse'),
-  'June 2018 - Dec 2018', 'Student Cluster Competition, Reproducibility Challenge', 'Research Computing, Purdue University', list(
-    'Advisors: Betsy Hillery', 'Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC18 conference', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted \\newline directly with the paper’s authors to reproduce specific results and conclusions from the paper'),
-    'Jan 2016 - June 2017', 'CSoI Channels Scholar REU',"Center for Science of Information, NSF STC", 
-  list('Advisor: Mark Daniel Ward', 
-       'Utilized HPC clusters to efficiently create large data sets pertaining to combinatorial game theory',
-       'Analyzed batching strategies of parallel computation to efficiently detect an unknown length of repeating sequences in long strings',
-       'Developed a command line interface and file managment system in Python to prevent human error and enhance the usability of codebase'),
-) %>% 
-  detailed_entries(what=Institution, when=Year, with=Type, why=Desc)
-```
 
 # Talks and Panels
 ```{r}
@@ -134,17 +118,7 @@ tribble(
  'Scientific Web Applications with Jupyter Notebooks', 'presenter', 'US-RSE Comm. Call', 'Virtual', 'Mar 2022','https://doi.org/10.5281/zenodo.6345262', '',
   "How to Recruit and Sustain a Diverse and Inclusive Workforce",  "invited panelist", "Int'l RSE Day", "Virtual", "Oct 2021", 'https://doi.org/10.5281/zenodo.7133472', ''
  ) %>% 
-  brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<format>}}) <additional>', .open = "<", .close = ">"), date, event, .protect = FALSE)
-```
-# Conference Activity
-```{r}
-tribble(
-  ~Activity, ~Role, ~Conference, ~Location, ~When, ~Link,
-  'Notebook Submission Subcommittee', 'Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
-  'Student Program Committee', 'Co-Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
- 'Reproducibility Challenge', 'Committee Member', 'SC22', 'Dallas, TX',  'Nov 2022', '', 
-) %>% 
-  brief_entries(glue::glue('\\textbf{<Role>}, <Activity>, <Conference> <Link>', .open = "<", .close = ">"), When, .protect = FALSE)
+  brief_entries(glue::glue('\\textbf{\\href{<url>}{<title>}} (<format>) <additional>', .open = "<", .close = ">"), date, event, .protect = FALSE)
 ```
 
 # Professional Service
@@ -159,7 +133,7 @@ tribble(
   c('Organized and served as the host for invited talks where members shared their work or research', 'Created and maintained a formal newsletter featuring opportunities and events for members', 'Submitted annual reports and participated in conference events for the international umberella orgainzation')
     #'Established the \\href{https://www.nicole-brewer.com/long-tales-of-science/}{Long Tales of Science podcast} to continute to improve visibility of women in HPC in spite of discontinuing in-person events in the wake of the COVID-19 pandemic')
 ) %>% 
-  detailed_entries(what=Group, when=Date, with=Position, where=Institution, why=Desc, .protect = FALSE)
+  detailed_entries(what=Position, when=Date, with=Group, where=Institution, why=Desc, .protect = FALSE)
 ```
 
 \medskip
@@ -174,11 +148,39 @@ tribble(
 ) %>% 
    brief_entries(glue::glue('\\textbf{<Program>}, <Type>', .open = "<", .close = ">"), Venue , .protect = FALSE)
 ```
+
+\medskip
+
+## **Conference Activity**
+```{r}
+tribble(
+  ~Activity, ~Role, ~Conference, ~Location, ~When, ~Link,
+  'Notebook Submission Subcommittee', 'Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
+  'Student Program Committee', 'Co-Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
+ 'Reproducibility Challenge', 'Committee Member', 'SC22', 'Dallas, TX',  'Nov 2022', '', 
+) %>% 
+  brief_entries(glue::glue('\\textbf{<Role>}, <Activity>, <Conference> <Link>', .open = "<", .close = ">"), When, .protect = FALSE)
+```
+
+# Training
+
+```{r}
+tribble(
+  ~Date, ~Position, ~Title, ~Institution, ~Desc,
+   "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
+  c('Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization'),
+    'June 2018 - Dec 2018', 'Student Cluster Competition, Reproducibility Challenge', 'Research Computing, Purdue University', 'SC23',
+    list(
+    'Advisors: Betsy Hillery', 'Built a small cluster and applied optimization techniques in a non-stop, 48-hour challenge at the SC18 conference', 'Compiled a scienfitic application from an accepted paper from the prior year’s Technical Program and interacted \\newline directly with the paper’s authors to reproduce specific results and conclusions from the paper'),
+) %>% 
+  detailed_entries(what=Title, when=Date, with=Position, where=Institution, why=Desc)
+```
+
 \newpage
 
+<!-- #Students -->
 
-
-# Teaching Experience and Training
+# Teaching
 ```{r}
 tribble(
   ~Date, ~Position, ~Title, ~Institution, ~Desc,
@@ -191,14 +193,15 @@ tribble(
   detailed_entries(what=Position, when=Date, with=Title, where=Institution)
 ```
 \medskip
+
 ## **Tutorials**
 ```{r}
 tribble(
   ~Title, ~Hours, ~Event, ~Location, ~Date, ~Link, 
-  'How the Little Jupyter Notebook Became a Web App: Managing Increasing Complexity with nbdev', '4', 'SciPy', 'Austin, TX', 'July 2023', 'https://www.scipy2023.scipy.org/',
+  'How the Little Jupyter Notebook Became a Web App', '4', 'SciPy', 'Austin, TX', 'July 2023', 'https://www.scipy2023.scipy.org/',
   'Notebook Submission Tutorial', '1.5', 'US-RSE', 'Virtual', 'Apr 2023', 'https://us-rse.org/usrse23/2023-03-03-notebook-submission-tutorial',
 ) %>% 
-  brief_entries(glue::glue('\\textbf{<Title>} (\\underline{\\href{<Link>}{<Hours> hours}}), <Event>, <Location>', .open = "<", .close = ">"), Date, .protect = FALSE)
+  brief_entries(glue::glue('\\textbf{\\href{<Link>}{<Title>}} (<Hours> hours), <Event>, <Location>', .open = "<", .close = ">"), Date, .protect = FALSE)
 
 ```
 \medskip
@@ -212,24 +215,9 @@ tribble(
  'HPC Unplugged: A lesson plan for teaching parallel and distributed computing', 'booklet', 'Sep 2022', 'https://www.nicole-brewer.com/hpc-unplugged/',
  "R for Research Scientists", "booklet", 'Mar 2020', 'https://www.nicole-brewer.com/r-for-research-scientists/'
  ) %>% 
-  brief_entries(glue::glue('\\textbf{<title>} (\\underline{\\href{<url>}{<type>}})', .open = "<", .close = ">"), year, .protect = FALSE)
+  brief_entries(glue::glue('\\textbf{\\href{<url>}{<title>}} (<type>)', .open = "<", .close = ">"), year, .protect = FALSE)
 ```
 
-# Managerial Experience
-
-```{r}
-tribble(
-  ~Date, ~Position, ~Title, ~Institution, ~Desc,
-  'Summer/Fall 2023', 'Program Developer and Manager', 'Two Full-Time Research Software Developer Internship', 'Arizona State University',
-  c('Led trainings, career sessions, code reviews, pair programming, and other sessions intended to prioritize student learning', 'Advertized for research software developer positions, evaluated about 250 applications, interviewed graduate and undergraduates, and hired two full-time students', 
-    'Developed an 8-week internship program using the Agile framework to keep students both accountable to their original goals but adaptable to roadblocks frequently encountered in original research projects', 
-    'These two full-time summer and part-time fall positions were funded by the Better Scientific Software Fellowship listed above'),
-  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'Purdue University', c('Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and entrepreneurial skills essential to effective laboratory and grant managment'),
-  'Fall/Spring 2018', 'Staff Mentor', 'Discover Park Undergraduate Research Internship', 'Purdue University', c('Defined the scope of a small research software project related to our ongoing research projects and met with each student to help them set achievable short-term goals and support them through challenges they encoutered')
-) %>% 
-  detailed_entries(what=Title, when=Date, with=Position, where=Institution, why=Desc)
-# can't be .protect=FALSE or will fail to build
-```
 # Mentorship and Outreach
 ```{r}
   tribble(
@@ -245,7 +233,24 @@ tribble(
   brief_entries(glue::glue('\\textbf{<Position>}, <Group>, <Institution>', .open = "<", .close = ">"), Date, .protect = FALSE)
 ```
 
-# Science Communication and Broader Impacts
+\medskip
+## **Managerial Experience**
+
+```{r}
+tribble(
+  ~Date, ~Position, ~Title, ~Institution, ~Desc,
+  'Summer/Fall 2023', 'Program Developer and Manager', 'Two Full-Time Research Software Developer Internship', 'Arizona State University',
+  c('Led trainings, career sessions, code reviews, pair programming, and other sessions intended to prioritize student learning', 'Advertized for research software developer positions, evaluated about 250 applications, interviewed graduate and undergraduates, and hired two full-time students', 
+    'Developed an 8-week internship program using the Agile framework to keep students both accountable to their original goals but adaptable to roadblocks frequently encountered in original research projects', 
+    'These two full-time summer and part-time fall positions were funded by the Better Scientific Software Fellowship listed above'),
+  'July 2019', 'Applied Management Principles', 'Krannert Executive Education', 'Purdue University', c('Purdue\'s "mini-MBA" covering accounting, finance, strategy, marketing, negotiations & problem solving, and entrepreneurial skills essential to effective laboratory and grant managment'),
+  'Fall/Spring 2018', 'Staff Mentor', 'Discover Park Undergraduate Research Internship', 'Purdue University', c('Defined the scope of a small research software project related to our ongoing research projects and met with each student to help them set achievable short-term goals and support them through challenges they encoutered')
+) %>% 
+  detailed_entries(what=Title, when=Date, with=Position, where=Institution, why=Desc)
+# can't be .protect=FALSE or will fail to build
+```
+
+# Science Communication
 ```{r}
 # if no url, use \\newline
 tribble(
@@ -267,15 +272,16 @@ tribble(
 
 \newpage
 
-# Training
-
+# Travel Awards
 ```{r}
 tribble(
-  ~Date, ~Position, ~Title, ~Institution, ~Desc,
-   "May 2020", 'SDSC Summer Institute', 'San Diego Supercomputer Center', 'Virtual', 
-  c('Machine learning in R, big data with Spark, parallel programming with Python, and scientific visualization')
+  ~Year, ~Desc, ~Title, ~Awarder,
+  '2022', '', '\\textbf{GPSA Individual Travel Award} (\\$950), ASU Graduate and Professional Student Association', '',
+  '2022', '', '\\textbf{eScience Travel Grant} (\\$700), National Science Foundation', '',
+  '2021', "Travel support for early career scholars who are considering pursuing philosophy of science", '\\textbf{UPSS Delegate} (\\$500), Philosophy of Science Biennial Meeting', '',
+  '2018', 'Travel support to attend PEARC18 and participate in the student program', '\\textbf{Travel Grant} (\\$500), XSEDE', ''
 ) %>% 
-  detailed_entries(what=Title, when=Date, with=Position, where=Institution, why=Desc)
+  brief_entries(what=Title, when=Year, with=Awarder, .protect = FALSE)
 ```
 
 # Extracurricular Leadership
@@ -290,20 +296,7 @@ tribble(
 
 
 # Extracurricular Activity
-```{r}
 
-tribble(
-  ~BottomLeft, ~BottomRight, ~TopLeft, ~TopRight,
-   'Private lessons from ASU faculty associate Cathy Bates', '', 'Music Theory and Piano Lessons', 'Jan 2023 - May 2023',
-    'ASU Psychodelic Rock Band, RuQe', '', 'Vocalist and Keyboardist', 'Aug 2022 - Dec 2022'
-
-
-) %>% 
-  detailed_entries(what=BottomLeft, when=BottomRight, with=TopLeft, where=TopRight, .protect = FALSE)
-```
-
-
-## Major Endurance Sport Events
 ```{r} 
   tribble(
   ~Date, ~Event, ~Location,
@@ -320,10 +313,61 @@ tribble(
    brief_entries(glue::glue('\\textbf{<Event>}, <Location>', .open = "<", .close = ">"), Date, .protect = FALSE)
 ```
 
-<!-- Skills 
+<!-- Skills and Notes
+
 Languages Python, R, PHP, JavaScript, Java, C, C#, HTML/CSS
 Containers Docker, Kubernetes
 Databases Solr, Elasticsearch, MongoDB
 Platforms Linux (CentOS, RHEL, Ubuntu), MacOS, Windows
 Development Tools Git, Vim, RStudio, IntelliJ, AndroidStudio, Visual Studio, SVN
+
+
+Manfred 
+Education
+Area of specialization and interest
+Professional employment
+Awards
+Publications
+Fellowships and Grants
+	- external
+	- internal
+Talks, Panels, and Lectures
+Reviewer
+Students
+	- Current Undergraduate honors students
+	- Honors student thesis advisor
+Service
+
+Daniels
+Research Vision
+Education
+Academic Positions & Fellowships
+Honors & Awards
+Publications
+Grants
+Professional Activities
+	- Meeting organization (working groups/workshops)
+	- Editing
+	- committee service
+	- refereeing
+		- journals
+		- grants
+Students
+Invited Talks
+Teaching
+Outreach
+
+Rando
+Education
+Grants and Awards
+Publications
+Invited Presentations
+Conferences & Workshops
+Experience
+Summer & Winter Schools
+Field Experience
+Service & Outreach
+Teaching Experience
 -->
+
+
