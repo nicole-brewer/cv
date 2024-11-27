@@ -38,7 +38,7 @@ tribble(
 ```{r}
 tribble(
   ~ Job, ~ Year, ~ Institution, ~ Where, ~Desc,
-  'Graduate Research Fellow', 'May 2024 - Aug 2024', 'Summer of Reproducibility', 'OSPO UC Santa Cruz', list('Advisors: \\href{https://bssw.io/items?author=tanu-malik}{Tanu Malik}', 'Conducting an \\textbf{\\href{https://ucsc-ospo.github.io/report/osre24/depaul/20240618-nbrewer/}{emperical reproducibility study}} testing the portability Jupyter Notebooks using \\href{https://github.com/depaul-dice/Flinc}{Flinc}'),
+  'Graduate Research Fellow', 'May 2024 - Aug 2024', 'Summer of Reproducibility', 'OSPO UC Santa Cruz', list('Advisors: \\href{https://bssw.io/items?author=tanu-malik}{Tanu Malik}', 'Conducting an \\textbf{\\href{https://ucsc-ospo.github.io/report/osre24/depaul/20240618-nbrewer/}{emperical reproducibility study}} testing the portability Jupyter Notebooks using containers for interactive notebook \\href{https://github.com/depaul-dice/Flinc}{Flinc}', 'Provisioned advanced computing resources to \\textbf{reproduce computer science experiments on the Chameleon testbed}, often following non-executable instructions and using systems knowledge to fill in missing details'),
      'Graduate Research Assistant', 'Aug 2022 - Present', 'Complex Adaptive Systems', 'Arizona State University', list('Advisors: Manfred Laubichler and Jane Maienschein', 'Templating a literate and \\textbf{\\href{https://github.com/nicole-brewer/asu-thesis}{computationally reproducible dissertation}} or thesis using Quarto'),
   "Research Software Engineer", "Feb 2019 - Apr 2022", "ITaP Research Computing", "Purdue University", list('Implemented a highly interactive, Jupyter-based user interface for lab software in order to expand \\newline the audience and ease of use of a rich set of computational functions via a user-friendly interface', 
   'Facilitated software design, the implementation of best practices, and internal tool development, and \\newline \\textbf{\\href{https://www.nicole-brewer.com/r-for-research-scientists/}{lab documentation}} to improve the overall sustainability of lab software',
@@ -133,6 +133,7 @@ tribble(
 ```{r}
 tribble( 
  ~ title, ~ format, ~ event, ~ place, ~ date, ~ url, ~ additional,
+ 'Reproducing notebooks without (too much) effort', 'co-presenter', "US-RSE'24", "Albuquerque, NM", "Oct 2024", 'https://us-rse.org/usrse24/program/talks/', '',
  'Putting the "R" in the Undergraduate RSE Internship', 'presenter', 'Supercomputing', 'Dallas, TX', 'Nov 2023', 'https://sc23.supercomputing.org/proceedings/workshops/workshop_pages/ws_rsehpc118.html', '',
  'Computational Notebooks as Scholarly Objects', 'host', 'US-RSE Comm. Call', 'Virtual', 'Mar 2023',
  'https://www.youtube.com/watch?v=Z4QXKDIDu6k', '',
@@ -160,26 +161,12 @@ tribble(
 ```
 
 \medskip
-## **Reviewing**
-
-```{r} 
-  tribble(
-  ~Venue, ~Role, ~Type, ~Program,
-  '2023', 'Reviewer', 'Notebook Submissions', 'US-RSE',
-  '2023', 'Reviewer', 'Tutorials and Digital Humanities', 'SciPy',
-  '2022', 'Reviewer', 'Student Cluster Competition, Reproducibility Paper', 'SC' 
-) %>% 
-   brief_entries(glue::glue('\\textbf{<Program>}, <Type>', .open = "<", .close = ">"), Venue , .protect = FALSE)
-```
-
-\medskip
 
 ## **Conference Activity**
 ```{r}
 tribble(
   ~Activity, ~Role, ~Conference, ~Location, ~When, ~Link,
     'Notebook Submission Subcommittee', 'Co-Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2024', '',
-
   'Notebooks as Scholarly Objects Birds of a Feather (BoF)' , 'Co-Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
   'Notebook Submission Subcommittee', 'Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
   'Student Program Committee', 'Co-Chair', 'US-RSE Conference', 'Chicago, IL', 'Oct 2023', '',
@@ -212,8 +199,9 @@ tribble(
 ```{r}
 tribble(
   ~Date, ~Position, ~Title, ~Institution, ~Desc,
-  'July 2024', 'Lead Instructor', '\\href{https://cfp.scipy.org/2024/talk/KAESWL/}{Building Complex Web Apps with Jupyter Widgets}', 'SciPy24, Tacoma, WA', 'https://github.com/Jupyter4Science/scipy2024-jupyter-widgets-tutorial', 
-  'July 2023', 'Lead Instructor', '\\href{https://cfp.scipy.org/2023/talk/NFWZXD/}{How the Little Jupyter Notebook Became a Web App}', 'SciPy23, Austin, TX', 'https://github.com/Jupyter4Science/scipy23-jupyter-widgets-tutorial',
+    'Jan 2025 - May 2025', 'Co-Instructor and Curriculum Developer', 'Fundamentals in Research Software Engineering - Lab Secion', 'Complex Adaptive Systems', 'ASU',
+  'July 2024', 'Lead Tutorial Instructor', '\\href{https://cfp.scipy.org/2024/talk/KAESWL/}{Building Complex Web Apps with Jupyter Widgets}', 'SciPy24, Tacoma, WA', 'https://github.com/Jupyter4Science/scipy2024-jupyter-widgets-tutorial', 
+  'July 2023', 'Lead Tutorial Instructor', '\\href{https://cfp.scipy.org/2023/talk/NFWZXD/}{How the Little Jupyter Notebook Became a Web App}', 'SciPy23, Austin, TX', 'https://github.com/Jupyter4Science/scipy23-jupyter-widgets-tutorial',
    "Aug 2015 - May 2016", 'Undergraduate Teaching Assistant', 'Object-Oriented Programming',
   #  'Notebook Submission Tutorial', 'US-RSE', 'Virtual', 'Apr 2023', 'https://us-rse.org/usrse23/2023-03-03-notebook-submission-tutorial',
   'Purdue Univeristy', 'Taught object oriented programming in Java, debugging In Intellij, JUnit Testing, and app development in Android Studio in weekly laboratory',
@@ -303,9 +291,10 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Title, ~Publisher, ~url,
+  'Jul 2024', '2023 BSSw Fellows: Projects and Perspectives', 'Better Scientific Software (BSSw)', 'https://bssw.io/blog_posts/2023-bssw-fellows-projects-and-perspectives',
   'Mar 2023', 'ASU graduate student awarded fellowship to improve scientific web applications', 'ASU News', 'https://news.asu.edu/20230316-asu-graduate-student-awarded-fellowship-improve-scientific-web-applications',
   'Jan 2022', 'New WHPC Podcast Series', 'RCAC at Purdue', 'https://www.rcac.purdue.edu/news/4188',
-  'June 2020', 'Who is Women in HPC: Panel Discussion', 'RCAC at Purdue', 'https://www.rcac.purdue.edu/news/1867',
+  'Jun 2020', 'Who is Women in HPC: Panel Discussion', 'RCAC at Purdue', 'https://www.rcac.purdue.edu/news/1867',
   'Nov 2019', 'Purdue team chosen to compete in international supercomputing competition', 'RCAC at Purdue', 'https://www.rcac.purdue.edu/news/1356',
   'Oct 2018', 'Purdue WHPC October Meeting Announcement', 'RCAC at Purdue', 'https://www.rcac.purdue.edu/news/1226',
    'Sept 2018', 'Purdue Women in HPC member wins award at national research computing conference', 'RCAC at Purdue', 'https://www.rcac.purdue.edu/news/1221'
@@ -313,6 +302,17 @@ tribble(
   brief_entries(glue::glue('\\textbf{\\href{<url>}{<Title>}}, <Publisher>', .open = "<", .close = ">"), Year, .protect = FALSE)
 ```
 
+## **Reviewing**
+
+```{r} 
+  tribble(
+  ~Venue, ~Role, ~Type, ~Program,
+  '2024', 'Reviewer', 'Curvenote-based Proceedings', 'SciPy',
+  '2023', 'Reviewer', 'Tutorials and Digital Humanities Track', 'SciPy',
+  '2022', 'Reviewer', 'Student Cluster Competition, Reproducibility Paper', 'SC' 
+) %>% 
+   brief_entries(glue::glue('\\textbf{<Program>}, <Type>', .open = "<", .close = ">"), Venue , .protect = FALSE)
+```
 
 # Travel Awards
 ```{r}
